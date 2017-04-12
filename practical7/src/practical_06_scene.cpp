@@ -6,13 +6,19 @@
 
 #include "../include/keyframes/KeyframedCylinderRenderable.hpp"
 #include "../include/keyframes/GeometricTransformation.hpp"
+#include "../include/TreeCylinderRenderable.hpp"
+#include "../include/TreeRenderable.hpp"
 
 #include <iostream>
 #include <iomanip>
 
+#include <cstdlib>
+#include <ctime>
+
 
 static void practical_06_movingCylinder(Viewer& viewer, const ShaderProgramPtr& shader);
 static void practical_06_movingTree(Viewer& viewer, const ShaderProgramPtr& shader);
+static void practical_06_proceduralMovingTree(Viewer& viewer, const ShaderProgramPtr& shader);
 
 void initialize_practical_06_scene(Viewer& viewer)
 {
@@ -47,8 +53,11 @@ void initialize_practical_06_scene(Viewer& viewer)
         glm::lookAt(glm::vec3(0, -8, 7), glm::vec3(0, 0, 4), glm::vec3(0, 0, 1)) );
 
     // Set the scene
-    practical_06_movingCylinder(viewer, phongShader);
-    practical_06_movingTree(viewer, phongShader);
+    //practical_06_movingCylinder(viewer, phongShader);
+    //practical_06_movingTree(viewer, phongShader);
+    auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
+    viewer.addRenderable(tree);
+    //practical_06_proceduralMovingTree(viewer, phongShader);
 
     // Let's go!
     viewer.setAnimationLoop(true, 6.0);
