@@ -55,9 +55,9 @@ ParticleRenderable::ParticleRenderable(ShaderProgramPtr shaderProgram, ParticleP
             m_normals.push_back(faceNormal);
             m_normals.push_back(faceNormal);
             m_normals.push_back(faceNormal);
-            m_colors.push_back(glm::vec4(1.0,0.0,0.0,1.0));
-            m_colors.push_back(glm::vec4(1.0,0.0,0.0,1.0));
-            m_colors.push_back(glm::vec4(1.0,0.0,0.0,1.0));
+            m_colors.push_back(glm::vec4(1.0,1.0,1.0,1.0));
+            m_colors.push_back(glm::vec4(1.0,1.0,1.0,1.0));
+            m_colors.push_back(glm::vec4(1.0,1.0,1.0,1.0));
 
             vTriangles[0] = center
                 + glm::vec3(radius * cos(curr_theta) * sin(curr_phi),
@@ -79,9 +79,10 @@ ParticleRenderable::ParticleRenderable(ShaderProgramPtr shaderProgram, ParticleP
             m_normals.push_back(faceNormal);
             m_normals.push_back(faceNormal);
             m_normals.push_back(faceNormal);
-            m_colors.push_back(glm::vec4(0.0,0.0,1.0,1.0));
-            m_colors.push_back(glm::vec4(0.0,0.0,1.0,1.0));
-            m_colors.push_back(glm::vec4(0.0,0.0,1.0,1.0));
+            m_colors.push_back(glm::vec4(1.0,1.0,1.0,1.0));
+            m_colors.push_back(glm::vec4(1.0,1.0,1.0,1.0));
+            m_colors.push_back(glm::vec4(1.0,1.0,1.0,1.0));
+
         }
     }
 

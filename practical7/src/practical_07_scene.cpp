@@ -233,10 +233,11 @@ void practical07_springs(Viewer& viewer, DynamicSystemPtr& system, DynamicSystem
 
 void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSystemRenderablePtr &systemRenderable)
 {
+
     //Position the camera
     viewer.getCamera().setViewMatrix(
-        glm::lookAt(glm::vec3(0, 2, 2), glm::vec3(0,0,0), glm::vec3(0,0,1)) );
-
+				     glm::lookAt(glm::vec3(1, 0, 15), glm::vec3(0,0,0), glm::vec3(0,0,(intptr_t)time)) );//Pos, origine, et sens caméra
+  
     //Initialize a shader for the following renderables
     ShaderProgramPtr flatShader
         = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
@@ -248,70 +249,132 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     //Initialize the restitution coefficient for collision
     //1.0 = full elastic response
     //0.0 = full absorption
-    system->setRestitution(0.75f);
+    system->setRestitution(.10f);
 
     //Initialize a plane from 3 points and add it to the system as an obstacle
-    glm::vec3 p1(-1.0, -1.0, 0.0);
-    glm::vec3 p2(1.0, -1.0, 0.0);
-    glm::vec3 p3(1.0, 1.0, 0.0);
-    glm::vec3 p4(-1.0, 1.0, 0.0);
-    PlanePtr plane = std::make_shared<Plane>(p1, p2, p3);
-    system->addPlaneObstacle(plane);
-
-    //Create a plane renderable to display the obstacle
-    PlaneRenderablePtr planeRenderable = std::make_shared<QuadRenderable>(flatShader, p1,p2,p3,p4);
-    HierarchicalRenderable::addChild( systemRenderable, planeRenderable );
-
-    /*glm::vec3 px,pv;
+    //Plan 1
+    glm::vec3 p1, p2, p3;
+    PlanePtr plane;
+    float xcour =0;
+    float xsuiv = 30;
+    float zcour =0;
+    float zsuiv = 0;
+    float alphacour=3.14159/8;
+    for (float i = 0; i<6; i++){
+      p1= glm::vec3 (xcour, 0.0f, zcour);
+      p2=glm::vec3(xsuiv, 0.0f, zsuiv);
+      p3=glm::vec3(xcour, 1.0f, zcour);               //Plan incliné  
+      xcour = xsuiv;
+      zcour = zsuiv;
+      xsuiv = xsuiv+10*cos(alphacour);
+      zsuiv = zsuiv+10*sin(alphacour);
+      alphacour=alphacour+3.14159/8;
+      plane = std::make_shared<Plane>(p1, p2, p3);
+      system->addPlaneObstacle(plane);
+    }//coté opposé 
+    /*
+    xcour =0;
+    xsuiv = 30;
+    zcour =0;
+    zsuiv = 0;
+    alphacour=3.14159/8;
+    for (float i = 0; i<6; i++){
+      p1= glm::vec3 (-xcour, 0.0f, zcour);
+      p2=glm::vec3(-xsuiv, 0.0f, zsuiv);
+      p3=glm::vec3(-xcour, 1.0f, zcour);               //Plan incliné  
+      xcour = xsuiv;
+      zcour = zsuiv;
+      xsuiv = xsuiv+10*cos(alphacour);
+      zsuiv = zsuiv+10*sin(alphacour);
+      alphacour=alphacour+3.14159/8;
+      plane = std::make_shared<Plane>(p1, p2, p3);
+      system->addPlaneObstacle(plane);
+    }*/
+    glm::vec3 px,pv;
     float pm, pr;
     //Particle vs Plane collision
+ 
     {
+	    srand (static_cast <unsigned> (time(0)));
+	    float randx = 1.0f;
+	    float randy = 1.0f;
+	    float randz = 0.0f;
+	    float randr = 0.0f;
+	    int i =0;
+	    
+	    time_t t0 = time(NULL);
+	    unsigned tmax = 2;
+	    int j =0;
+	  
+	    for (j= 0 ; j < 1; j++) {
+		    for (i=0; i <= 100; i = i + 1) {
+			    //Initialize a particle with position, velocity, mass and radius and add it to the system
+		      
+		            randx = 2*(rand() / (RAND_MAX + 1.)) -1;
+			    randy = 2*(rand() / (RAND_MAX + 1.)) -1;
+			    randz = 2*(rand() / (RAND_MAX + 1.)) -1;
+			    px = glm::vec3(5*randx*5,5*randy*5, 5*randz + 5);
+			    pv = glm::vec3(0.0, 0.0, 0.0);
+			    pr = 0.1*randr + 0.1;
+			    pm = randz+1;
+			    ParticlePtr particle = std::make_shared<Particle>(px, pv, pm, pr);
+			    system->addParticle(particle);
 
-        //Initialize a particle with position, velocity, mass and radius and add it to the system
-        px = glm::vec3(0.0, 0.0, 1.0);
-        pv = glm::vec3(1.0, 0.0, 0.0);
-        pr = 0.1;
-        pm = 1.0;
-        ParticlePtr particle = std::make_shared<Particle>(px, pv, pm, pr);
-        system->addParticle(particle);
+			    //Create a particleRenderable for each particle of the system
+			    //DynamicSystemRenderable act as a hierarchical renderable
+			    //This which allows to easily apply transformation on the visualiazation of a dynamicSystem
+			       ParticleRenderablePtr particleRenderable = std::make_shared<ParticleRenderable>(flatShader, particle);
+				 HierarchicalRenderable::addChild(systemRenderable, particleRenderable);                 //laaaaaaaaaaaaaaaaaaaaaaaaa
+			  
+		    }
+		    
+		    
+		    j++;
+		    
+	    }
 
-        //Create a particleRenderable for each particle of the system
-        //DynamicSystemRenderable act as a hierarchical renderable
-        //This which allows to easily apply transformation on the visualiazation of a dynamicSystem
-        ParticleRenderablePtr particleRenderable = std::make_shared<ParticleRenderable>(flatShader, particle);
-        HierarchicalRenderable::addChild(systemRenderable, particleRenderable);
-    }*/
+	    /*
+//Initialize a force field that apply only to the mobile particle
+    glm::vec3 nullForce(0.0, 0.0, 10.0);
+    std::vector<ParticlePtr> vParticle;
+    glm::vec3 px(0.0, 0.0, 10.0);
+    glm::vec3 pv(0.0, 0.0, 0.0);
+    float pm = 25.0, pr = 1.0;
+    ParticlePtr mobile = std::make_shared<Particle>( px, pv, pm, pr);
+    
+    system->addParticle( mobile );
+    SkieurRenderablePtr mobileRenderable= std::make_shared<SkieurRenderable>(flatShader, mobile);
+    HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
+   
+    glm::vec3 pxnew(4.0, 0.0, 0.0);
+    
 
-    //Particle vs Particle collision
-    /*{
-        //Initialize two particles with position, velocity, mass and radius and add it to the system
-        //One of the particle is fixed
-        px = glm::vec3(0.5, 0.0, 0.1);
-        pv = glm::vec3(0.0, 0.0, 0.0);
-        pr = 0.1;
-        pm = 1000.0;
-        ParticlePtr particle1 = std::make_shared<Particle>(px, pv, pm, pr);
-        particle1->setFixed(true);
-        system->addParticle(particle1);
+    ParticlePtr other = std::make_shared<Particle>(pxnew , pv, pm, pr);
+    system->addParticle( other );
 
-        px = glm::vec3(0.5, 0.0, 1.0);
-        pv = glm::vec3(0.0, 0.0, -0.5);
-        pr = 0.1;
-        pm = 1.0;
-        ParticlePtr particle2 = std::make_shared<Particle>(px, pv, pm, pr);
-        system->addParticle(particle2);
+    ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
+    HierarchicalRenderable::addChild(systemRenderable, otherRenderable);                           //laaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-        //Create a particleRenderable for each particle of the system
-        ParticleRenderablePtr particleRenderable1 = std::make_shared<ParticleRenderable>(flatShader, particle1);
-        HierarchicalRenderable::addChild(systemRenderable, particleRenderable1);
-        ParticleRenderablePtr particleRenderable2 = std::make_shared<ParticleRenderable>(flatShader, particle2);
-        HierarchicalRenderable::addChild(systemRenderable, particleRenderable2);
-    }*/
+    vParticle.push_back(mobile);
+    ConstantForceFieldPtr force = std::make_shared<ConstantForceField>(vParticle, nullForce);
+    system->addForceField(force);
+    ControlledForceFieldRenderablePtr forceRenderable = std::make_shared<ControlledForceFieldRenderable>(flatShader, force);
+    HierarchicalRenderable::addChild(systemRenderable, forceRenderable);
 
+    DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 15.0f);
+    system->addForceField(dampingForceField);
+	    */
+    }
     //Initialize a force field that apply to all the particles of the system to simulate gravity
     //Add it to the system as a force field
     ConstantForceFieldPtr gravityForceField = std::make_shared<ConstantForceField>(system->getParticles(), glm::vec3{0,0,-10} );
     system->addForceField(gravityForceField);
+
+   
+    
+// ConstantForceFieldPtr windForceField = std::make_shared<ConstantForceField>(system->getParticles(), glm::vec3{0,1,0} );
+    //  system->addForceField(windForceField);
+    
 }
 
 
