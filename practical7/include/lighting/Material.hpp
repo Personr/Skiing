@@ -134,6 +134,8 @@ public:
      * @return A bronze material.
      */
     static MaterialPtr Bronze();
+    
+    static MaterialPtr Leaf();
 
 private:
     glm::vec3 m_ambient; /*!< The ambient material vector defines what color this object reflects under ambient lighting. */
