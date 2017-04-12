@@ -17,16 +17,15 @@ void Particle::setFixed(bool isFixed)
 }
 
 Particle::Particle(const glm::vec3 &position, const glm::vec3 &velocity,
-                   const float &mass, const float &radius, const float &skieur, const std::string &filename)
+                   const float &mass, const float &radius)
     : m_initialPosition( position ), m_initialVelocity( velocity ),
     m_position(position),
     m_velocity(velocity),
     m_force(glm::vec3(0.0,0.0,0.0)),
     m_mass(mass),
-    m_skieur(skieur),
-    m_filename(filename),
-    m_radius(radius), m_isFixed( false )
-      
+    m_radius(radius), m_isFixed( false ),
+    m_angle(0),
+    m_bodyAngle(0)
 {}
 
 Particle::~Particle()
@@ -53,18 +52,19 @@ float Particle::getMass() const
     return m_mass;
 }
 
-float Particle::getSkieur() const
-{
-    return m_skieur;
-}
-std::string Particle::getFilename() const
-{
-    return m_filename;
-}
-
 float Particle::getRadius() const
 {
     return m_radius;
+}
+
+float Particle::getAngle() const
+{
+    return m_angle;
+}
+
+float Particle::getBodyAngle() const
+{
+    return m_bodyAngle;
 }
 
 void Particle::setPosition(const glm::vec3 &pos)
@@ -81,6 +81,17 @@ void Particle::setForce(const glm::vec3 &force)
 {
     m_force = force;
 }
+
+void Particle::setAngle(const float angle)
+{
+    m_angle = angle;
+}
+
+void Particle::setBodyAngle(const float bodyAngle)
+{
+    m_bodyAngle = bodyAngle;
+}
+
 
 void Particle::incrPosition(const glm::vec3 &pos)
 {

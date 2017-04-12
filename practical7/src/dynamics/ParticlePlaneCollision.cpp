@@ -24,27 +24,18 @@ void ParticlePlaneCollision::do_solveCollision()
     //Plane::distanceToOrigin(): Return the distance to origin from the plane
     //Plane::normal(): Return the normal of the plane
     //Particle::getRadius(), Particle::getPosition(), Particle::getVelocity(), Particle::setPosition(), Particle::setVelocity()
-    float r = m_particle->getRadius();
-    glm::vec3 pos2 = m_plane->projectOnPlane(m_particle->getPosition());
-    //Compute particle-plane vector
+    float d2Plane = glm::dot(m_particle->getPosition(), m_plane->normal()) - m_plane->distanceToOrigin();
 
-    float particlePlaneDist = glm::distance(m_particle->getPosition(),pos2);
-    float interpenetrationDist = m_particle->getRadius() - particlePlaneDist;
-    glm::vec3 k = m_plane->normal();
+    glm::vec3 prev_x1 = m_particle->getPosition();
+    glm::vec3 new_x1 = prev_x1 - ((d2Plane - m_particle->getRadius()) * m_plane->normal());
+    m_particle->setPosition(new_x1);
 
-     m_particle->setPosition(m_particle->getPosition() +2*interpenetrationDist*k);  
-
-    //Compute post-collision velocity
     glm::vec3 prev_v1 = m_particle->getVelocity();
-    float proj_v = (1.0f + m_restitution)
-      * glm::dot(k, prev_v1)
-      / (1.0 / m_particle->getMass());//masse plan est infinie
-    glm::vec3 new_v1 = prev_v1 - proj_v/m_particle->getMass()*k;
+    glm::vec3 new_v1 = prev_v1 - (1.0f + m_restitution)
+                              * glm::dot(prev_v1, m_plane->normal())
+                              * m_plane->normal();
     m_particle->setVelocity(new_v1);
-    
-    /*    glm::vec3 final_v1 = m_particle->getVelocity()*0.00001f;
-	  m_particle->setVelocity(final_v1);*/
-    
+
 }
 
 
@@ -74,9 +65,10 @@ bool testParticlePlane(const ParticlePtr &particle, const PlanePtr &plane)
     //Plane::distanceToOrigin(): Return the distance to origin from the plane
     //Plane::normal(): Return the normal of the plane
     //Particle::getRadius(), Particle::getPosition()
+    float d2Plane = glm::dot(particle->getPosition(), plane->normal()) - plane->distanceToOrigin();
+    if (d2Plane <= particle->getRadius()) {
+      return true;
+    }
 
-  float r = particle->getRadius();
-  glm::vec3 pos2 = plane->projectOnPlane(particle->getPosition());
-  float particlePlaneDist = glm::distance(particle->getPosition(),pos2)-r;
-  return (particlePlaneDist < 0.0f) ? true : false;
+    return false;
 }

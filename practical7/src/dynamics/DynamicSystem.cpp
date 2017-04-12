@@ -94,55 +94,14 @@ void DynamicSystem::setSolver(SolverPtr solver)
 
 void DynamicSystem::detectCollisions()
 {
-
-  glm::vec3 px,pv;//On remet le flocon en haut quand il touche le sol debut decla
-  float pm, pr;
-  //  srand (static_cast <unsigned> (time(0)));
-  float randx = 1.0f;
-  float randy = 1.0f;
-  float randz = 0.0f;
-  float randr = 0.0f;
-  float randv1 = 0.0f;
-  float randv2 = 0.0f;
-  float randv3 = 0.0f;
-
-  // time_t t0 = time(NULL);
-  //unsigned tmax = 2; //Fin decla
-
     //Detect particle plane collisions
     for (ParticlePtr p : m_particles) {
         for (PlanePtr o : m_planeObstacles) {
             if (testParticlePlane(p, o)) {
-	      if (p->getMass() > 20){ // cas du skieur, on fait les collisions
                 ParticlePlaneCollisionPtr c =
-	        std::make_shared<ParticlePlaneCollision>(p,o,m_restitution);
-		m_collisions.push_back(c);
-	      }
-	      else{ // On gère plus les collisions -> flocons
-		randx = 2*(rand() / (RAND_MAX + 1.)) -1;
-		randy = 2*(rand() / (RAND_MAX + 1.)) -1;
-		randz = 2*(rand() / (RAND_MAX + 1.)) -1;
-		randv1 = (rand() / (RAND_MAX + 1.));
-		randv2 = (rand() / (RAND_MAX + 1.));
-		randv3 = (rand() / (RAND_MAX + 1.));
-
-		randr = (rand() / (RAND_MAX + 1.));
-
-		//	px = glm::vec3(5,5, 5);   bail canon à neige
-		pv = glm::vec3(0,0,-randv1);
-
-			px = glm::vec3(5*randx*5,5*randy*5, 10);
-		//		px = glm::vec3(randx*5,randy*5, randz*5 + 5);
-
-		pr = 0.1*randr + 0.1;
-		pm = randz+1; //Fin remise en haut
-
-		p->setPosition(px);
-		p->setVelocity(pv);
-		p->setRadius(pr);
-
-	      }
-	    }
+                    std::make_shared<ParticlePlaneCollision>(p,o,m_restitution);
+                m_collisions.push_back(c);
+            }
         }
     }
 
@@ -197,7 +156,7 @@ const float DynamicSystem::getRestitution()
 
 void DynamicSystem::setRestitution(const float& restitution)
 {
-  m_restitution = std::max(0.0f,std::min(restitution,1.0f));
+    m_restitution = std::max(0.0f,std::min(restitution,1.0f));
 }
 
 std::ostream& operator<<(std::ostream& os, const DynamicSystemPtr& system)

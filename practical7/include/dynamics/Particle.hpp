@@ -28,7 +28,7 @@ public:
      * @param radius The particle radius.
      */
     Particle(const glm::vec3& position, const glm::vec3& velocity,
-	     const float& mass, const float& radius, const float& skieur, const std::string& filename);
+            const float& mass, const float& radius);
     virtual ~Particle();
 
     /**@brief Access to this particle's position.
@@ -59,16 +59,15 @@ public:
      */
     float getMass() const;
 
-
-    float getSkieur() const;
-    std::string getFilename() const;
-
     /**@brief Access to this particle's radius.
      *
      * Get the radius of this particle.
      * @return The particle's radius.
      */
     float getRadius() const;
+
+    float getAngle() const;
+    float getBodyAngle() const;
 
     /**@brief Check if this particle is fixed.
      *
@@ -97,6 +96,9 @@ public:
      * @param force The new force applied to this particle.
      */
     void setForce(const glm::vec3 &force);
+
+    void setAngle(const float angle);
+    void setBodyAngle(const float angle);
 
     /**@brief Set the particle's radius.
      *
@@ -178,8 +180,6 @@ private:
      * The mass of this particle.
      */
     float m_mass;
-    float m_skieur;
-  std::string m_filename;
 
     /**@brief The particle's radius.
      *
@@ -193,6 +193,9 @@ private:
      * the position should be constant and the velocity null in simulation steps.
      */
     bool m_isFixed;
+
+    float m_angle;
+    float m_bodyAngle;
 };
 
 typedef std::shared_ptr<Particle> ParticlePtr;

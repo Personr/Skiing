@@ -1,4 +1,4 @@
-#include "./../../include/dynamics_rendering/ParticleRenderable.hpp"
+#include "./../../include/dynamics_rendering/HeadRenderable.hpp"
 #include "./../../include/gl_helper.hpp"
 #include "./../../include/log.hpp"
 #include "./../../include/Utils.hpp"
@@ -7,19 +7,18 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <GL/glew.h>
 
-ParticleRenderable::~ParticleRenderable()
+HeadRenderable::~HeadRenderable()
 {
     glcheck(glDeleteBuffers(1, &m_pBuffer));
     glcheck(glDeleteBuffers(1, &m_cBuffer));
     glcheck(glDeleteBuffers(1, &m_nBuffer));
 }
 
-ParticleRenderable::ParticleRenderable(ShaderProgramPtr shaderProgram, ParticlePtr particle) :
+HeadRenderable::HeadRenderable(ShaderProgramPtr shaderProgram) :
     HierarchicalRenderable(shaderProgram),
-    m_particle(particle),
     m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
 {
-    double radius = 1.0;
+    double radius = 0.6;
     int thetaStep = 20;
     int phiStep = 10;
 
@@ -99,16 +98,15 @@ ParticleRenderable::ParticleRenderable(ShaderProgramPtr shaderProgram, ParticleP
     glcheck(glBufferData(GL_ARRAY_BUFFER, m_normals.size()*sizeof(glm::vec3), m_normals.data(), GL_STATIC_DRAW));
 }
 
-void ParticleRenderable::do_draw()
+void HeadRenderable::do_draw()
 {
     //Update the parent and local transform matrix to position the geometric data according to the particle's data.
-    const float& pRadius = m_particle->getRadius();
-    const glm::vec3& pPosition = m_particle->getPosition();
-    float toRotate = m_particle->getAngle();
+    /*const float& pRadius = 1.0;
     glm::mat4 scale = glm::scale(glm::mat4(1.0), glm::vec3(pRadius));
     glm::mat4 translate = glm::translate(glm::mat4(1.0), glm::vec3(pPosition));
-    glm::mat4 rotate = glm::rotate(glm::mat4(1.0), toRotate, glm::vec3(0,0,1));
-    setLocalTransform(translate*scale*rotate);
+    setLocalTransform(translate*scale);*/
+    setLocalTransform(getLocalTransform());
+    setParentTransform(getParentTransform());
 
     //Draw geometric data
     int positionLocation = m_shaderProgram->getAttributeLocation("vPosition");
@@ -152,5 +150,5 @@ void ParticleRenderable::do_draw()
     }
 }
 
-void ParticleRenderable::do_animate(float time)
+void HeadRenderable::do_animate(float time)
 {}

@@ -23,8 +23,9 @@ ControlledForceFieldStatus::ControlledForceFieldStatus(const glm::vec3& initial_
 void ControlledForceFieldStatus::clear()
 {
     initial = glm::vec3(0,0,0);
-    movement = glm::vec3(1,0,0);
+    movement = glm::vec3(0,0,0);
     angle =  0;
+    bodyAngle = 0;
     last_time =  0;
     intensity = 0;
     acceleration = 10.0;
@@ -116,20 +117,37 @@ void ControlledForceFieldRenderable::do_animate(float time)
 
         if (m_status.turning_left && !m_status.turning_right) {
             m_status.angle += dt * m_status.angularSpeed;
+
+
+            m_status.bodyAngle -= dt * m_status.angularSpeed;
+            if (m_status.bodyAngle < -3.14 / 10.0) {
+                m_status.bodyAngle = -3.14 / 10.0;
+            }
+
             float cos = std::cos(m_status.angle);
             float sin = std::sin(m_status.angle);
             m_status.movement =
                 glm::vec3(cos * m_status.initial.x - sin * m_status.initial.y,
                           sin * m_status.initial.x + cos * m_status.initial.y,
                           0);
+
         } else if (m_status.turning_right && !m_status.turning_left) {
             m_status.angle -= dt * m_status.angularSpeed;
+
+            m_status.bodyAngle += dt * m_status.angularSpeed;
+            if (m_status.bodyAngle > 3.14 / 10.0) {
+                m_status.bodyAngle = 3.14 / 10.0;
+            }
+
             float cos = std::cos(m_status.angle);
             float sin = std::sin(m_status.angle);
             m_status.movement =
                 glm::vec3(cos * m_status.initial.x - sin * m_status.initial.y,
                           sin * m_status.initial.x + cos * m_status.initial.y,
                           0);
+
+        } else if (!m_status.turning_right && !m_status.turning_left) {
+            m_status.bodyAngle = 0;
         }
 
         if (m_status.accelerating)
@@ -156,6 +174,10 @@ void ControlledForceFieldRenderable::do_draw()
 
     //Display an arrow representing the movement of the particle
     for (ParticlePtr p : particles) {
+
+        p->setAngle(m_status.angle);
+        p->setBodyAngle(m_status.bodyAngle);
+
         m_positions.push_back(p->getPosition());
         m_positions.push_back(p->getPosition()  + 2.0f* m_status.movement);
         m_colors.push_back(glm::vec4(1.0,0.0,0.0,1.0));

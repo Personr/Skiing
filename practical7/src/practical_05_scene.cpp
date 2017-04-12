@@ -57,7 +57,7 @@ void initialize_practical_05_scene(Viewer& viewer)
 
 
     //Textured plane
-    filename = "../textures/neige.png";
+    filename = "../textures/grass_texture.png";
     TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
     parentTransformation = glm::scale(glm::mat4(1.0), glm::vec3(10.0,10.0,10.0));
     texPlane->setParentTransform(parentTransformation);

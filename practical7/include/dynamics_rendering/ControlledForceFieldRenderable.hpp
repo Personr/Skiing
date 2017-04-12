@@ -22,6 +22,7 @@ public:
     glm::vec3 initial;
     glm::vec3 movement;
     float angle;
+    float bodyAngle;
     float last_time;
     float intensity;
     float min_intensity;
