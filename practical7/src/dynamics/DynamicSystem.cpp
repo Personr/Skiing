@@ -109,12 +109,13 @@ void DynamicSystem::detectCollisions()
     for (ParticlePtr p : m_particles) {
         for (PlanePtr o : m_planeObstacles) {
             if (testParticlePlane(p, o)) {
-	      if (p->getMass() > 20){ // cas du skieur, on fait les collisions
+	      // if (p->getMass() > 20){ // cas du skieur, on fait les collisions
 
                 ParticlePlaneCollisionPtr c =
                     std::make_shared<ParticlePlaneCollision>(p,o,m_restitution);
                 m_collisions.push_back(c);
-	      }
+		//	      }
+/*
 	      else{ // On gère plus les collisions -> flocons
 		randx = 2*(rand() / (RAND_MAX + 1.)) -1;
 		randy = 2*(rand() / (RAND_MAX + 1.)) -1;
@@ -135,7 +136,7 @@ void DynamicSystem::detectCollisions()
 		p->setVelocity(pv);
 		p->setRadius(pr);
 
-	      }
+		}*/
 
             }
         }
