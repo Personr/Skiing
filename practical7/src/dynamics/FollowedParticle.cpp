@@ -20,9 +20,11 @@ FollowedParticle::~FollowedParticle() {
 void FollowedParticle::setPosition(const glm::vec3 &pos)
 {
     Particle::setPosition(pos);
-    m_camera->setPosition(pos + glm::vec3(1,1,1));
+    
     glm::vec3 velocityDir = glm::normalize(getVelocity());
-    glm::vec3 newDir = glm::vec3(2*velocityDir[0], 2*velocityDir[1], 2*velocityDir[2]);
+    glm::vec3 posDif = glm::vec3(8*velocityDir[0], 8*velocityDir[1], 8*velocityDir[2]-5);
+    glm::vec3 pointDif = glm::vec3(8*velocityDir[0], 8*velocityDir[1], 8*velocityDir[2]);
+    //m_camera->setPosition(pos - newDir);
     m_camera->setViewMatrix(
-        glm::lookAt(pos - newDir, pos, glm::vec3(0,0,1)) );
+        glm::lookAt(pos - posDif, pos + pointDif, glm::vec3(0,0,1)) );
 }

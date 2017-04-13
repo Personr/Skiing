@@ -437,7 +437,9 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     xcour = xcour+(xsuiv-xcour)*10;
     zcour = zcour+(zsuiv-zcour)*10+5;
     px = glm::vec3(xcour,0.0,zcour);
-    ParticlePtr mobile = std::make_shared<Particle>( px, pv, pm, pr);
+    
+    Camera& camera = viewer.getCamera();
+    FollowedParticlePtr mobile = std::make_shared<FollowedParticle>( px, pv, pm, pr, &camera);
     system->addParticle( mobile );
     px = glm::vec3(0.0,5.0,1.0);
     ParticlePtr other = std::make_shared<Particle>( px, pv, pm, pr);
