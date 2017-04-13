@@ -1,5 +1,5 @@
-#ifndef ARM_RENDERABLE_HPP
-#define ARM_RENDERABLE_HPP
+#ifndef LEG_RENDERABLE_HPP
+#define LEG_RENDERABLE_HPP
 
 #include "./../../include/dynamics_rendering/BodyCylinderRenderable.hpp"
 #include "../dynamics/Particle.hpp"
@@ -13,7 +13,7 @@
  * a ball, this renderable simply render the corresponding ball. If
  * you have more than one renderable, have a look to ParticleListRenderable.
  */
-class ArmRenderable : public BodyCylinderRenderable
+class LegRenderable : public BodyCylinderRenderable
 {
     public:
         /**@brief Build a particle renderable.
@@ -22,8 +22,8 @@ class ArmRenderable : public BodyCylinderRenderable
          * @param program The shader program used to render the particle.
          * @param particle The particle to render.
          */
-        ArmRenderable(ShaderProgramPtr program, ParticlePtr particle, glm::vec3 color, bool isLeft);
-        ~ArmRenderable();
+        LegRenderable(ShaderProgramPtr program, ParticlePtr particle, glm::vec3 color, bool isLeft);
+        ~LegRenderable();
 
     private:
         virtual void do_draw();
@@ -31,6 +31,6 @@ class ArmRenderable : public BodyCylinderRenderable
         bool m_isLeft;
 };
 
-typedef std::shared_ptr<ArmRenderable> ArmRenderablePtr;
+typedef std::shared_ptr<LegRenderable> LegRenderablePtr;
 
 #endif

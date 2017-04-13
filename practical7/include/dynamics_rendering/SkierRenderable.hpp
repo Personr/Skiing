@@ -22,7 +22,7 @@ class SkierRenderable : public HierarchicalRenderable
          * @param program The shader program used to render the particle.
          * @param particle The particle to render.
          */
-        SkierRenderable(ShaderProgramPtr program, ParticlePtr particle);
+        SkierRenderable(ShaderProgramPtr program, ParticlePtr particle, glm::vec3 color);
 
         ~SkierRenderable();
 
