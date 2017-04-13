@@ -70,7 +70,7 @@ void TreeRenderable::addTransformations(std::shared_ptr<TreeCylinderRenderable>&
 
 void TreeRenderable::addCylinder(std::shared_ptr<TreeCylinderRenderable> parent, float scaleX, float scaleY, float scaleZ, int nb, const ShaderProgramPtr& shader)
 {
-    if (nb <= 2) {
+    if (nb <= 1) {
         int childrenNb;
         if (nb == 0) {
             childrenNb = 150;

@@ -22,7 +22,8 @@
 
 #include "../include/texturing/TexturedPlaneRenderable.hpp"
 #include "../include/lighting/DirectionalLightRenderable.hpp"
-
+#include "../include/TreeCylinderRenderable.hpp"
+#include "../include/TreeRenderable.hpp"
 
 void practical07_particles(Viewer& viewer,
     DynamicSystemPtr& system, DynamicSystemRenderablePtr& systemRenderable);
@@ -46,6 +47,9 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     viewer.addShaderProgram(flatShader);
     FrameRenderablePtr frame = std::make_shared<FrameRenderable>(flatShader);
     viewer.addRenderable(frame);
+ ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
+        "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
+ viewer.addShaderProgram(phongShader);
 
 // Two texture shaders: simple and multi-texturing
     ShaderProgramPtr texShader
@@ -303,7 +307,19 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   ShaderProgramPtr flatShader
     = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
   viewer.addShaderProgram(flatShader);
+ ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
+        "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
+ viewer.addShaderProgram(phongShader);
 
+
+
+
+
+
+
+
+  auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
+  viewer.addRenderable(tree);
   //Activate collision detection
   system->setCollisionsDetection(true);
 
@@ -371,18 +387,19 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     time_t t0 = time(NULL);
     unsigned tmax = 2;
     int j =0;
-    /*
-      for (j= 0 ; j < 1; j++) {
+    
       for (i=0; i <= 100; i = i + 1) {
       //Initialize a particle with position, velocity, mass and radius and add it to the system
 		      
       randx = 2*(rand() / (RAND_MAX + 1.)) -1;
       randy = 2*(rand() / (RAND_MAX + 1.)) -1;
       randz = 2*(rand() / (RAND_MAX + 1.)) -1;
-      px = glm::vec3(5*randx*5,5*randy*5, 5*randz + 5);
+      randr = 2*(rand() / (RAND_MAX + 1.)) -1;
+
+      px = glm::vec3(30*randx,30*randy, 5*randz + 5);
       pv = glm::vec3(0.0, 0.0, 0.0);
-      pr = 0.1*randr + 0.1;
-      pm = randz+1;
+      pr = 0.05*randr + 0.1;
+      pm = pr;
       ParticlePtr particle = std::make_shared<Particle>(px, pv, pm, pr);
       system->addParticle(particle);
 
@@ -393,11 +410,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
       HierarchicalRenderable::addChild(systemRenderable, particleRenderable);                 //laaaaaaaaaaaaaaaaaaaaaaaaa
 			  
       }
-		    
-		    
-      j++;
-		    
-      }*/
+
 
     //Initialize two particles with position, velocity, mass and radius and add it to the system
     glm::vec3 px(0.0, 0.0, 0.0);//A remplacer par le skieur
