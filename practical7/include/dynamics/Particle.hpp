@@ -68,6 +68,7 @@ public:
 
     float getAngle() const;
     float getBodyAngle() const;
+    bool getBraking() const;
 
     /**@brief Check if this particle is fixed.
      *
@@ -99,6 +100,7 @@ public:
 
     void setAngle(const float angle);
     void setBodyAngle(const float angle);
+    void setBraking(const bool braking);
 
     /**@brief Set the particle's radius.
      *
@@ -196,6 +198,7 @@ private:
 
     float m_angle;
     float m_bodyAngle;
+    bool m_braking;
 };
 
 typedef std::shared_ptr<Particle> ParticlePtr;
