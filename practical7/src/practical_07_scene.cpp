@@ -6,6 +6,7 @@
 #include "../include/dynamics/ConstantForceField.hpp"
 #include "../include/dynamics/SpringForceField.hpp"
 #include "../include/dynamics/EulerExplicitSolver.hpp"
+#include "../include/dynamics/FollowedParticle.hpp"
 
 #include "../include/dynamics_rendering/DynamicSystemRenderable.hpp"
 #include "../include/dynamics_rendering/ParticleRenderable.hpp"
@@ -116,6 +117,15 @@ void practical07_particles(Viewer& viewer, DynamicSystemPtr& system, DynamicSyst
         pm = 1.0;
         ParticlePtr particle2 = std::make_shared<Particle>(px, pv, pm, pr);
         system->addParticle(particle2);
+        
+        px = glm::vec3(0.0, 0.0, 1.5);
+        pv = glm::vec3(6.5, 0.0, 0.0);
+        pr = 0.1;
+        pm = 1.0;
+        Camera& camera = viewer.getCamera();
+        std::cout << &camera; 
+        FollowedParticlePtr particle3 = std::make_shared<FollowedParticle>(px, pv, pm, pr, &camera);
+        system->addParticle(particle3);
 
         //Initialize a force field that apply to all the particles of the system to simulate gravity
         //Add it to the system as a force field
@@ -132,6 +142,9 @@ void practical07_particles(Viewer& viewer, DynamicSystemPtr& system, DynamicSyst
         ParticleRenderablePtr particleRenderable2
             = std::make_shared<ParticleRenderable>(flatShader, particle2);
         HierarchicalRenderable::addChild(systemRenderable, particleRenderable2);
+        ParticleRenderablePtr particleRenderable3
+            = std::make_shared<ParticleRenderable>(flatShader, particle3);
+        HierarchicalRenderable::addChild(systemRenderable, particleRenderable3);
     }
 }
 
