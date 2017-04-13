@@ -1,29 +1,27 @@
-#include "./../../include/dynamics_rendering/SkierRenderable.hpp"
+#include "./../../include/dynamics_rendering/BodyCylinderRenderable.hpp"
 #include "./../../include/gl_helper.hpp"
 #include "./../../include/log.hpp"
-
 #include "./../../include/Utils.hpp"
+
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <GL/glew.h>
 
-SkierRenderable::~SkierRenderable()
+BodyCylinderRenderable::~BodyCylinderRenderable()
 {
     glcheck(glDeleteBuffers(1, &m_pBuffer));
     glcheck(glDeleteBuffers(1, &m_cBuffer));
     glcheck(glDeleteBuffers(1, &m_nBuffer));
 }
 
-SkierRenderable::SkierRenderable(ShaderProgramPtr shaderProgram, ParticlePtr particle, glm::vec3 color) :
-HierarchicalRenderable(shaderProgram),
-m_particle(particle),
-m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
+BodyCylinderRenderable::BodyCylinderRenderable(ShaderProgramPtr shaderProgram, glm::vec3 color) :
+    HierarchicalRenderable(shaderProgram),
+    m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
 {
-    double bottomRadius = 0.3;
-    double topRadius = 0.6;
-    double height = 1.7;
+    double radius = 0.17;
+    double height = 1;
     int thetaStep = 20;
-    double bottom = 2.8;
+    double bottom = 0.5;
 
     float rColor = color[0] / 255.0;
     float gColor = color[1] / 255.0;
@@ -40,16 +38,16 @@ m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
         std::array<glm::vec3,3> vTriangles;
 
         vTriangles[0] = center
-            + glm::vec3(bottomRadius * cos(curr_theta),
-                bottomRadius * sin(curr_theta),
+            + glm::vec3(radius * cos(curr_theta),
+                radius * sin(curr_theta),
                 bottom);
         vTriangles[1] = center
-            + glm::vec3(bottomRadius * cos(next_theta),
-                bottomRadius * sin(next_theta),
+            + glm::vec3(radius * cos(next_theta),
+                radius * sin(next_theta),
                 bottom);
         vTriangles[2] = center
-            + glm::vec3(topRadius * cos(next_theta),
-                topRadius * sin(next_theta),
+            + glm::vec3(radius * cos(next_theta),
+                radius * sin(next_theta),
                 bottom + height);
 
         faceNormal = -glm::normalize(glm::cross(vTriangles[1]-vTriangles[0], vTriangles[2]-vTriangles[0]));
@@ -65,16 +63,16 @@ m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
         m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
 
         vTriangles[0] = center
-            + glm::vec3(bottomRadius * cos(curr_theta),
-                bottomRadius * sin(curr_theta),
+            + glm::vec3(radius * cos(curr_theta),
+                radius * sin(curr_theta),
                 bottom);
         vTriangles[1] = center
-            + glm::vec3(topRadius * cos(next_theta),
-                topRadius * sin(next_theta),
+            + glm::vec3(radius * cos(next_theta),
+                radius * sin(next_theta),
                 bottom + height);
         vTriangles[2] = center
-            + glm::vec3(topRadius * cos(curr_theta),
-                topRadius * sin(curr_theta),
+            + glm::vec3(radius * cos(curr_theta),
+                radius * sin(curr_theta),
                 bottom + height);
 
         faceNormal = -glm::normalize(glm::cross( vTriangles[1]-vTriangles[0], vTriangles[2]-vTriangles[0] ));
@@ -85,6 +83,8 @@ m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
         m_normals.push_back(faceNormal);
         m_normals.push_back(faceNormal);
         m_normals.push_back(faceNormal);
+
+
         m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
         m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
         m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
@@ -105,20 +105,15 @@ m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
     glcheck(glBufferData(GL_ARRAY_BUFFER, m_normals.size()*sizeof(glm::vec3), m_normals.data(), GL_STATIC_DRAW));
 }
 
-void SkierRenderable::do_draw()
+void BodyCylinderRenderable::do_draw()
 {
     //Update the parent and local transform matrix to position the geometric data according to the particle's data.
-    const float& pRadius = m_particle->getRadius();
-    const glm::vec3& pPosition = m_particle->getPosition();
-    float toRotate = m_particle->getAngle();
-    float toRotateBody = m_particle->getBodyAngle();
-    float toRotateTorso = 3.14 / 8.0;
+    /*const float& pRadius = 1.0;
     glm::mat4 scale = glm::scale(glm::mat4(1.0), glm::vec3(pRadius));
     glm::mat4 translate = glm::translate(glm::mat4(1.0), glm::vec3(pPosition));
-    glm::mat4 rotate = glm::rotate(glm::mat4(1.0), toRotate, glm::vec3(0,0,1));
-    glm::mat4 rotate2 = glm::rotate(glm::mat4(1.0), toRotateBody, glm::vec3(1,0,0));
-    glm::mat4 rotate3 = glm::rotate(glm::mat4(1.0), toRotateTorso, glm::vec3(0,1,0));
-    setParentTransform(translate*scale*rotate*rotate2*rotate3);
+    setLocalTransform(translate*scale);*/
+    setLocalTransform(getLocalTransform());
+    setParentTransform(getParentTransform());
 
     //Draw geometric data
     int positionLocation = m_shaderProgram->getAttributeLocation("vPosition");
@@ -162,5 +157,5 @@ void SkierRenderable::do_draw()
     }
 }
 
-void SkierRenderable::do_animate(float time)
+void BodyCylinderRenderable::do_animate(float time)
 {}

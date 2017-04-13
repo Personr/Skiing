@@ -1,4 +1,4 @@
-#include "./../../include/dynamics_rendering/ArmRenderable.hpp"
+#include "./../../include/dynamics_rendering/LegRenderable.hpp"
 #include "./../../include/dynamics_rendering/BodyCylinderRenderable.hpp"
 #include "./../../include/gl_helper.hpp"
 #include "./../../include/log.hpp"
@@ -8,35 +8,45 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <GL/glew.h>
 
-ArmRenderable::~ArmRenderable()
+LegRenderable::~LegRenderable()
 {
 }
 
-ArmRenderable::ArmRenderable(ShaderProgramPtr shaderProgram, ParticlePtr particle, glm::vec3 color, bool isLeft) :
-    BodyCylinderRenderable(shaderProgram, color),
-    m_particle(particle),
-    m_isLeft(isLeft)
+LegRenderable::LegRenderable(ShaderProgramPtr shaderProgram, ParticlePtr particle, glm::vec3 color, bool isLeft) :
+BodyCylinderRenderable(shaderProgram, color),
+m_particle(particle),
+m_isLeft(isLeft)
 {
 
 }
 
 
-void ArmRenderable::do_draw()
+void LegRenderable::do_draw()
 {
+
     //Update the parent and local transform matrix to position the geometric data according to the particle's data.
-    float armAngle = 2.5 * 3.14 / 4.0;
-    float toRotateBody = 1.5 * m_particle->getBodyAngle();
+
+    float thighAngle = 4 * 3.14 / 3.0;
+    float toRotateBody = 0.5 * m_particle->getBodyAngle();
 
     glm::mat4 ParentTransform;
     if (m_isLeft) {
-        ParentTransform = glm::translate(glm::mat4(), glm::vec3(-0.5, -0.8, 4.5));
-        ParentTransform = glm::rotate(ParentTransform, armAngle, glm::vec3(0.3, 1.0, 0.0));
-        glm::mat4 rotate = glm::rotate(glm::mat4(1.0), toRotateBody, glm::vec3(0,1,0));
+        ParentTransform = glm::scale(glm::mat4(), glm::vec3(1.5, 1.5, 1.6));
+        ParentTransform = glm::translate(ParentTransform, glm::vec3(-0.4, -0.3, 2));
+        ParentTransform = glm::rotate(ParentTransform, -thighAngle, glm::vec3(0, 1, 0.0));
+        glm::mat4 rotate = glm::rotate(glm::mat4(1.0), 0.0f, glm::vec3(0,1,0));
+        if (toRotateBody < 0) {
+            rotate = glm::rotate(glm::mat4(1.0), toRotateBody, glm::vec3(0,1,0));
+        }
         ParentTransform = ParentTransform * rotate;
     } else {
-        ParentTransform = glm::translate(glm::mat4(), glm::vec3(-0.5, 0.8, 4.5));
-        ParentTransform = glm::rotate(ParentTransform, armAngle, glm::vec3(-0.3, 1.0, 0.0));
-        glm::mat4 rotate = glm::rotate(glm::mat4(1.0), -toRotateBody, glm::vec3(0,1,0));
+        ParentTransform = glm::scale(glm::mat4(), glm::vec3(1.5, 1.5, 1.6));
+        ParentTransform = glm::translate(ParentTransform, glm::vec3(-0.4, 0.3, 2));
+        ParentTransform = glm::rotate(ParentTransform, -thighAngle, glm::vec3(0, 1, 0.0));
+        glm::mat4 rotate = glm::rotate(glm::mat4(1.0), 0.0f, glm::vec3(0,1,0));
+        if (toRotateBody > 0) {
+            rotate = glm::rotate(glm::mat4(1.0), -toRotateBody, glm::vec3(0,1,0));
+        }
         ParentTransform = ParentTransform * rotate;
     }
 

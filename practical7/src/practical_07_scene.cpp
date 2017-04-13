@@ -13,6 +13,8 @@
 #include "../include/dynamics_rendering/SkierRenderable.hpp"
 #include "../include/dynamics_rendering/HeadRenderable.hpp"
 #include "../include/dynamics_rendering/ArmRenderable.hpp"
+#include "../include/dynamics_rendering/LegRenderable.hpp"
+#include "../include/dynamics_rendering/BodyCylinderRenderable.hpp"
 #include "../include/dynamics_rendering/SkiRenderable.hpp"
 #include "../include/dynamics_rendering/ParticleListRenderable.hpp"
 #include "../include/dynamics_rendering/ConstantForceFieldRenderable.hpp"
@@ -23,8 +25,10 @@
 
 #include "../include/texturing/TexturedPlaneRenderable.hpp"
 #include "../include/lighting/DirectionalLightRenderable.hpp"
+#include "../include/lighting/LightedMeshRenderable.hpp"
 #include "../include/TreeCylinderRenderable.hpp"
 #include "../include/TreeRenderable.hpp"
+
 
 void practical07_particles(Viewer& viewer,
     DynamicSystemPtr& system, DynamicSystemRenderablePtr& systemRenderable);
@@ -87,7 +91,7 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     filename = "../textures/neige.png";
     //filename = "../textures/checkerboard.png";
     TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
-  
+
     parentTransformation = glm::scale(glm::mat4(1.0), glm::vec3(60.0,200.0,50.0));
     texPlane->setParentTransform(parentTransformation);
     texPlane->setMaterial(pearl);
@@ -182,13 +186,13 @@ void practical07_particles(Viewer& viewer, DynamicSystemPtr& system, DynamicSyst
         pm = 1.0;
         ParticlePtr particle2 = std::make_shared<Particle>(px, pv, pm, pr);
         system->addParticle(particle2);
-        
+
         px = glm::vec3(0.0, 0.0, 1.5);
         pv = glm::vec3(6.5, 0.0, 0.0);
         pr = 0.1;
         pm = 1.0;
         Camera& camera = viewer.getCamera();
-        std::cout << &camera; 
+        std::cout << &camera;
         FollowedParticlePtr particle3 = std::make_shared<FollowedParticle>(px, pv, pm, pr, &camera);
         system->addParticle(particle3);
 
@@ -315,7 +319,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   //Position the camera
   viewer.getCamera().setViewMatrix(
 				   glm::lookAt(glm::vec3(1, 0, 15), glm::vec3(0,0,0), glm::vec3(0,0,(intptr_t)time)) );//Pos, origine, et sens caméra
-  
+
   //Initialize a shader for the following renderables
   ShaderProgramPtr flatShader
     = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
@@ -355,7 +359,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   for (float i = 0; i<8; i++){
     p1= glm::vec3 (xcour, 0.0f, zcour);
     p2=glm::vec3(xsuiv, 0.0f, zsuiv);
-    p3=glm::vec3(xcour, 1.0f, zcour);               //Plan incliné  
+    p3=glm::vec3(xcour, 1.0f, zcour);               //Plan incliné
     xcour = xsuiv;
     zcour = zsuiv;
     xsuiv = xsuiv+10*cos(alphacour);
@@ -366,7 +370,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     system->addPlaneObstacle(plane);
   }
 
-  //coté opposé 
+  //coté opposé
   /*
     xcour =0;
     xsuiv = 30;
@@ -376,7 +380,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     for (float i = 0; i<6; i++){
     p1= glm::vec3 (-xcour, 0.0f, zcour);
     p2=glm::vec3(-xsuiv, 0.0f, zsuiv);
-    p3=glm::vec3(-xcour, 1.0f, zcour);               //Plan incliné  
+    p3=glm::vec3(-xcour, 1.0f, zcour);               //Plan incliné
     xcour = xsuiv;
     zcour = zsuiv;
     xsuiv = xsuiv+10*cos(alphacour);
@@ -388,7 +392,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   glm::vec3 px,pv;
   float pm, pr;
   //Particle vs Plane collision
- 
+
   {
     srand (static_cast <unsigned> (time(0)));
     float randx = 1.0f;
@@ -396,14 +400,14 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     float randz = 0.0f;
     float randr = 0.0f;
     int i =0;
-	    
+
     time_t t0 = time(NULL);
     unsigned tmax = 2;
     int j =0;
-    
+
       for (i=0; i <= 100; i = i + 1) {
       //Initialize a particle with position, velocity, mass and radius and add it to the system
-		      
+
       randx = 2*(rand() / (RAND_MAX + 1.)) -1;
       randy = 2*(rand() / (RAND_MAX + 1.)) -1;
       randz = 2*(rand() / (RAND_MAX + 1.)) -1;
@@ -421,7 +425,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
       //This which allows to easily apply transformation on the visualiazation of a dynamicSystem
       ParticleRenderablePtr particleRenderable = std::make_shared<ParticleRenderable>(flatShader, particle);
       HierarchicalRenderable::addChild(systemRenderable, particleRenderable);                 //laaaaaaaaaaaaaaaaaaaaaaaaa
-			  
+
       }
 
 
@@ -445,7 +449,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     ParticleRenderablePtr mobileRenderable = std::make_shared<ParticleRenderable>(flatShader, mobile);
     HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
     ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
-    HierarchicalRenderable::addChild(systemRenderable, otherRenderable);                                  
+    HierarchicalRenderable::addChild(systemRenderable, otherRenderable);
     glm::vec3 nullForce(0.0, 0.0, 0.0);
     std::vector<ParticlePtr> vParticle;
     vParticle.push_back(mobile);
@@ -543,13 +547,13 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     glm::vec3 pv(0.0, 0.0, 0.0);
     float pm = 25.0, pr = 1.0;
     ParticlePtr mobile = std::make_shared<Particle>( px, pv, pm, pr);
-    
+
     system->addParticle( mobile );
     SkieurRenderablePtr mobileRenderable= std::make_shared<SkieurRenderable>(flatShader, mobile);
     HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
-   
+
     glm::vec3 pxnew(4.0, 0.0, 0.0);
-    
+
 
     ParticlePtr other = std::make_shared<Particle>(pxnew , pv, pm, pr);
     system->addParticle( other );
@@ -572,11 +576,93 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   ConstantForceFieldPtr gravityForceField = std::make_shared<ConstantForceField>(system->getParticles(), glm::vec3{0,0,-10} );
   system->addForceField(gravityForceField);
 
-   
-    
+
+
   // ConstantForceFieldPtr windForceField = std::make_shared<ConstantForceField>(system->getParticles(), glm::vec3{0,1,0} );
   //  system->addForceField(windForceField);
-    
+
+}
+
+void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, ParticlePtr mobile, DynamicSystemRenderablePtr& systemRenderable) {
+    glm::vec3 legColor(25.0, 25.0, 255.0);
+    glm::vec3 torsoColor(0.0, 204.0, 0.0);
+    glm::vec3 skiColor(204.0, 0.0, 0.0);
+
+    //Create a particleRenderable for each particle of the system
+    //Add them to the system renderable
+    SkierRenderablePtr mobileRenderable = std::make_shared<SkierRenderable>(flatShader, mobile, torsoColor);
+    SkiRenderablePtr lSkiRenderable = std::make_shared<SkiRenderable>(flatShader, skiColor);
+    SkiRenderablePtr rSkiRenderable = std::make_shared<SkiRenderable>(flatShader, skiColor);
+    ArmRenderablePtr lArmRenderable = std::make_shared<ArmRenderable>(flatShader, mobile, torsoColor, true);
+    ArmRenderablePtr rArmRenderable = std::make_shared<ArmRenderable>(flatShader, mobile, torsoColor, false);
+    BodyCylinderRenderablePtr lForearmRenderable = std::make_shared<BodyCylinderRenderable>(flatShader, torsoColor);
+    BodyCylinderRenderablePtr rForearmRenderable = std::make_shared<BodyCylinderRenderable>(flatShader, torsoColor);
+    LegRenderablePtr lThighRenderable = std::make_shared<LegRenderable>(flatShader, mobile, legColor, true);
+    LegRenderablePtr rThighRenderable = std::make_shared<LegRenderable>(flatShader, mobile, legColor, false);
+    BodyCylinderRenderablePtr lTibiaRenderable = std::make_shared<BodyCylinderRenderable>(flatShader, legColor);
+    BodyCylinderRenderablePtr rTibiaRenderable = std::make_shared<BodyCylinderRenderable>(flatShader, legColor);
+
+
+    float headZAngle = 1.9 * 3.14 / 4;
+    float headXAngle = 3.14 / 2;
+    LightedMeshRenderablePtr suzanneBoyle = std::make_shared<LightedMeshRenderable>(phongShader, "./../meshes/magnetto2.obj", Material::Chrome());
+    glm::mat4 parentTransform = glm::translate(glm::mat4(1.0), glm::vec3(0,0.0,4));
+    parentTransform = glm::rotate(parentTransform, headXAngle, glm::vec3(1.0, 0.0, 0.0));
+    parentTransform = glm::rotate(parentTransform, headZAngle, glm::vec3(0, 1.0, 0.0));
+    parentTransform = glm::scale(parentTransform, glm::vec3(0.3, 0.3, 0.3));
+    suzanneBoyle->setParentTransform(parentTransform);
+    suzanneBoyle->setMaterial(Material::Chrome());
+
+    float skiAngle =  0.85 * 3.14;
+    glm::mat4 lSkiParentTransform = glm::translate(glm::mat4(), glm::vec3(1, -0.18, 2.3));
+    glm::mat4 rSkiParentTransform = glm::translate(glm::mat4(), glm::vec3(1, -0.18, 2.3));
+    lSkiParentTransform = glm::rotate(lSkiParentTransform, skiAngle, glm::vec3(0, 1.0, 0.0));
+    rSkiParentTransform = glm::rotate(rSkiParentTransform, skiAngle, glm::vec3(0, 1.0, 0.0));
+    lSkiRenderable->setParentTransform(lSkiParentTransform);
+    rSkiRenderable->setParentTransform(rSkiParentTransform);
+
+    float armAngle = 2.5 * 3.14 / 4.0;
+    glm::mat4 lArmParentTransform = glm::translate(glm::mat4(), glm::vec3(-0.5, -0.8, 4.5));
+    glm::mat4 rArmParentTransform = glm::translate(glm::mat4(), glm::vec3(-0.5, 0.8, 4.5));
+    lArmParentTransform = glm::rotate(lArmParentTransform, armAngle, glm::vec3(0.3, 1.0, 0.0));
+    rArmParentTransform = glm::rotate(rArmParentTransform, armAngle, glm::vec3(-0.3, 1.0, 0.0));
+    lArmRenderable->setParentTransform(lArmParentTransform);
+    rArmRenderable->setParentTransform(rArmParentTransform);
+
+    float foreArmAngle = 3.14/10.0;
+    glm::mat4 lForearmParentTransform = glm::rotate(glm::mat4(), -foreArmAngle, glm::vec3(1, 0, 0.0));
+    glm::mat4 rForearmParentTransform = glm::rotate(glm::mat4(), foreArmAngle, glm::vec3(1, 0, 0.0));
+    lForearmParentTransform = glm::translate(lForearmParentTransform, glm::vec3(0, -0.5, 1.2));
+    rForearmParentTransform = glm::translate(rForearmParentTransform, glm::vec3(0, 0.5, 1.2));
+    rForearmParentTransform = glm::scale(rForearmParentTransform, glm::vec3(0.8, 0.8, 0.6));
+    lForearmParentTransform = glm::scale(lForearmParentTransform, glm::vec3(0.8, 0.8, 0.6));
+    lForearmRenderable->setParentTransform(lForearmParentTransform);
+    rForearmRenderable->setParentTransform(rForearmParentTransform);
+
+
+    float tibiaAngle = 3.14/3.0;
+    glm::mat4 lTibiaParentTransform = glm::scale(glm::mat4(), glm::vec3(0.8, 0.8, 1));
+    glm::mat4 rTibiaParentTransform = glm::scale(glm::mat4(), glm::vec3(0.8, 0.8, 1));
+    lTibiaParentTransform = glm::translate(lTibiaParentTransform, glm::vec3(-0.4, 0, 1.3));
+    rTibiaParentTransform = glm::translate(rTibiaParentTransform, glm::vec3(-0.4, 0, 1.3));
+    lTibiaParentTransform = glm::rotate(lTibiaParentTransform, tibiaAngle, glm::vec3(0, 1, 0.0));
+    rTibiaParentTransform = glm::rotate(rTibiaParentTransform, tibiaAngle, glm::vec3(0, 1, 0.0));
+    lTibiaRenderable->setParentTransform(lTibiaParentTransform);
+    rTibiaRenderable->setParentTransform(rTibiaParentTransform);
+
+
+    HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
+    HierarchicalRenderable::addChild(mobileRenderable, lArmRenderable);
+    HierarchicalRenderable::addChild(mobileRenderable, rArmRenderable);
+    HierarchicalRenderable::addChild(lArmRenderable, lForearmRenderable);
+    HierarchicalRenderable::addChild(rArmRenderable, rForearmRenderable);
+    HierarchicalRenderable::addChild(mobileRenderable, lThighRenderable);
+    HierarchicalRenderable::addChild(mobileRenderable, rThighRenderable);
+    HierarchicalRenderable::addChild(lThighRenderable, lTibiaRenderable);
+    HierarchicalRenderable::addChild(rThighRenderable, rTibiaRenderable);
+    HierarchicalRenderable::addChild(lTibiaRenderable, lSkiRenderable);
+    HierarchicalRenderable::addChild(rTibiaRenderable, rSkiRenderable);
+    HierarchicalRenderable::addChild(mobileRenderable, suzanneBoyle);
 }
 
 
@@ -584,7 +670,10 @@ void practical07_playPool(Viewer& viewer, DynamicSystemPtr& system, DynamicSyste
 {
     //Initialize a shader for the following renderables
     ShaderProgramPtr flatShader
-        = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
+    = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
+    ShaderProgramPtr phongShader
+    = std::make_shared<ShaderProgram>("../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
+    viewer.addShaderProgram(phongShader);
     viewer.addShaderProgram(flatShader);
 
     //Position the camera
@@ -602,43 +691,7 @@ void practical07_playPool(Viewer& viewer, DynamicSystemPtr& system, DynamicSyste
     ParticlePtr other = std::make_shared<Particle>( px, pv, pm, pr);
     system->addParticle( other );
 
-    //Create a particleRenderable for each particle of the system
-    //Add them to the system renderable
-    SkierRenderablePtr mobileRenderable = std::make_shared<SkierRenderable>(flatShader, mobile);
-    HeadRenderablePtr headRenderable = std::make_shared<HeadRenderable>(flatShader);
-    SkiRenderablePtr lSkiRenderable = std::make_shared<SkiRenderable>(flatShader);
-    SkiRenderablePtr rSkiRenderable = std::make_shared<SkiRenderable>(flatShader);
-    ArmRenderablePtr lArmRenderable = std::make_shared<ArmRenderable>(flatShader);
-    ArmRenderablePtr rArmRenderable = std::make_shared<ArmRenderable>(flatShader);
-    ArmRenderablePtr lForearmRenderable = std::make_shared<ArmRenderable>(flatShader);
-    ArmRenderablePtr rForearmRenderable = std::make_shared<ArmRenderable>(flatShader);
-
-
-    glm::mat4 headParentTransform = glm::translate(glm::mat4(), glm::vec3(0.0, 0.0, 5.5));
-    headRenderable->setParentTransform(headParentTransform);
-
-    float angle = 2.5 * 3.14 / 4.0;
-
-    glm::mat4 lSkiParentTransform = glm::translate(glm::mat4(), glm::vec3(-1, 0.15, 0.0));
-    glm::mat4 rSkiParentTransform = glm::translate(glm::mat4(), glm::vec3(-1, -0.45, 0.0));
-    lSkiRenderable->setParentTransform(lSkiParentTransform);
-    rSkiRenderable->setParentTransform(rSkiParentTransform);
-
-    glm::mat4 lArmParentTransform = glm::translate(glm::mat4(), glm::vec3(-0.5, -0.8, 4.5));
-    glm::mat4 rArmParentTransform = glm::translate(glm::mat4(), glm::vec3(-0.5, 0.8, 4.5));
-    lArmParentTransform = glm::rotate(lArmParentTransform, angle, glm::vec3(0.3, 1.0, 0.0));
-    rArmParentTransform = glm::rotate(rArmParentTransform, angle, glm::vec3(-0.3, 1.0, 0.0));
-    lArmRenderable->setParentTransform(lArmParentTransform);
-    rArmRenderable->setParentTransform(rArmParentTransform);
-
-    HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, headRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, lSkiRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, rSkiRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, lArmRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, rArmRenderable);
-    HierarchicalRenderable::addChild(lArmRenderable, lForearmRenderable);
-    HierarchicalRenderable::addChild(rArmRenderable, rForearmRenderable);
+    createSkier(flatShader, phongShader, mobile, systemRenderable);
 
     ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
     HierarchicalRenderable::addChild(systemRenderable, otherRenderable);

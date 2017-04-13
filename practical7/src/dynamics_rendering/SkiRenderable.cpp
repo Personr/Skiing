@@ -14,13 +14,17 @@ SkiRenderable::~SkiRenderable()
     glcheck(glDeleteBuffers(1, &m_nBuffer));
 }
 
-SkiRenderable::SkiRenderable(ShaderProgramPtr shaderProgram) :
+SkiRenderable::SkiRenderable(ShaderProgramPtr shaderProgram, glm::vec3 color) :
     HierarchicalRenderable(shaderProgram),
     m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
 {
     float length = 4.0;
     float width = 0.3;
     float headLength = 0.3;
+
+    float rColor = color[0] / 255.0;
+    float gColor = color[1] / 255.0;
+    float bColor = color[2] / 255.0;
 
     glm::vec3 center(0.0, 0.0, 0.0);
 
@@ -37,9 +41,9 @@ SkiRenderable::SkiRenderable(ShaderProgramPtr shaderProgram) :
     m_normals.push_back(faceNormal);
     m_normals.push_back(faceNormal);
     m_normals.push_back(faceNormal);
-    m_colors.push_back(glm::vec4(1.0,0.0,0.0,1.0));
-    m_colors.push_back(glm::vec4(1.0,0.0,0.0,1.0));
-    m_colors.push_back(glm::vec4(1.0,0.0,0.0,1.0));
+    m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
+    m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
+    m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
 
     vTriangles[0] = center + glm::vec3(0, width, 0);
     vTriangles[1] = center + glm::vec3(length, 0, 0);
@@ -52,9 +56,9 @@ SkiRenderable::SkiRenderable(ShaderProgramPtr shaderProgram) :
     m_normals.push_back(faceNormal);
     m_normals.push_back(faceNormal);
     m_normals.push_back(faceNormal);
-    m_colors.push_back(glm::vec4(0.0,0.0,1.0,1.0));
-    m_colors.push_back(glm::vec4(0.0,0.0,1.0,1.0));
-    m_colors.push_back(glm::vec4(0.0,0.0,1.0,1.0));
+    m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
+    m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
+    m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
 
     vTriangles[0] = center + glm::vec3(length, 0, 0);
     vTriangles[1] = center + glm::vec3(length + 0.5, width / 2, 0.3);
@@ -67,9 +71,9 @@ SkiRenderable::SkiRenderable(ShaderProgramPtr shaderProgram) :
     m_normals.push_back(faceNormal);
     m_normals.push_back(faceNormal);
     m_normals.push_back(faceNormal);
-    m_colors.push_back(glm::vec4(0.0,0.0,1.0,1.0));
-    m_colors.push_back(glm::vec4(0.0,0.0,1.0,1.0));
-    m_colors.push_back(glm::vec4(0.0,0.0,1.0,1.0));
+    m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
+    m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
+    m_colors.push_back(glm::vec4(rColor,gColor,bColor,1.0));
 
     //Create buffers
     glGenBuffers(1, &m_pBuffer); //vertices
