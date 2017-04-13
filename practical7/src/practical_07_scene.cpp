@@ -93,7 +93,7 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     //filename = "../textures/checkerboard.png";
     //TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
 
-   
+
 
 
     //Create a renderable associated to the dynamic system
@@ -389,7 +389,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   //createPlane(texShader, systemRenderable);
 
 
-  
+
   glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
     std::string filename;
     MaterialPtr pearl = Material::Pearl();
@@ -448,7 +448,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     plane = std::make_shared<Plane>(p1, p2, p3);
     system->addPlaneObstacle(plane);
   }
-  
+
   //coté opposé
   /*
     xcour =0;
@@ -671,8 +671,8 @@ void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, Part
     //Create a particleRenderable for each particle of the system
     //Add them to the system renderable
     SkierRenderablePtr mobileRenderable = std::make_shared<SkierRenderable>(flatShader, mobile, torsoColor);
-    SkiRenderablePtr lSkiRenderable = std::make_shared<SkiRenderable>(flatShader, skiColor);
-    SkiRenderablePtr rSkiRenderable = std::make_shared<SkiRenderable>(flatShader, skiColor);
+    SkiRenderablePtr lSkiRenderable = std::make_shared<SkiRenderable>(flatShader, mobile, skiColor, true);
+    SkiRenderablePtr rSkiRenderable = std::make_shared<SkiRenderable>(flatShader, mobile, skiColor, false);
     ArmRenderablePtr lArmRenderable = std::make_shared<ArmRenderable>(flatShader, mobile, torsoColor, true);
     ArmRenderablePtr rArmRenderable = std::make_shared<ArmRenderable>(flatShader, mobile, torsoColor, false);
     BodyCylinderRenderablePtr lForearmRenderable = std::make_shared<BodyCylinderRenderable>(flatShader, torsoColor);

@@ -168,9 +168,6 @@ void ControlledForceFieldRenderable::do_animate(float time)
 
         if (m_status.braking) {
             m_status.intensity -= dt * m_status.brakingIntensity;
-            if (m_status.intensity < 0) {
-                m_status.intensity = 0;
-            }
         } else if (m_status.accelerating) {
             m_status.intensity += dt * m_status.acceleration;
         } else if (m_status.deaccelerating) {
@@ -200,6 +197,7 @@ void ControlledForceFieldRenderable::do_draw()
 
         p->setAngle(m_status.angle);
         p->setBodyAngle(m_status.bodyAngle);
+        p->setBraking(m_status.braking);
 
         m_positions.push_back(p->getPosition());
         m_positions.push_back(p->getPosition()  + 2.0f* m_status.movement);

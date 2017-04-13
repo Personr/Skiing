@@ -14,8 +14,10 @@ SkiRenderable::~SkiRenderable()
     glcheck(glDeleteBuffers(1, &m_nBuffer));
 }
 
-SkiRenderable::SkiRenderable(ShaderProgramPtr shaderProgram, glm::vec3 color) :
+SkiRenderable::SkiRenderable(ShaderProgramPtr shaderProgram, ParticlePtr particle, glm::vec3 color, bool isLeft) :
     HierarchicalRenderable(shaderProgram),
+    m_particle(particle),
+    m_isLeft(isLeft),
     m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
 {
     float length = 4.0;
@@ -91,13 +93,27 @@ SkiRenderable::SkiRenderable(ShaderProgramPtr shaderProgram, glm::vec3 color) :
 
 void SkiRenderable::do_draw()
 {
-    //Update the parent and local transform matrix to position the geometric data according to the particle's data.
-    /*const float& pRadius = 1.0;
-    glm::mat4 scale = glm::scale(glm::mat4(1.0), glm::vec3(pRadius));
-    glm::mat4 translate = glm::translate(glm::mat4(1.0), glm::vec3(pPosition));
-    setLocalTransform(translate*scale);*/
+
+    float skiAngle =  0.85 * 3.14;
+
+    glm::mat4 ParentTransform;
+    if (m_particle->getBraking()) {
+        ParentTransform = glm::translate(glm::mat4(), glm::vec3(1, -0.18, 2.3));
+        ParentTransform = glm::rotate(ParentTransform, skiAngle, glm::vec3(0, 1.0, 0.0));
+        if (m_isLeft) {
+            ParentTransform = glm::translate(ParentTransform, glm::vec3(0.0, -1.0, 0.0));
+            ParentTransform = glm::rotate(ParentTransform, 0.35f, glm::vec3(0, 0.0, 1.0));
+        } else {
+            ParentTransform = glm::translate(ParentTransform, glm::vec3(0.0, 1.0, 0.0));
+            ParentTransform = glm::rotate(ParentTransform, -0.35f, glm::vec3(0, 0.0, 1.0));
+        }
+    } else {
+        ParentTransform = glm::translate(glm::mat4(), glm::vec3(1, -0.18, 2.3));
+        ParentTransform = glm::rotate(ParentTransform, skiAngle, glm::vec3(0, 1.0, 0.0));
+    }
+
     setLocalTransform(getLocalTransform());
-    setParentTransform(getParentTransform());
+    setParentTransform(ParentTransform);
 
     //Draw geometric data
     int positionLocation = m_shaderProgram->getAttributeLocation("vPosition");
