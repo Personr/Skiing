@@ -81,7 +81,7 @@ public:
      * Set the position of this particle.
      * @param pos The new position of this particle.
      */
-    void setPosition(const glm::vec3 &pos);
+    virtual void setPosition(const glm::vec3 &pos);
 
     /**@brief Set the particle's velocity.
      *

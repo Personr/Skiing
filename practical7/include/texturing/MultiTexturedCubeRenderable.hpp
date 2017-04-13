@@ -12,13 +12,16 @@ public :
     ~MultiTexturedCubeRenderable();
     MultiTexturedCubeRenderable(ShaderProgramPtr shaderProgram,
         const std::string &textureFilename1,
-        const std::string& textureFilename2);
+            const std::string& textureFilename2);
 
     void setMaterial(const MaterialPtr& material);
-
+    
+protected:
+    float m_blendingCoefficient;
+    
 private:
     void do_draw();
-    void do_animate(float time);
+    virtual void do_animate(float time);
 
     std::vector< glm::vec3 > m_positions;
     std::vector< glm::vec3 > m_normals;
@@ -28,7 +31,7 @@ private:
     unsigned int m_nBuffer;
     unsigned int m_tBuffer1, m_tBuffer2;
     unsigned int m_texId1, m_texId2;
-    float m_blendingCoefficient;
+    
 
     MaterialPtr m_material;
 };
