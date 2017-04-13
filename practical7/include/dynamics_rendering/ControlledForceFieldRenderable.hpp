@@ -34,6 +34,7 @@ public:
 
     bool accelerating;
     bool deaccelerating;
+    bool braking;
     bool turning_left;
     bool turning_right;
 };
