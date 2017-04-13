@@ -29,6 +29,7 @@ public:
     float max_intensity;
     float acceleration;
     float deacceleration;
+    float brakingIntensity;
     float angularSpeed;
     float dampingFactor;
 

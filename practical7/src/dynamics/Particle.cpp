@@ -25,7 +25,8 @@ Particle::Particle(const glm::vec3 &position, const glm::vec3 &velocity,
     m_mass(mass),
     m_radius(radius), m_isFixed( false ),
     m_angle(0),
-    m_bodyAngle(0)
+    m_bodyAngle(0),
+    m_braking(false)
 {}
 
 Particle::~Particle()
@@ -67,6 +68,11 @@ float Particle::getBodyAngle() const
     return m_bodyAngle;
 }
 
+bool Particle::getBraking() const
+{
+    return m_braking;
+}
+
 void Particle::setPosition(const glm::vec3 &pos)
 {
     m_position = pos;
@@ -90,6 +96,11 @@ void Particle::setAngle(const float angle)
 void Particle::setBodyAngle(const float bodyAngle)
 {
     m_bodyAngle = bodyAngle;
+}
+
+void Particle::setBraking(const bool braking)
+{
+    m_braking = braking;
 }
 
 
