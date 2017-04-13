@@ -28,12 +28,13 @@ void ControlledForceFieldStatus::clear()
     bodyAngle = 0;
     last_time =  0;
     intensity = 0;
-    acceleration = 10.0;
-    deacceleration = 5.0;
+    acceleration = 20.0;
+    deacceleration = 10.0;
+    brakingIntensity = 40.0;
     angularSpeed = 2.0;
     dampingFactor = 0.8;
-    min_intensity = -1;
-    max_intensity = 10;
+    min_intensity = -20;
+    max_intensity = 20;
 
     accelerating =  false;
     deaccelerating =  false;
@@ -95,6 +96,8 @@ void ControlledForceFieldRenderable::do_keyPressedEvent(sf::Event& e)
         m_status.accelerating = true;
     } else if (e.key.code == sf::Keyboard::Down) {
         m_status.deaccelerating = true;
+    } else if (e.key.code == sf::Keyboard::X) {
+        m_status.braking = true;
     }
 }
 
@@ -108,6 +111,8 @@ void ControlledForceFieldRenderable::do_keyReleasedEvent(sf::Event& e)
         m_status.accelerating = false;
     } else if (e.key.code == sf::Keyboard::Down) {
         m_status.deaccelerating = false;
+    } else if (e.key.code == sf::Keyboard::X) {
+        m_status.braking = false;
     }
 }
 
@@ -161,11 +166,18 @@ void ControlledForceFieldRenderable::do_animate(float time)
             }
         }
 
-        if (m_status.accelerating)
+        if (m_status.braking) {
+            m_status.intensity -= dt * m_status.brakingIntensity;
+            if (m_status.intensity < 0) {
+                m_status.intensity = 0;
+            }
+        } else if (m_status.accelerating) {
             m_status.intensity += dt * m_status.acceleration;
-        else if (m_status.deaccelerating)
+        } else if (m_status.deaccelerating) {
             m_status.intensity -= dt * m_status.deacceleration;
-        else m_status.intensity *= dt * m_status.dampingFactor;
+        } else {
+            m_status.intensity *= dt * m_status.dampingFactor;
+        }
 
         m_status.intensity =
             glm::clamp(m_status.intensity, m_status.min_intensity, m_status.max_intensity);
