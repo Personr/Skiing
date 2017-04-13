@@ -15,6 +15,7 @@
 #include "../include/dynamics_rendering/ArmRenderable.hpp"
 #include "../include/dynamics_rendering/LegRenderable.hpp"
 #include "../include/dynamics_rendering/BodyCylinderRenderable.hpp"
+#include "../include/dynamics_rendering/StickRenderable.hpp"
 #include "../include/dynamics_rendering/SkiRenderable.hpp"
 #include "../include/dynamics_rendering/ParticleListRenderable.hpp"
 #include "../include/dynamics_rendering/ConstantForceFieldRenderable.hpp"
@@ -42,6 +43,9 @@ void practical07_collisions(Viewer& viewer,
 void practical07_playPool(Viewer& viewer,
     DynamicSystemPtr& system, DynamicSystemRenderablePtr& systemRenderable);
 
+void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader,
+    ParticlePtr mobile, DynamicSystemRenderablePtr& systemRenderable);
+
 
 void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
 {
@@ -67,13 +71,10 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     system->setSolver(solver);
     system->setDt(0.005);
 
- //Temporary variables
+    //Temporary variables
     glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
     std::string filename;
     MaterialPtr pearl = Material::Pearl();
-
-
-
 
     //Define a directional light for the whole scene
     glm::vec3 d_direction = glm::normalize(glm::vec3(0.0,0.0,-1.0));
@@ -513,7 +514,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     xcour = xcour+(xsuiv-xcour)*10;
     zcour = zcour+(zsuiv-zcour)*10+5;
     px = glm::vec3(xcour,0.0,zcour);
-    
+
     Camera& camera = viewer.getCamera();
     FollowedParticlePtr mobile = std::make_shared<FollowedParticle>( px, pv, pm, pr, &camera);
     system->addParticle( mobile );
@@ -523,8 +524,9 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
 
     //Create a particleRenderable for each particle of the system
     //Add them to the system renderable
-    ParticleRenderablePtr mobileRenderable = std::make_shared<ParticleRenderable>(flatShader, mobile);
-    HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
+    //ParticleRenderablePtr mobileRenderable = std::make_shared<ParticleRenderable>(flatShader, mobile);
+    //HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
+    createSkier(flatShader, phongShader, mobile, systemRenderable);
     ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
     HierarchicalRenderable::addChild(systemRenderable, otherRenderable);
     glm::vec3 nullForce(0.0, 0.0, 0.0);
@@ -664,6 +666,7 @@ void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, Part
     glm::vec3 legColor(25.0, 25.0, 255.0);
     glm::vec3 torsoColor(0.0, 204.0, 0.0);
     glm::vec3 skiColor(204.0, 0.0, 0.0);
+    glm::vec3 stickColor = skiColor;
 
     //Create a particleRenderable for each particle of the system
     //Add them to the system renderable
@@ -678,6 +681,8 @@ void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, Part
     LegRenderablePtr rThighRenderable = std::make_shared<LegRenderable>(flatShader, mobile, legColor, false);
     BodyCylinderRenderablePtr lTibiaRenderable = std::make_shared<BodyCylinderRenderable>(flatShader, legColor);
     BodyCylinderRenderablePtr rTibiaRenderable = std::make_shared<BodyCylinderRenderable>(flatShader, legColor);
+    StickRenderablePtr rStickRenderable = std::make_shared<StickRenderable>(flatShader, stickColor);
+    StickRenderablePtr lStickRenderable = std::make_shared<StickRenderable>(flatShader, stickColor);
 
 
     float headZAngle = 1.9 * 3.14 / 4;
@@ -727,6 +732,16 @@ void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, Part
     lTibiaRenderable->setParentTransform(lTibiaParentTransform);
     rTibiaRenderable->setParentTransform(rTibiaParentTransform);
 
+    float StickAngle = 3.14/3.0;
+    glm::mat4 lStickParentTransform = glm::scale(glm::mat4(), glm::vec3(0.8, 0.8, 1));
+    glm::mat4 rStickParentTransform = glm::scale(glm::mat4(), glm::vec3(0.8, 0.8, 1));
+    lStickParentTransform = glm::translate(lStickParentTransform, glm::vec3(0, 0, 1.3));
+    rStickParentTransform = glm::translate(rStickParentTransform, glm::vec3(0, 0, 1.3));
+    lStickParentTransform = glm::rotate(lStickParentTransform, StickAngle, glm::vec3(0.5, 1, 0.0));
+    rStickParentTransform = glm::rotate(rStickParentTransform, StickAngle, glm::vec3(-0.5, 1, 0.0));
+    lStickRenderable->setParentTransform(lStickParentTransform);
+    rStickRenderable->setParentTransform(rStickParentTransform);
+
 
     HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
     HierarchicalRenderable::addChild(mobileRenderable, lArmRenderable);
@@ -740,6 +755,8 @@ void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, Part
     HierarchicalRenderable::addChild(lTibiaRenderable, lSkiRenderable);
     HierarchicalRenderable::addChild(rTibiaRenderable, rSkiRenderable);
     HierarchicalRenderable::addChild(mobileRenderable, suzanneBoyle);
+    HierarchicalRenderable::addChild(rForearmRenderable, rStickRenderable);
+    HierarchicalRenderable::addChild(lForearmRenderable, lStickRenderable);
 }
 
 
