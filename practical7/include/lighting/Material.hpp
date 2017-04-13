@@ -136,6 +136,8 @@ public:
     static MaterialPtr Bronze();
     
     static MaterialPtr Leaf();
+    
+    static MaterialPtr Chrome();
 
 private:
     glm::vec3 m_ambient; /*!< The ambient material vector defines what color this object reflects under ambient lighting. */

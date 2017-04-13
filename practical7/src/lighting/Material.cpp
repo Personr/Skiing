@@ -151,3 +151,13 @@ MaterialPtr Material::Leaf()
     float shininess = openGLFactor*0.6;
     return std::make_shared<Material>(ambient, diffuse, specular, shininess);
 }
+
+MaterialPtr Material::Chrome()
+{
+    float openGLFactor=128.0;
+    glm::vec3 ambient(0.2, 0.2, 0.2);
+    glm::vec3 diffuse(0.5, 0.5, 0.5);
+    glm::vec3 specular(0.5, 0.5, 0.5);
+    float shininess = openGLFactor*1;
+    return std::make_shared<Material>(ambient, diffuse, specular, shininess);
+}
