@@ -500,7 +500,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
 
     // SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 0, zcour);
     //viewer.addRenderable(slalom);
-    slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 5*k, zcour);
+    SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 5*k, zcour);
     viewer.addRenderable(slalom);
 
 
