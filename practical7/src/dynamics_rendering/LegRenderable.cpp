@@ -13,9 +13,9 @@ LegRenderable::~LegRenderable()
 }
 
 LegRenderable::LegRenderable(ShaderProgramPtr shaderProgram, ParticlePtr particle, glm::vec3 color, bool isLeft) :
-    BodyCylinderRenderable(shaderProgram, color),
-    m_particle(particle),
-    m_isLeft(isLeft)
+BodyCylinderRenderable(shaderProgram, color),
+m_particle(particle),
+m_isLeft(isLeft)
 {
 
 }
@@ -34,13 +34,19 @@ void LegRenderable::do_draw()
         ParentTransform = glm::scale(glm::mat4(), glm::vec3(1.5, 1.5, 1.6));
         ParentTransform = glm::translate(ParentTransform, glm::vec3(-0.4, -0.3, 2));
         ParentTransform = glm::rotate(ParentTransform, -thighAngle, glm::vec3(0, 1, 0.0));
-        glm::mat4 rotate = glm::rotate(glm::mat4(1.0), toRotateBody, glm::vec3(0,1,0));
+        glm::mat4 rotate = glm::rotate(glm::mat4(1.0), 0.0f, glm::vec3(0,1,0));
+        if (toRotateBody < 0) {
+            rotate = glm::rotate(glm::mat4(1.0), toRotateBody, glm::vec3(0,1,0));
+        }
         ParentTransform = ParentTransform * rotate;
     } else {
         ParentTransform = glm::scale(glm::mat4(), glm::vec3(1.5, 1.5, 1.6));
         ParentTransform = glm::translate(ParentTransform, glm::vec3(-0.4, 0.3, 2));
         ParentTransform = glm::rotate(ParentTransform, -thighAngle, glm::vec3(0, 1, 0.0));
-        glm::mat4 rotate = glm::rotate(glm::mat4(1.0), -toRotateBody, glm::vec3(0,1,0));
+        glm::mat4 rotate = glm::rotate(glm::mat4(1.0), 0.0f, glm::vec3(0,1,0));
+        if (toRotateBody > 0) {
+            rotate = glm::rotate(glm::mat4(1.0), -toRotateBody, glm::vec3(0,1,0));
+        }
         ParentTransform = ParentTransform * rotate;
     }
 
