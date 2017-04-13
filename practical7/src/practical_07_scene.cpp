@@ -437,7 +437,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     xcour = xcour+(xsuiv-xcour)*10;
     zcour = zcour+(zsuiv-zcour)*10+5;
     px = glm::vec3(xcour,0.0,zcour);
-    
+
     Camera& camera = viewer.getCamera();
     FollowedParticlePtr mobile = std::make_shared<FollowedParticle>( px, pv, pm, pr, &camera);
     system->addParticle( mobile );
@@ -447,8 +447,9 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
 
     //Create a particleRenderable for each particle of the system
     //Add them to the system renderable
-    ParticleRenderablePtr mobileRenderable = std::make_shared<ParticleRenderable>(flatShader, mobile);
-    HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
+    //ParticleRenderablePtr mobileRenderable = std::make_shared<ParticleRenderable>(flatShader, mobile);
+    //HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
+    createSkier(flatShader, phongShader, mobile, systemRenderable);
     ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
     HierarchicalRenderable::addChild(systemRenderable, otherRenderable);
     glm::vec3 nullForce(0.0, 0.0, 0.0);

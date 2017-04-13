@@ -147,7 +147,17 @@ void ControlledForceFieldRenderable::do_animate(float time)
                           0);
 
         } else if (!m_status.turning_right && !m_status.turning_left) {
-            m_status.bodyAngle = 0;
+            if (m_status.bodyAngle < 0) {
+                m_status.bodyAngle += dt * m_status.angularSpeed;
+                if (m_status.bodyAngle > 0) {
+                    m_status.bodyAngle = 0;
+                }
+            } else if (m_status.bodyAngle > 0) {
+                m_status.bodyAngle -= dt * m_status.angularSpeed;
+                if (m_status.bodyAngle < 0) {
+                    m_status.bodyAngle = 0;
+                }
+            }
         }
 
         if (m_status.accelerating)
