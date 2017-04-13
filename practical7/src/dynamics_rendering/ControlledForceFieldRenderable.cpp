@@ -37,6 +37,7 @@ void ControlledForceFieldStatus::clear()
 
     accelerating =  false;
     deaccelerating =  false;
+    braking = false;
     turning_left =  false;
     turning_right =  false;
 }
