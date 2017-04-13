@@ -1,5 +1,6 @@
 #include "../include/Viewer.hpp"
 #include "../include/FrameRenderable.hpp"
+#include "../include/SlalomRenderable.hpp"
 
 #include "../include/dynamics/DynamicSystem.hpp"
 #include "../include/dynamics/DampingForceField.hpp"
@@ -57,6 +58,8 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     viewer.addShaderProgram(flatShader);
     FrameRenderablePtr frame = std::make_shared<FrameRenderable>(flatShader);
     viewer.addRenderable(frame);
+
+
  ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
         "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
  viewer.addShaderProgram(phongShader);
@@ -480,8 +483,9 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   float zsuiv = 0;
   // float alphacour=3.14159/8;
   float alphacour=0.02;
-
+  float k = -1;
   for (float i = 0; i<22; i++){
+    k = k*-1;
     p1= glm::vec3 (xcour, 0.0f, zcour);
     p2=glm::vec3(xsuiv, 0.0f, zsuiv);
     p3=glm::vec3(xcour, 1.0f, zcour);               //Plan incliné
@@ -493,8 +497,12 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     alphacour=alphacour+0.02;
     plane = std::make_shared<Plane>(p1, p2, p3);
     system->addPlaneObstacle(plane);
+
+    SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 0, zcour);
+    viewer.addRenderable(slalom);
+    slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 10*k, zcour);
+    viewer.addRenderable(slalom);
   }
-  
   //coté opposé
   /*
     xcour =0;
