@@ -100,7 +100,7 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     //filename = "../textures/checkerboard.png";
     //TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
 
-   
+
 
 
     //Create a renderable associated to the dynamic system
@@ -376,7 +376,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   ShaderProgramPtr flatShader
     = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
   viewer.addShaderProgram(flatShader);
-  
+
  ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
         "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
  viewer.addShaderProgram(phongShader);
@@ -387,7 +387,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
         = std::make_shared<ShaderProgram>("../shaders/multiTextureVertex.glsl",
                                           "../shaders/multiTextureFragment.glsl");
     viewer.addShaderProgram(multiTexShader);
-    
+
     // Two texture shaders: simple and multi-texturing
     ShaderProgramPtr texShader
         = std::make_shared<ShaderProgram>("../shaders/textureVertex.glsl",
@@ -412,7 +412,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   //createPlane(texShader, systemRenderable);
 
 
-  
+
   glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
     std::string filename;
     filename = "../textures/neige.jpg";
@@ -542,7 +542,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     xcour = xcour+(xsuiv-xcour)*10;
     zcour = zcour+(zsuiv-zcour)*10+5;
     px = glm::vec3(xcour,0.0,zcour);
-    
+
     Camera& camera = viewer.getCamera();
     FollowedParticlePtr mobile = std::make_shared<FollowedParticle>( px, pv, pm, pr, &camera);
     system->addParticle( mobile );
@@ -623,8 +623,8 @@ void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, Part
     //Create a particleRenderable for each particle of the system
     //Add them to the system renderable
     SkierRenderablePtr mobileRenderable = std::make_shared<SkierRenderable>(flatShader, mobile, torsoColor);
-    SkiRenderablePtr lSkiRenderable = std::make_shared<SkiRenderable>(flatShader, skiColor);
-    SkiRenderablePtr rSkiRenderable = std::make_shared<SkiRenderable>(flatShader, skiColor);
+    SkiRenderablePtr lSkiRenderable = std::make_shared<SkiRenderable>(flatShader, mobile, skiColor, true);
+    SkiRenderablePtr rSkiRenderable = std::make_shared<SkiRenderable>(flatShader, mobile, skiColor, false);
     ArmRenderablePtr lArmRenderable = std::make_shared<ArmRenderable>(flatShader, mobile, torsoColor, true);
     ArmRenderablePtr rArmRenderable = std::make_shared<ArmRenderable>(flatShader, mobile, torsoColor, false);
     BodyCylinderRenderablePtr lForearmRenderable = std::make_shared<BodyCylinderRenderable>(flatShader, torsoColor);

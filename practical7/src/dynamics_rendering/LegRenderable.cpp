@@ -25,7 +25,6 @@ void LegRenderable::do_draw()
 {
 
     //Update the parent and local transform matrix to position the geometric data according to the particle's data.
-
     float thighAngle = 4 * 3.14 / 3.0;
     float toRotateBody = 0.5 * m_particle->getBodyAngle();
 

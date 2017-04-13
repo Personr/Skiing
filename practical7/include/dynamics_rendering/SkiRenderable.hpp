@@ -2,6 +2,7 @@
 #define SKI_RENDERABLE_HPP
 
 #include "../HierarchicalRenderable.hpp"
+#include "../dynamics/Particle.hpp"
 
 #include <vector>
 #include <glm/glm.hpp>
@@ -21,13 +22,16 @@ class SkiRenderable : public HierarchicalRenderable
          * @param program The shader program used to render the particle.
          * @param particle The particle to render.
          */
-        SkiRenderable(ShaderProgramPtr program, glm::vec3 color);
+        SkiRenderable(ShaderProgramPtr program, ParticlePtr particle, glm::vec3 color, bool isLeft);
 
         ~SkiRenderable();
 
     private:
         void do_draw();
         void do_animate(float time);
+
+        ParticlePtr m_particle;
+        bool m_isLeft;
 
         size_t m_numberOfVertices;
         std::vector<glm::vec3> m_positions;
