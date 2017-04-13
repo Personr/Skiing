@@ -77,11 +77,11 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     MaterialPtr pearl = Material::Pearl();
 
     //Define a directional light for the whole scene
-    glm::vec3 d_direction = glm::normalize(glm::vec3(0.0,3.0,-1.0));
-    glm::vec3 d_ambient(0.5,0.5,0.5), d_diffuse(1.0,1.0,0.8), d_specular(1.0,1.0,1.0);
+    glm::vec3 d_direction = glm::normalize(glm::vec3(0.0,0.0,-1.0));
+    glm::vec3 d_ambient(1.0,1.0,1.0), d_diffuse(1.0,1.0,0.8), d_specular(1.0,1.0,1.0);
     DirectionalLightPtr directionalLight = std::make_shared<DirectionalLight>(d_direction, d_ambient, d_diffuse, d_specular);
     //Add a renderable to display the light and control it via mouse/key event
-    glm::vec3 lightPosition(0.0,5.0,5.0);
+    glm::vec3 lightPosition(0.0,0.0,5.0);
     DirectionalLightRenderablePtr directionalLightRenderable = std::make_shared<DirectionalLightRenderable>(flatShader, directionalLight, lightPosition);
     localTransformation = glm::scale(glm::mat4(1.0), glm::vec3(0.5,0.5,0.5));
     directionalLightRenderable->setLocalTransform(localTransformation);
@@ -89,36 +89,11 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     viewer.addRenderable(directionalLightRenderable);
 
 
-    filename = "../textures/neige.png";
+    //  filename = "../textures/neige.png";
     //filename = "../textures/checkerboard.png";
-    TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
+    //TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
 
-    parentTransformation = glm::scale(glm::mat4(1.0), glm::vec3(60.0,200.0,50.0));
-    texPlane->setParentTransform(parentTransformation);
-    texPlane->setMaterial(pearl);
-    viewer.addRenderable(texPlane);
-    float anglecour=0.1;
-    float xcour = 30;
-    float zcour = 0;
-    for (int l=0; l<6; l++){
-      TexturedPlaneRenderablePtr texPlane2 = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
-      parentTransformation2 = glm::scale(glm::mat4(1.0), glm::vec3(10.0,200.0,50.0));
-      parentTransformation2 =glm::rotate(glm::mat4(1.0), -anglecour, glm::vec3(0,1,0))* parentTransformation2;
-      parentTransformation2 = glm::translate(glm::mat4(1.0), glm::vec3((xcour+5*cos(anglecour)),0.0,(zcour+5*sin(anglecour))))*parentTransformation2;
-      xcour+=10*cos(anglecour);
-      zcour+=10*sin(anglecour);
-      anglecour+=(0.1);
-      texPlane2->setParentTransform(parentTransformation2);
-      texPlane2->setMaterial(pearl);
-      viewer.addRenderable(texPlane2);
-    }
-    TexturedPlaneRenderablePtr texPlane2 = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
-    parentTransformation2 = glm::scale(glm::mat4(1.0), glm::vec3(300.0,200.0,50.0));
-    parentTransformation2 =glm::rotate(glm::mat4(1.0), -anglecour, glm::vec3(0,1,0))* parentTransformation2;
-    parentTransformation2 = glm::translate(glm::mat4(1.0), glm::vec3((xcour+150*cos(anglecour)),0.0,(zcour+150*sin(anglecour))))*parentTransformation2;
-    texPlane2->setParentTransform(parentTransformation2);
-    texPlane2->setMaterial(pearl);
-    viewer.addRenderable(texPlane2);
+   
 
 
     //Create a renderable associated to the dynamic system
@@ -314,45 +289,50 @@ void practical07_springs(Viewer& viewer, DynamicSystemPtr& system, DynamicSystem
 }
 
 
-void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSystemRenderablePtr &systemRenderable)
-{
+/*
+void createPlane(ShaderProgramPtr flatShader, DynamicSystemRenderablePtr& systemRenderable ){
 
-  //Position the camera
-  viewer.getCamera().setViewMatrix(
-				   glm::lookAt(glm::vec3(1, 0, 15), glm::vec3(0,0,0), glm::vec3(0,0,(intptr_t)time)) );//Pos, origine, et sens caméra
+  glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
+  std::string filename;
+  MaterialPtr pearl = Material::Pearl();
+  filename = "../textures/neige.jpg";
+  //filename = "../textures/checkerboard.png";
+  TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
 
-  //Initialize a shader for the following renderables
-  ShaderProgramPtr flatShader
-    = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
-  viewer.addShaderProgram(flatShader);
- ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
-        "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
- viewer.addShaderProgram(phongShader);
-
-
-
-
-
-
-
-
-  auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
-  viewer.addRenderable(tree);
-  //Activate collision detection
-  system->setCollisionsDetection(true);
-
-  //Initialize the restitution coefficient for collision
-  //1.0 = full elastic response
-  //0.0 = full absorption
-  system->setRestitution(.10f);
+  parentTransformation = glm::scale(glm::mat4(1.0), glm::vec3(60.0,200.0,50.0));
+  texPlane->setParentTransform(parentTransformation);
+  texPlane->setMaterial(pearl);
+  viewer.addRenderable(texPlane);
+  float anglecour=0.1;
+  float xcour = 30;
+  float zcour = 0;
+  for (int l=0; l<6; l++){
+    TexturedPlaneRenderablePtr texPlane2 = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
+    parentTransformation2 = glm::scale(glm::mat4(1.0), glm::vec3(10.0,200.0,50.0));
+    parentTransformation2 =glm::rotate(glm::mat4(1.0), -anglecour, glm::vec3(0,1,0))* parentTransformation2;
+    parentTransformation2 = glm::translate(glm::mat4(1.0), glm::vec3((xcour+5*cos(anglecour)),0.0,(zcour+5*sin(anglecour))))*parentTransformation2;
+    xcour+=10*cos(anglecour);
+    zcour+=10*sin(anglecour);
+    anglecour+=(0.1);
+    texPlane2->setParentTransform(parentTransformation2);
+    texPlane2->setMaterial(pearl);
+    viewer.addRenderable(texPlane2);
+  }
+  TexturedPlaneRenderablePtr texPlane2 = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
+  parentTransformation2 = glm::scale(glm::mat4(1.0), glm::vec3(300.0,200.0,50.0));
+  parentTransformation2 =glm::rotate(glm::mat4(1.0), -anglecour, glm::vec3(0,1,0))* parentTransformation2;
+  parentTransformation2 = glm::translate(glm::mat4(1.0), glm::vec3((xcour+150*cos(anglecour)),0.0,(zcour+150*sin(anglecour))))*parentTransformation2;
+  texPlane2->setParentTransform(parentTransformation2);
+  texPlane2->setMaterial(pearl);
+  viewer.addRenderable(texPlane2);
 
   //Initialize a plane from 3 points and add it to the system as an obstacle
   //Plan 1
   glm::vec3 p1, p2, p3;
   PlanePtr plane;
-  float xcour =0;
+  xcour =0;
   float xsuiv = 30;
-  float zcour =0;
+  zcour =0;
   float zsuiv = 0;
   // float alphacour=3.14159/8;
   float alphacour=0.1;
@@ -371,6 +351,104 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     system->addPlaneObstacle(plane);
   }
 
+
+}
+
+
+*/
+
+
+void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSystemRenderablePtr &systemRenderable)
+{
+
+  //Position the camera
+  viewer.getCamera().setViewMatrix(
+				   glm::lookAt(glm::vec3(1, 0, 15), glm::vec3(0,0,0), glm::vec3(0,0,(intptr_t)time)) );//Pos, origine, et sens caméra
+
+  //Initialize a shader for the following renderables
+  ShaderProgramPtr flatShader
+    = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
+  viewer.addShaderProgram(flatShader);
+ ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
+        "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
+ viewer.addShaderProgram(phongShader);
+ ShaderProgramPtr texShader
+        = std::make_shared<ShaderProgram>("../shaders/textureVertex.glsl",
+                                          "../shaders/textureFragment.glsl");
+    viewer.addShaderProgram(texShader);
+  auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
+  viewer.addRenderable(tree);
+  //Activate collision detection
+  system->setCollisionsDetection(true);
+
+  //Initialize the restitution coefficient for collision
+  //1.0 = full elastic response
+  //0.0 = full absorption
+  system->setRestitution(.10f);
+
+  //createPlane(texShader, systemRenderable);
+
+
+  
+  glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
+    std::string filename;
+    MaterialPtr pearl = Material::Pearl();
+    filename = "../textures/neige.jpg";
+    //filename = "../textures/checkerboard.png";
+    TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
+
+    parentTransformation = glm::scale(glm::mat4(1.0), glm::vec3(60.0,200.0,50.0));
+    texPlane->setParentTransform(parentTransformation);
+    texPlane->setMaterial(pearl);
+    viewer.addRenderable(texPlane);
+    float anglecour=0.02;
+    float xcour = 30;
+    float zcour = 0;
+    for (int l=0; l<20; l++){
+      TexturedPlaneRenderablePtr texPlane2 = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
+      parentTransformation2 = glm::scale(glm::mat4(1.0), glm::vec3(20.0,200.0,50.0));
+      parentTransformation2 =glm::rotate(glm::mat4(1.0), -anglecour, glm::vec3(0,1,0))* parentTransformation2;
+      parentTransformation2 = glm::translate(glm::mat4(1.0), glm::vec3((xcour+10*cos(anglecour)),0.0,(zcour+10*sin(anglecour))))*parentTransformation2;
+      xcour+=20*cos(anglecour);
+      zcour+=20*sin(anglecour);
+      anglecour+=(0.02);
+      texPlane2->setParentTransform(parentTransformation2);
+      texPlane2->setMaterial(pearl);
+      viewer.addRenderable(texPlane2);
+    }
+    TexturedPlaneRenderablePtr texPlane2 = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
+    parentTransformation2 = glm::scale(glm::mat4(1.0), glm::vec3(300.0,200.0,50.0));
+    parentTransformation2 =glm::rotate(glm::mat4(1.0), -anglecour, glm::vec3(0,1,0))* parentTransformation2;
+    parentTransformation2 = glm::translate(glm::mat4(1.0), glm::vec3((xcour+150*cos(anglecour)),0.0,(zcour+150*sin(anglecour))))*parentTransformation2;
+    texPlane2->setParentTransform(parentTransformation2);
+    texPlane2->setMaterial(pearl);
+    viewer.addRenderable(texPlane2);
+
+  //Initialize a plane from 3 points and add it to the system as an obstacle
+  //Plan 1
+  glm::vec3 p1, p2, p3;
+  PlanePtr plane;
+  xcour =0;
+  float xsuiv = 30;
+  zcour =0;
+  float zsuiv = 0;
+  // float alphacour=3.14159/8;
+  float alphacour=0.02;
+
+  for (float i = 0; i<22; i++){
+    p1= glm::vec3 (xcour, 0.0f, zcour);
+    p2=glm::vec3(xsuiv, 0.0f, zsuiv);
+    p3=glm::vec3(xcour, 1.0f, zcour);               //Plan incliné
+    xcour = xsuiv;
+    zcour = zsuiv;
+    xsuiv = xsuiv+20*cos(alphacour);
+    zsuiv = zsuiv+20*sin(alphacour);
+    // alphacour=alphacour+3.14159/8;
+    alphacour=alphacour+0.02;
+    plane = std::make_shared<Plane>(p1, p2, p3);
+    system->addPlaneObstacle(plane);
+  }
+  
   //coté opposé
   /*
     xcour =0;
@@ -429,8 +507,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
 
       }
 
-
-    //Initialize two particles with position, velocity, mass and radius and add it to the system
+       //Initialize two particles with position, velocity, mass and radius and add it to the system
     glm::vec3 px(0.0, 0.0, 0.0);//A remplacer par le skieur
     glm::vec3 pv(0.0, 0.0, 0.0);
     float pm = 1.0, pr = 1.0;
