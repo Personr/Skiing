@@ -113,7 +113,7 @@ void SkierRenderable::do_draw()
     float toRotate = m_particle->getAngle();
     float toRotateBody = m_particle->getBodyAngle();
     float toRotateTorso = 3.14 / 8.0;
-    glm::mat4 scale = glm::scale(glm::mat4(1.0), glm::vec3(pRadius));
+    glm::mat4 scale = glm::scale(glm::mat4(1.0), glm::vec3(0.3));
     glm::mat4 translate = glm::translate(glm::mat4(1.0), glm::vec3(pPosition));
     glm::mat4 rotate = glm::rotate(glm::mat4(1.0), toRotate, glm::vec3(0,0,1));
     glm::mat4 rotate2 = glm::rotate(glm::mat4(1.0), toRotateBody, glm::vec3(1,0,0));

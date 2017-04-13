@@ -26,6 +26,7 @@
 #include "../include/dynamics_rendering/QuadRenderable.hpp"
 
 #include "../include/texturing/TexturedPlaneRenderable.hpp"
+#include "../include/BillboardRenderable.hpp"
 #include "../include/lighting/DirectionalLightRenderable.hpp"
 #include "../include/lighting/LightedMeshRenderable.hpp"
 #include "../include/TreeCylinderRenderable.hpp"
@@ -81,7 +82,7 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
 
     //Define a directional light for the whole scene
     glm::vec3 d_direction = glm::normalize(glm::vec3(0.0,0.0,-1.0));
-    glm::vec3 d_ambient(1.0,1.0,1.0), d_diffuse(1.0,1.0,0.8), d_specular(1.0,1.0,1.0);
+    glm::vec3 d_ambient(0.5,0.5,0.5), d_diffuse(0.5,0.5,0.5), d_specular(0.5,0.5,0.5);
     DirectionalLightPtr directionalLight = std::make_shared<DirectionalLight>(d_direction, d_ambient, d_diffuse, d_specular);
     //Add a renderable to display the light and control it via mouse/key event
     glm::vec3 lightPosition(0.0,0.0,5.0);
@@ -96,7 +97,7 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     //filename = "../textures/checkerboard.png";
     //TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
 
-   
+
 
 
     //Create a renderable associated to the dynamic system
@@ -372,13 +373,59 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   ShaderProgramPtr flatShader
     = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
   viewer.addShaderProgram(flatShader);
+
  ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
         "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
  viewer.addShaderProgram(phongShader);
- ShaderProgramPtr texShader
+
+
+//Multi-textured cube
+    ShaderProgramPtr multiTexShader
+        = std::make_shared<ShaderProgram>("../shaders/multiTextureVertex.glsl",
+                                          "../shaders/multiTextureFragment.glsl");
+    viewer.addShaderProgram(multiTexShader);
+
+    // Two texture shaders: simple and multi-texturing
+    ShaderProgramPtr texShader
         = std::make_shared<ShaderProgram>("../shaders/textureVertex.glsl",
                                           "../shaders/textureFragment.glsl");
     viewer.addShaderProgram(texShader);
+
+
+
+
+
+
+
+
+    MaterialPtr pearl = Material::Pearl();
+    std::string filename1 = "../textures/freestyle.jpg", filename2 = "../textures/plan.jpg";
+    BillboardRenderablePtr multitexCube = std::make_shared<BillboardRenderable>(multiTexShader, texShader, filename1, filename2, 5.0F, 5.0F, 0.0F, &viewer);
+    //    parentTransformation = glm::translate(glm::mat4(1.0), glm::vec3(5,0.0,0.5));
+    //    multitexCube->setParentTransform(parentTransformation);
+    multitexCube->setMaterial(pearl);
+    viewer.addRenderable(multitexCube);
+    //Define a spot light
+    glm::vec3 s_position(5.0, 6.0, 0.0 + 2), s_spotDirection = glm::normalize(glm::vec3(0.0, -1.0, 1.5));
+    glm::vec3 s_ambient(1.0, 1.0, 1.0), s_diffuse(1.0, 1.0, 1.0), s_specular(1.0, 1.0, 1.0);
+    float s_constant = 0.0, s_linear = 1.0, s_quadratic = 0.0;
+    float s_cosInnerCutOff = std::cos(glm::radians(40.0f));
+    float s_cosOuterCutOff = std::cos(glm::radians(80.0f));
+    SpotLightPtr spotLight = std::make_shared<SpotLight>(s_position, s_spotDirection,
+            s_ambient, s_diffuse, s_specular,
+            s_constant, s_linear, s_quadratic,
+            s_cosInnerCutOff, s_cosOuterCutOff);
+    s_position = glm::vec3(5.0, 4.0, 0.0 + 2);
+    s_spotDirection = glm::normalize(glm::vec3(0.0, 1.0, 1.5));
+    SpotLightPtr spotLight2 = std::make_shared<SpotLight>(s_position, s_spotDirection,
+            s_ambient, s_diffuse, s_specular,
+            s_constant, s_linear, s_quadratic,
+            s_cosInnerCutOff, s_cosOuterCutOff);
+    viewer.addSpotLight(spotLight);
+    viewer.addSpotLight(spotLight2);
+
+
+
   auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
   viewer.addRenderable(tree);
   //Activate collision detection
@@ -392,11 +439,10 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   //createPlane(texShader, systemRenderable);
 
 
-  
+
   glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
     std::string filename;
-    MaterialPtr pearl = Material::Pearl();
-    filename = "../textures/neige_bosse.jpg";
+    filename = "../textures/neige.jpg";
     //filename = "../textures/checkerboard.png";
     TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
 
@@ -672,8 +718,8 @@ void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, Part
     //Create a particleRenderable for each particle of the system
     //Add them to the system renderable
     SkierRenderablePtr mobileRenderable = std::make_shared<SkierRenderable>(flatShader, mobile, torsoColor);
-    SkiRenderablePtr lSkiRenderable = std::make_shared<SkiRenderable>(flatShader, skiColor);
-    SkiRenderablePtr rSkiRenderable = std::make_shared<SkiRenderable>(flatShader, skiColor);
+    SkiRenderablePtr lSkiRenderable = std::make_shared<SkiRenderable>(flatShader, mobile, skiColor, true);
+    SkiRenderablePtr rSkiRenderable = std::make_shared<SkiRenderable>(flatShader, mobile, skiColor, false);
     ArmRenderablePtr lArmRenderable = std::make_shared<ArmRenderable>(flatShader, mobile, torsoColor, true);
     ArmRenderablePtr rArmRenderable = std::make_shared<ArmRenderable>(flatShader, mobile, torsoColor, false);
     BodyCylinderRenderablePtr lForearmRenderable = std::make_shared<BodyCylinderRenderable>(flatShader, torsoColor);
