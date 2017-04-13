@@ -1,5 +1,6 @@
 #include "../include/Viewer.hpp"
 #include "../include/FrameRenderable.hpp"
+#include "../include/SlalomRenderable.hpp"
 
 #include "../include/dynamics/DynamicSystem.hpp"
 #include "../include/dynamics/DampingForceField.hpp"
@@ -25,6 +26,7 @@
 #include "../include/dynamics_rendering/QuadRenderable.hpp"
 
 #include "../include/texturing/TexturedPlaneRenderable.hpp"
+#include "../include/BillboardRenderable.hpp"
 #include "../include/lighting/DirectionalLightRenderable.hpp"
 #include "../include/lighting/LightedMeshRenderable.hpp"
 #include "../include/TreeCylinderRenderable.hpp"
@@ -56,6 +58,8 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
     viewer.addShaderProgram(flatShader);
     FrameRenderablePtr frame = std::make_shared<FrameRenderable>(flatShader);
     viewer.addRenderable(frame);
+
+
  ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
         "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
  viewer.addShaderProgram(phongShader);
@@ -78,7 +82,7 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
 
     //Define a directional light for the whole scene
     glm::vec3 d_direction = glm::normalize(glm::vec3(0.0,0.0,-1.0));
-    glm::vec3 d_ambient(1.0,1.0,1.0), d_diffuse(1.0,1.0,0.8), d_specular(1.0,1.0,1.0);
+    glm::vec3 d_ambient(0.5,0.5,0.5), d_diffuse(0.5,0.5,0.5), d_specular(0.5,0.5,0.5);
     DirectionalLightPtr directionalLight = std::make_shared<DirectionalLight>(d_direction, d_ambient, d_diffuse, d_specular);
     //Add a renderable to display the light and control it via mouse/key event
     glm::vec3 lightPosition(0.0,0.0,5.0);
@@ -369,13 +373,59 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   ShaderProgramPtr flatShader
     = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
   viewer.addShaderProgram(flatShader);
+
  ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
         "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
  viewer.addShaderProgram(phongShader);
- ShaderProgramPtr texShader
+
+
+//Multi-textured cube
+    ShaderProgramPtr multiTexShader
+        = std::make_shared<ShaderProgram>("../shaders/multiTextureVertex.glsl",
+                                          "../shaders/multiTextureFragment.glsl");
+    viewer.addShaderProgram(multiTexShader);
+
+    // Two texture shaders: simple and multi-texturing
+    ShaderProgramPtr texShader
         = std::make_shared<ShaderProgram>("../shaders/textureVertex.glsl",
                                           "../shaders/textureFragment.glsl");
     viewer.addShaderProgram(texShader);
+
+
+
+
+
+
+
+
+    MaterialPtr pearl = Material::Pearl();
+    std::string filename1 = "../textures/freestyle.jpg", filename2 = "../textures/plan.jpg";
+    BillboardRenderablePtr multitexCube = std::make_shared<BillboardRenderable>(multiTexShader, texShader, filename1, filename2, 5.0F, 5.0F, 0.0F, &viewer);
+    //    parentTransformation = glm::translate(glm::mat4(1.0), glm::vec3(5,0.0,0.5));
+    //    multitexCube->setParentTransform(parentTransformation);
+    multitexCube->setMaterial(pearl);
+    viewer.addRenderable(multitexCube);
+    //Define a spot light
+    glm::vec3 s_position(5.0, 6.0, 0.0 + 2), s_spotDirection = glm::normalize(glm::vec3(0.0, -1.0, 1.5));
+    glm::vec3 s_ambient(1.0, 1.0, 1.0), s_diffuse(1.0, 1.0, 1.0), s_specular(1.0, 1.0, 1.0);
+    float s_constant = 0.0, s_linear = 1.0, s_quadratic = 0.0;
+    float s_cosInnerCutOff = std::cos(glm::radians(40.0f));
+    float s_cosOuterCutOff = std::cos(glm::radians(80.0f));
+    SpotLightPtr spotLight = std::make_shared<SpotLight>(s_position, s_spotDirection,
+            s_ambient, s_diffuse, s_specular,
+            s_constant, s_linear, s_quadratic,
+            s_cosInnerCutOff, s_cosOuterCutOff);
+    s_position = glm::vec3(5.0, 4.0, 0.0 + 2);
+    s_spotDirection = glm::normalize(glm::vec3(0.0, 1.0, 1.5));
+    SpotLightPtr spotLight2 = std::make_shared<SpotLight>(s_position, s_spotDirection,
+            s_ambient, s_diffuse, s_specular,
+            s_constant, s_linear, s_quadratic,
+            s_cosInnerCutOff, s_cosOuterCutOff);
+    viewer.addSpotLight(spotLight);
+    viewer.addSpotLight(spotLight2);
+
+
+
   auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
   viewer.addRenderable(tree);
   //Activate collision detection
@@ -392,7 +442,6 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
 
   glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
     std::string filename;
-    MaterialPtr pearl = Material::Pearl();
     filename = "../textures/neige.jpg";
     //filename = "../textures/checkerboard.png";
     TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
@@ -434,8 +483,9 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   float zsuiv = 0;
   // float alphacour=3.14159/8;
   float alphacour=0.02;
-
+  float k = -1;
   for (float i = 0; i<22; i++){
+    k = k*-1;
     p1= glm::vec3 (xcour, 0.0f, zcour);
     p2=glm::vec3(xsuiv, 0.0f, zsuiv);
     p3=glm::vec3(xcour, 1.0f, zcour);               //Plan incliné
@@ -447,8 +497,12 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     alphacour=alphacour+0.02;
     plane = std::make_shared<Plane>(p1, p2, p3);
     system->addPlaneObstacle(plane);
-  }
 
+    SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 0, zcour);
+    viewer.addRenderable(slalom);
+    slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 10*k, zcour);
+    viewer.addRenderable(slalom);
+  }
   //coté opposé
   /*
     xcour =0;
