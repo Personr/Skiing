@@ -79,7 +79,7 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
 
     //Define a directional light for the whole scene
     glm::vec3 d_direction = glm::normalize(glm::vec3(0.0,0.0,-1.0));
-    glm::vec3 d_ambient(1.0,1.0,1.0), d_diffuse(1.0,1.0,0.8), d_specular(1.0,1.0,1.0);
+    glm::vec3 d_ambient(0.5,0.5,0.5), d_diffuse(0.5,0.5,0.5), d_specular(0.5,0.5,0.5);
     DirectionalLightPtr directionalLight = std::make_shared<DirectionalLight>(d_direction, d_ambient, d_diffuse, d_specular);
     //Add a renderable to display the light and control it via mouse/key event
     glm::vec3 lightPosition(0.0,0.0,5.0);
@@ -370,6 +370,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   ShaderProgramPtr flatShader
     = std::make_shared<ShaderProgram>("../shaders/flatVertex.glsl","../shaders/flatFragment.glsl");
   viewer.addShaderProgram(flatShader);
+  
  ShaderProgramPtr phongShader = std::make_shared<ShaderProgram>(
         "../shaders/phongVertex.glsl", "../shaders/phongFragment.glsl");
  viewer.addShaderProgram(phongShader);
@@ -386,24 +387,32 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
         = std::make_shared<ShaderProgram>("../shaders/textureVertex.glsl",
                                           "../shaders/textureFragment.glsl");
     viewer.addShaderProgram(texShader);
+    
+    
+    
+    
+    
+    
 
-MaterialPtr pearl = Material::Pearl();
-    std::string filename1="../textures/freestyle.jpg", filename2="../textures/plan.jpg";
+
+    MaterialPtr pearl = Material::Pearl();
+    std::string filename1 = "../textures/freestyle.jpg", filename2 = "../textures/plan.jpg";
     BillboardRenderablePtr multitexCube = std::make_shared<BillboardRenderable>(multiTexShader, texShader, filename1, filename2, 5.0F, 5.0F, 0.0F, &viewer);
-//    parentTransformation = glm::translate(glm::mat4(1.0), glm::vec3(5,0.0,0.5));
-//    multitexCube->setParentTransform(parentTransformation);
+    //    parentTransformation = glm::translate(glm::mat4(1.0), glm::vec3(5,0.0,0.5));
+    //    multitexCube->setParentTransform(parentTransformation);
     multitexCube->setMaterial(pearl);
     viewer.addRenderable(multitexCube);
     //Define a spot light
-    glm::vec3 s_position(5.0,5.0,0.0+2), s_spotDirection = glm::normalize(glm::vec3(0.0,-1.0,0.0));
-    glm::vec3 s_ambient(0.0,0.0,0.0), s_diffuse(0.5,0.5,0.5), s_specular(0.5,0.5,0.5);
-    float s_constant=1.0, s_linear=0.0, s_quadratic=0.0;
+    glm::vec3 s_position(5.0, 5.0, 0.0 + 2), s_spotDirection = glm::normalize(glm::vec3(0.0, -1.0, 0.0));
+    glm::vec3 s_ambient(0.0, 0.0, 0.0), s_diffuse(0.5, 0.5, 0.5), s_specular(0.5, 0.5, 0.5);
+    float s_constant = 1.0, s_linear = 0.0, s_quadratic = 0.0;
     float s_cosInnerCutOff = std::cos(glm::radians(20.0f));
     float s_cosOuterCutOff = std::cos(glm::radians(40.0f));
     SpotLightPtr spotLight = std::make_shared<SpotLight>(s_position, s_spotDirection,
-                                                         s_ambient, s_diffuse, s_specular,
-                                                         s_constant, s_linear, s_quadratic,
-                                                         s_cosInnerCutOff, s_cosOuterCutOff);
+            s_ambient, s_diffuse, s_specular,
+            s_constant, s_linear, s_quadratic,
+            s_cosInnerCutOff, s_cosOuterCutOff);
+    viewer.addSpotLight(spotLight);
 
 
     
@@ -423,7 +432,6 @@ MaterialPtr pearl = Material::Pearl();
   
   glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
     std::string filename;
-    MaterialPtr pearl = Material::Pearl();
     filename = "../textures/neige.jpg";
     //filename = "../textures/checkerboard.png";
     TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
@@ -545,7 +553,7 @@ MaterialPtr pearl = Material::Pearl();
     xcour = xcour+(xsuiv-xcour)*10;
     zcour = zcour+(zsuiv-zcour)*10+5;
     px = glm::vec3(xcour,0.0,zcour);
-
+    
     Camera& camera = viewer.getCamera();
     FollowedParticlePtr mobile = std::make_shared<FollowedParticle>( px, pv, pm, pr, &camera);
     system->addParticle( mobile );
