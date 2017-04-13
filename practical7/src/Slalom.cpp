@@ -35,7 +35,7 @@ SlalomRenderable::SlalomRenderable(ShaderProgramPtr shaderProgram, int x, int y,
 void SlalomRenderable::initAttributes(int x, int y, int z)
 {
     m_positions.push_back( glm::vec3(x,y,z));
-    m_positions.push_back( glm::vec3(x,y,z+5));
+    m_positions.push_back( glm::vec3(x,y,z+3));
 
     m_colors.push_back( glm::vec4(0,0,1,1) );
     m_colors.push_back( glm::vec4(0,0,1,1) );

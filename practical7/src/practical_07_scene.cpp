@@ -452,30 +452,23 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     plane = std::make_shared<Plane>(p1, p2, p3);
     system->addPlaneObstacle(plane);
 
-    SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 0, zcour);
+    // SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 0, zcour);
+    //viewer.addRenderable(slalom);
+    slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 5*k, zcour);
     viewer.addRenderable(slalom);
-    slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 10*k, zcour);
-    viewer.addRenderable(slalom);
+
+
   }
-  //coté opposé
-  /*
-    xcour =0;
-    xsuiv = 30;
-    zcour =0;
-    zsuiv = 0;
-    alphacour=3.14159/8;
-    for (float i = 0; i<6; i++){
-    p1= glm::vec3 (-xcour, 0.0f, zcour);
-    p2=glm::vec3(-xsuiv, 0.0f, zsuiv);
-    p3=glm::vec3(-xcour, 1.0f, zcour);               //Plan incliné
-    xcour = xsuiv;
-    zcour = zsuiv;
-    xsuiv = xsuiv+10*cos(alphacour);
-    zsuiv = zsuiv+10*sin(alphacour);
-    alphacour=alphacour+3.14159/8;
-    plane = std::make_shared<Plane>(p1, p2, p3);
-    system->addPlaneObstacle(plane);
-    }*/
+  /* auto tree2 = std::make_shared<TreeRenderable>(phongShader, 4.0);
+  parentTransformation2 = glm::translate(glm::mat4(1.0), glm::vec3((xcour),10.0,(zcour)));
+  tree->setParentTransform(parentTransformation2);
+  viewer.addRenderable(tree2);
+
+  auto tree3 = std::make_shared<TreeRenderable>(phongShader, 4.0);
+  parentTransformation2 = glm::translate(glm::mat4(1.0), glm::vec3((xcour),-10.0,(zcour)));
+  tree2->setParentTransform(parentTransformation2);
+  viewer.addRenderable(tree3);*/
+
   glm::vec3 px,pv;
   float pm, pr;
   //Particle vs Plane collision
@@ -492,7 +485,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     unsigned tmax = 2;
     int j =0;
 
-      for (i=0; i <= 100; i = i + 1) {
+      for (i=0; i <= 300; i = i + 1) {
       //Initialize a particle with position, velocity, mass and radius and add it to the system
 
       randx = 2*(rand() / (RAND_MAX + 1.)) -1;
@@ -550,8 +543,8 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     HierarchicalRenderable::addChild(systemRenderable, forceRenderable);
 
     //Add a damping force field to the mobile.
-    DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 0.9);
-    system->addForceField(dampingForceField);
+    // DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 0.9);
+    //system->addForceField(dampingForceField);
 
 
 
