@@ -48,6 +48,9 @@ void practical07_playPool(Viewer& viewer,
 void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader,
     ParticlePtr mobile, DynamicSystemRenderablePtr& systemRenderable);
 
+void addPannel(float x, float y, float z, Viewer& viewer, 
+        ShaderProgramPtr texShader, ShaderProgramPtr multiTexShader);
+
 
 void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
 {
@@ -82,7 +85,7 @@ void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
 
     //Define a directional light for the whole scene
     glm::vec3 d_direction = glm::normalize(glm::vec3(0.0,0.0,-1.0));
-    glm::vec3 d_ambient(0.5,0.5,0.5), d_diffuse(0.5,0.5,0.5), d_specular(0.5,0.5,0.5);
+    glm::vec3 d_ambient(1,1,1), d_diffuse(1,1,1), d_specular(1,1,1);
     DirectionalLightPtr directionalLight = std::make_shared<DirectionalLight>(d_direction, d_ambient, d_diffuse, d_specular);
     //Add a renderable to display the light and control it via mouse/key event
     glm::vec3 lightPosition(0.0,0.0,5.0);
@@ -395,37 +398,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     
     
     
-    
-
-
-    MaterialPtr pearl = Material::Pearl();
-    std::string filename1 = "../textures/freestyle.jpg", filename2 = "../textures/plan.jpg";
-    BillboardRenderablePtr multitexCube = std::make_shared<BillboardRenderable>(multiTexShader, texShader, filename1, filename2, 5.0F, 5.0F, 0.0F, &viewer);
-    //    parentTransformation = glm::translate(glm::mat4(1.0), glm::vec3(5,0.0,0.5));
-    //    multitexCube->setParentTransform(parentTransformation);
-    multitexCube->setMaterial(pearl);
-    viewer.addRenderable(multitexCube);
-    //Define a spot light
-    glm::vec3 s_position(5.0, 6.0, 0.0 + 2), s_spotDirection = glm::normalize(glm::vec3(0.0, -1.0, 1.5));
-    glm::vec3 s_ambient(1.0, 1.0, 1.0), s_diffuse(1.0, 1.0, 1.0), s_specular(1.0, 1.0, 1.0);
-    float s_constant = 0.0, s_linear = 1.0, s_quadratic = 0.0;
-    float s_cosInnerCutOff = std::cos(glm::radians(40.0f));
-    float s_cosOuterCutOff = std::cos(glm::radians(80.0f));
-    SpotLightPtr spotLight = std::make_shared<SpotLight>(s_position, s_spotDirection,
-            s_ambient, s_diffuse, s_specular,
-            s_constant, s_linear, s_quadratic,
-            s_cosInnerCutOff, s_cosOuterCutOff);
-    s_position = glm::vec3(5.0, 4.0, 0.0 + 2); 
-    s_spotDirection = glm::normalize(glm::vec3(0.0, 1.0, 1.5));
-    SpotLightPtr spotLight2 = std::make_shared<SpotLight>(s_position, s_spotDirection,
-            s_ambient, s_diffuse, s_specular,
-            s_constant, s_linear, s_quadratic,
-            s_cosInnerCutOff, s_cosOuterCutOff);
-    viewer.addSpotLight(spotLight);
-    viewer.addSpotLight(spotLight2);
-
-
-    
+    addPannel(5.0F, 5.0F, 0.0F, viewer, texShader, multiTexShader);
   auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
   viewer.addRenderable(tree);
   //Activate collision detection
@@ -448,6 +421,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
 
     parentTransformation = glm::scale(glm::mat4(1.0), glm::vec3(60.0,200.0,50.0));
     texPlane->setParentTransform(parentTransformation);
+    MaterialPtr pearl = Material::Pearl();
     texPlane->setMaterial(pearl);
     viewer.addRenderable(texPlane);
     float anglecour=0.02;
@@ -599,110 +573,6 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 0.9);
     system->addForceField(dampingForceField);
 
-
-
-
-
-
-
-
-
-
-    /*
-    //Initialize two particles with position, velocity, mass and radius and add it to the system
-    glm::vec3 px(0.0, 0.0, 10.0);
-    glm::vec3 pv(0.0, 0.0, 0.0);
-    float pm = 1.0, pr = 1.0;
-    px = glm::vec3(0.0,0.0,1.0);
-    ParticlePtr mobile = std::make_shared<Particle>( px, pv, pm, pr);
-    system->addParticle( mobile );
-    px = glm::vec3(0.0,5.0,1.0);
-    //Create a particleRenderable for each particle of the system
-    //Add them to the system renderable
-    SkierRenderablePtr mobileRenderable = std::make_shared<SkierRenderable>(flatShader, mobile);
-    HeadRenderablePtr headRenderable = std::make_shared<HeadRenderable>(flatShader);
-    SkiRenderablePtr lSkiRenderable = std::make_shared<SkiRenderable>(flatShader);
-    SkiRenderablePtr rSkiRenderable = std::make_shared<SkiRenderable>(flatShader);
-    ArmRenderablePtr lArmRenderable = std::make_shared<ArmRenderable>(flatShader);
-    ArmRenderablePtr rArmRenderable = std::make_shared<ArmRenderable>(flatShader);
-    ArmRenderablePtr lForearmRenderable = std::make_shared<ArmRenderable>(flatShader);
-    ArmRenderablePtr rForearmRenderable = std::make_shared<ArmRenderable>(flatShader);
-
-
-    glm::mat4 headParentTransform = glm::translate(glm::mat4(), glm::vec3(0.0, 0.0, 5.5));
-    headRenderable->setParentTransform(headParentTransform);
-
-    float angle = 2.5 * 3.14 / 4.0;
-
-    glm::mat4 lSkiParentTransform = glm::translate(glm::mat4(), glm::vec3(-1, 0.15, 0.0));
-    glm::mat4 rSkiParentTransform = glm::translate(glm::mat4(), glm::vec3(-1, -0.45, 0.0));
-    lSkiRenderable->setParentTransform(lSkiParentTransform);
-    rSkiRenderable->setParentTransform(rSkiParentTransform);
-
-    glm::mat4 lArmParentTransform = glm::translate(glm::mat4(), glm::vec3(-0.5, -0.8, 4.5));
-    glm::mat4 rArmParentTransform = glm::translate(glm::mat4(), glm::vec3(-0.5, 0.8, 4.5));
-    lArmParentTransform = glm::rotate(lArmParentTransform, angle, glm::vec3(0.3, 1.0, 0.0));
-    rArmParentTransform = glm::rotate(rArmParentTransform, angle, glm::vec3(-0.3, 1.0, 0.0));
-    lArmRenderable->setParentTransform(lArmParentTransform);
-    rArmRenderable->setParentTransform(rArmParentTransform);
-
-    HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, headRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, lSkiRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, rSkiRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, lArmRenderable);
-    HierarchicalRenderable::addChild(mobileRenderable, rArmRenderable);
-    HierarchicalRenderable::addChild(lArmRenderable, lForearmRenderable);
-    HierarchicalRenderable::addChild(rArmRenderable, rForearmRenderable);
-
-    glm::vec3 nullForce(0.0, 0.0, 0.0);
-    std::vector<ParticlePtr> vParticle;
-    vParticle.push_back(mobile);
-    //vParticle.push_back(other); //added
-    ConstantForceFieldPtr force = std::make_shared<ConstantForceField>(vParticle, nullForce);
-    system->addForceField(force);
-
-    //Initialize a renderable for the force field applied on the mobile particle.
-    //This renderable allows to modify the attribute of the force by key/mouse events
-    //Add this renderable to the systemRenderable.
-    ControlledForceFieldRenderablePtr forceRenderable = std::make_shared<ControlledForceFieldRenderable>(flatShader, force);
-    HierarchicalRenderable::addChild(systemRenderable, forceRenderable);
-
-    //Add a damping force field to the mobile.
-    DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 0.9);
-    system->addForceField(dampingForceField);
-    */
-    /*
-    //Initialize a force field that apply only to the mobile particle
-    glm::vec3 nullForce(0.0, 0.0, 10.0);
-    std::vector<ParticlePtr> vParticle;
-    glm::vec3 px(0.0, 0.0, 10.0);
-    glm::vec3 pv(0.0, 0.0, 0.0);
-    float pm = 25.0, pr = 1.0;
-    ParticlePtr mobile = std::make_shared<Particle>( px, pv, pm, pr);
-
-    system->addParticle( mobile );
-    SkieurRenderablePtr mobileRenderable= std::make_shared<SkieurRenderable>(flatShader, mobile);
-    HierarchicalRenderable::addChild(systemRenderable, mobileRenderable);
-
-    glm::vec3 pxnew(4.0, 0.0, 0.0);
-
-
-    ParticlePtr other = std::make_shared<Particle>(pxnew , pv, pm, pr);
-    system->addParticle( other );
-
-    ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
-    HierarchicalRenderable::addChild(systemRenderable, otherRenderable);                           //laaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-    vParticle.push_back(mobile);
-    ConstantForceFieldPtr force = std::make_shared<ConstantForceField>(vParticle, nullForce);
-    system->addForceField(force);
-    ControlledForceFieldRenderablePtr forceRenderable = std::make_shared<ControlledForceFieldRenderable>(flatShader, force);
-    HierarchicalRenderable::addChild(systemRenderable, forceRenderable);
-
-    DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 15.0f);
-    system->addForceField(dampingForceField);
-    */
   }
   //Initialize a force field that apply to all the particles of the system to simulate gravity
   //Add it to the system as a force field
@@ -714,6 +584,34 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   // ConstantForceFieldPtr windForceField = std::make_shared<ConstantForceField>(system->getParticles(), glm::vec3{0,1,0} );
   //  system->addForceField(windForceField);
 
+}
+
+void addPannel(float x, float y, float z, Viewer& viewer, ShaderProgramPtr texShader, ShaderProgramPtr multiTexShader) {
+    MaterialPtr pearl = Material::Pearl();
+    std::string filename1 = "../textures/freestyle.jpg", filename2 = "../textures/plan.jpg";
+    BillboardRenderablePtr multitexCube = std::make_shared<BillboardRenderable>(multiTexShader, texShader, filename1, filename2, x, y, z, &viewer);
+    //    parentTransformation = glm::translate(glm::mat4(1.0), glm::vec3(5,0.0,0.5));
+    //    multitexCube->setParentTransform(parentTransformation);
+    multitexCube->setMaterial(pearl);
+    viewer.addRenderable(multitexCube);
+    //Define a spot light
+    glm::vec3 s_position(x, y+1.0, z + 2), s_spotDirection = glm::normalize(glm::vec3(0.0, -1.0, 1.5));
+    glm::vec3 s_ambient(1.0, 1.0, 1.0), s_diffuse(1.0, 1.0, 1.0), s_specular(1.0, 1.0, 1.0);
+    float s_constant = 0.0, s_linear = 1.0, s_quadratic = 0.0;
+    float s_cosInnerCutOff = std::cos(glm::radians(40.0f));
+    float s_cosOuterCutOff = std::cos(glm::radians(80.0f));
+    SpotLightPtr spotLight = std::make_shared<SpotLight>(s_position, s_spotDirection,
+            s_ambient, s_diffuse, s_specular,
+            s_constant, s_linear, s_quadratic,
+            s_cosInnerCutOff, s_cosOuterCutOff);
+    s_position = glm::vec3(x, y-1.0, z + 2); 
+    s_spotDirection = glm::normalize(glm::vec3(0.0, 1.0, 1.5));
+    SpotLightPtr spotLight2 = std::make_shared<SpotLight>(s_position, s_spotDirection,
+            s_ambient, s_diffuse, s_specular,
+            s_constant, s_linear, s_quadratic,
+            s_cosInnerCutOff, s_cosOuterCutOff);
+    viewer.addSpotLight(spotLight);
+    viewer.addSpotLight(spotLight2);
 }
 
 void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, ParticlePtr mobile, DynamicSystemRenderablePtr& systemRenderable) {
