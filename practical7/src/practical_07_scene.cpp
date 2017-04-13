@@ -403,16 +403,23 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     multitexCube->setMaterial(pearl);
     viewer.addRenderable(multitexCube);
     //Define a spot light
-    glm::vec3 s_position(5.0, 5.0, 0.0 + 2), s_spotDirection = glm::normalize(glm::vec3(0.0, -1.0, 0.0));
-    glm::vec3 s_ambient(0.0, 0.0, 0.0), s_diffuse(0.5, 0.5, 0.5), s_specular(0.5, 0.5, 0.5);
-    float s_constant = 1.0, s_linear = 0.0, s_quadratic = 0.0;
-    float s_cosInnerCutOff = std::cos(glm::radians(20.0f));
-    float s_cosOuterCutOff = std::cos(glm::radians(40.0f));
+    glm::vec3 s_position(5.0, 6.0, 0.0 + 2), s_spotDirection = glm::normalize(glm::vec3(0.0, -1.0, 1.5));
+    glm::vec3 s_ambient(1.0, 1.0, 1.0), s_diffuse(1.0, 1.0, 1.0), s_specular(1.0, 1.0, 1.0);
+    float s_constant = 0.0, s_linear = 1.0, s_quadratic = 0.0;
+    float s_cosInnerCutOff = std::cos(glm::radians(40.0f));
+    float s_cosOuterCutOff = std::cos(glm::radians(80.0f));
     SpotLightPtr spotLight = std::make_shared<SpotLight>(s_position, s_spotDirection,
             s_ambient, s_diffuse, s_specular,
             s_constant, s_linear, s_quadratic,
             s_cosInnerCutOff, s_cosOuterCutOff);
+    s_position = glm::vec3(5.0, 4.0, 0.0 + 2); 
+    s_spotDirection = glm::normalize(glm::vec3(0.0, 1.0, 1.5));
+    SpotLightPtr spotLight2 = std::make_shared<SpotLight>(s_position, s_spotDirection,
+            s_ambient, s_diffuse, s_specular,
+            s_constant, s_linear, s_quadratic,
+            s_cosInnerCutOff, s_cosOuterCutOff);
     viewer.addSpotLight(spotLight);
+    viewer.addSpotLight(spotLight2);
 
 
     
