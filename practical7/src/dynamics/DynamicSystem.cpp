@@ -94,8 +94,7 @@ void DynamicSystem::setSolver(SolverPtr solver)
 
 void DynamicSystem::detectCollisions()
 {
-
-  glm::vec3 px,pv;//On remet le flocon en haut quand il touche le sol debut decla
+ glm::vec3 px,pv;//On remet le flocon en haut quand il touche le sol debut decla
   float pm, pr;
   //  srand (static_cast <unsigned> (time(0)));
   float randx = 1.0f;
@@ -128,7 +127,7 @@ void DynamicSystem::detectCollisions()
 
 		//	px = glm::vec3(5,5, 5);   bail canon à neige
 		pv = glm::vec3(0,0,-randv1);
-		px = glm::vec3(600*randx,5*randy*5, 10+200*randx);
+		px = glm::vec3(60*randx-30,200*randy-100, 10*randz+5);
 		pr = 0.1*randr + 0.1;
 		pm = randz+1; //Fin remise en haut
 
