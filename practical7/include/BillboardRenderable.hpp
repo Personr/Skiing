@@ -13,13 +13,14 @@
 class BillboardRenderable : public PubCubeRenderable {
 public:
     BillboardRenderable(ShaderProgramPtr multiTexShader, ShaderProgramPtr texShader,
-        const std::string &textureFilename1,
-        const std::string& textureFilename2, float x, float y, float z, Viewer *viewer);
+            const std::string &textureFilename1,
+            const std::string& textureFilename2, float x, float y, float z, Viewer *viewer);
     virtual ~BillboardRenderable();
 private:
-    void addBoard(std::shared_ptr<PubCubeRenderable>parent, 
-        ShaderProgramPtr texShader, float transX, float transY, float transZ, float scaleX, 
-        float scaleY, float scaleZ);
+    void addBoard(std::shared_ptr<PubCubeRenderable>parent,
+            ShaderProgramPtr texShader, float transX, float transY, float transZ, float scaleX,
+            float scaleY, float scaleZ);
+
 };
 
 typedef std::shared_ptr<BillboardRenderable> BillboardRenderablePtr;

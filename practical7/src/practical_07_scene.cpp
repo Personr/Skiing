@@ -363,8 +363,8 @@ void createPiste(Viewer& viewer, ShaderProgramPtr& texShader,  ShaderProgramPtr&
     //viewer.addRenderable(slalom);
     if (creerPoteau ==2){//On en met un tout les 3 plans
       creerPoteau = 0;
-      cotePoteau = cotePoteau*-1;
       SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 0*cotePoteau, zcour, cotePoteau);
+      cotePoteau = cotePoteau*-1;
       viewer.addRenderable(slalom);
       slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 10*cotePoteau, zcour, cotePoteau);
       viewer.addRenderable(slalom);

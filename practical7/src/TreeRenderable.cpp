@@ -60,8 +60,8 @@ void TreeRenderable::addTransformations(std::shared_ptr<TreeCylinderRenderable>&
     
     cylinder->addParentTransformKeyframe(t, GeometricTransformation( glm::vec3{0,0,z}, glm::quat( glm::vec3(0, initAngle, angleZ))) );
     t += frand_a_b(1.0,2.0);
-    while (t < 5.0) {      
-        cylinder->addParentTransformKeyframe(t, GeometricTransformation( glm::vec3{0,0,z}, glm::quat( glm::vec3(0, angleY + frand_a_b(-0.05,0.05), angleZ))) );      
+    while (t < 600.0) {      
+        cylinder->addParentTransformKeyframe(t, GeometricTransformation( glm::vec3{0,0,z}, glm::quat( glm::vec3(0, angleY + frand_a_b(-0.1,0.1), angleZ))) );      
         t += frand_a_b(1.0,2.0);
     }
     
