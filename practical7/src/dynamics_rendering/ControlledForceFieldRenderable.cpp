@@ -30,7 +30,7 @@ void ControlledForceFieldStatus::clear()
     intensity = 0;
     acceleration = 20.0;
     deacceleration = 10.0;
-    brakingIntensity = 40.0;
+    brakingIntensity = 60.0;
     angularSpeed = 2.0;
     dampingFactor = 0.8;
     min_intensity = -20;
@@ -199,12 +199,12 @@ void ControlledForceFieldRenderable::do_draw()
         p->setBodyAngle(m_status.bodyAngle);
         p->setBraking(m_status.braking);
 
-        m_positions.push_back(p->getPosition());
+        /*m_positions.push_back(p->getPosition());
         m_positions.push_back(p->getPosition()  + 2.0f* m_status.movement);
         m_colors.push_back(glm::vec4(1.0,0.0,0.0,1.0));
         m_colors.push_back(glm::vec4(1.0,0.0,0.0,1.0));
         m_normals.push_back(glm::vec3(1.0,0.0,0.0));
-        m_normals.push_back(glm::vec3(1.0,0.0,0.0));
+        m_normals.push_back(glm::vec3(1.0,0.0,0.0));*/
     }
 
     //Update data on the GPU
