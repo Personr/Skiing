@@ -504,8 +504,8 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   ConstantForceFieldPtr gravityForceField = std::make_shared<ConstantForceField>(system->getParticles(), glm::vec3{0,0,-10} );
   system->addForceField(gravityForceField);
   
-  //viewer.setAnimationLoop(true, 6.0);
-  //viewer.startAnimation();
+  viewer.setAnimationLoop(true, 600.0);
+  viewer.startAnimation();
 
 }
 
