@@ -49,7 +49,7 @@ void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader,
     ParticlePtr mobile, DynamicSystemRenderablePtr& systemRenderable);
 
 void addPannel(float x, float y, float z, Viewer& viewer, 
-        ShaderProgramPtr texShader, ShaderProgramPtr multiTexShader);
+        ShaderProgramPtr texShader, ShaderProgramPtr multiTexShader, DynamicSystemPtr& system);
 
 
 void initialize_practical_07_scene(Viewer& viewer, unsigned int scene_to_load)
@@ -295,7 +295,7 @@ void practical07_springs(Viewer& viewer, DynamicSystemPtr& system, DynamicSystem
     HierarchicalRenderable::addChild(systemRenderable, gravityRenderable);
 }
 
-void createPiste(Viewer& viewer, ShaderProgramPtr& texShader,  ShaderProgramPtr& flatShader, DynamicSystemPtr& system, float& x1, float& z1, float& x2, float& z2) {
+void createPiste(Viewer& viewer, ShaderProgramPtr& texShader, ShaderProgramPtr& multiTexShader,  ShaderProgramPtr& flatShader, ShaderProgramPtr&  phongShader, DynamicSystemPtr& system, float& x1, float& z1, float& x2, float& z2) {
   glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
     std::string filename;
     filename = "../textures/neige.jpg";
@@ -329,6 +329,7 @@ void createPiste(Viewer& viewer, ShaderProgramPtr& texShader,  ShaderProgramPtr&
     texPlane2->setParentTransform(parentTransformation2);
     texPlane2->setMaterial(pearl);
     viewer.addRenderable(texPlane2);
+    
 
   //Initialize a plane from 3 points and add it to the system as an obstacle
   //Plan 1
@@ -359,6 +360,9 @@ void createPiste(Viewer& viewer, ShaderProgramPtr& texShader,  ShaderProgramPtr&
     //viewer.addRenderable(slalom);
     SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 5*k, zcour);
     viewer.addRenderable(slalom);
+//    auto tree3 = std::make_shared<TreeRenderable>(phongShader, 4.0);
+//  tree3->setParentTransform(glm::translate( glm::mat4(1.0), glm::vec3(xcour,5*k,zcour) ));
+//  viewer.addRenderable(tree3);
   }
   x1 = xcour;
   z1 = zcour;
@@ -435,11 +439,12 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     
     
     
-    
-    
-  addPannel(5.0F, 5.0F, 0.0F, viewer, texShader, multiTexShader);
+  addPannel(5.0F, 5.0F, 1.0F, viewer, texShader, multiTexShader, system);
   auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
   viewer.addRenderable(tree);
+  auto tree2 = std::make_shared<TreeRenderable>(phongShader, 4.0);
+  tree2->setParentTransform(glm::translate( glm::mat4(1.0), glm::vec3(10,10,0.0) ));
+  viewer.addRenderable(tree2);
   //Activate collision detection
   system->setCollisionsDetection(true);
 
@@ -449,7 +454,7 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   //createPlane(texShader, systemRenderable);
 
   float xcour, zcour, xsuiv, zsuiv;
-  createPiste(viewer, texShader, flatShader, system, xcour, zcour, xsuiv, zsuiv);
+  createPiste(viewer, texShader, multiTexShader, flatShader, phongShader, system, xcour, zcour, xsuiv, zsuiv);
 
   /* auto tree2 = std::make_shared<TreeRenderable>(phongShader, 4.0);
      parentTransformation2 = glm::translate(glm::mat4(1.0), glm::vec3((xcour),10.0,(zcour)));
@@ -470,11 +475,11 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   FollowedParticlePtr mobile = std::make_shared<FollowedParticle>( px, pv, pm, pr, &camera);
   system->addParticle( mobile );
   // Décommenter pour ajouter une particule en bas
-  //  px = glm::vec3(0.0,5.0,1.0);
-  //ParticlePtr other = std::make_shared<Particle>( px, pv, pm, pr);
-  //system->addParticle( other );
-  //ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
-  //HierarchicalRenderable::addChild(systemRenderable, otherRenderable);
+    px = glm::vec3(0.0,5.0,1.0);
+  ParticlePtr other = std::make_shared<Particle>( px, pv, pm, pr);
+  system->addParticle( other );
+  ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
+  HierarchicalRenderable::addChild(systemRenderable, otherRenderable);
 
   createSkier(flatShader, phongShader, mobile, systemRenderable);
   glm::vec3 nullForce(0.0, 0.0, 0.0);
@@ -486,20 +491,23 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   ControlledForceFieldRenderablePtr forceRenderable = std::make_shared<ControlledForceFieldRenderable>(flatShader, force);
   HierarchicalRenderable::addChild(systemRenderable, forceRenderable);
 
-  // DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 0.9);
-  //system->addForceField(dampingForceField);
+  DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 0.6);
+  system->addForceField(dampingForceField);
 
   ConstantForceFieldPtr gravityForceField = std::make_shared<ConstantForceField>(system->getParticles(), glm::vec3{0,0,-10} );
   system->addForceField(gravityForceField);
+  
+  //viewer.setAnimationLoop(true, 6.0);
+  //viewer.startAnimation();
 
 }
-void addPannel(float x, float y, float z, Viewer& viewer, ShaderProgramPtr texShader, ShaderProgramPtr multiTexShader) {
+
+void addPannel(float x, float y, float z, Viewer& viewer, ShaderProgramPtr texShader, ShaderProgramPtr multiTexShader, DynamicSystemPtr& system) {
     MaterialPtr pearl = Material::Pearl();
     std::string filename1 = "../textures/freestyle.jpg", filename2 = "../textures/plan.jpg";
     BillboardRenderablePtr multitexCube = std::make_shared<BillboardRenderable>(multiTexShader, texShader, filename1, filename2, x, y, z, &viewer);
-    //    parentTransformation = glm::translate(glm::mat4(1.0), glm::vec3(5,0.0,0.5));
-    //    multitexCube->setParentTransform(parentTransformation);
     multitexCube->setMaterial(pearl);
+    
     viewer.addRenderable(multitexCube);
     //Define a spot light
     glm::vec3 s_position(x, y+1.0, z + 2), s_spotDirection = glm::normalize(glm::vec3(0.0, -1.0, 1.5));
@@ -519,6 +527,15 @@ void addPannel(float x, float y, float z, Viewer& viewer, ShaderProgramPtr texSh
             s_cosInnerCutOff, s_cosOuterCutOff);
     viewer.addSpotLight(spotLight);
     viewer.addSpotLight(spotLight2);
+
+    //add particle to manage collision
+    glm::vec3 px, pv;
+    float pm, pr;
+    pm = 1.0, pr = 1.0;
+    px = glm::vec3(x, y, z+1);
+    ParticlePtr hitbox = std::make_shared<Particle>(px, pv, pm, pr);
+    hitbox->setFixed(true);  
+    system->addParticle(hitbox);
 }
 
 void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader, ParticlePtr mobile, DynamicSystemRenderablePtr& systemRenderable) {

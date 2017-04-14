@@ -73,7 +73,7 @@ void TreeRenderable::addCylinder(std::shared_ptr<TreeCylinderRenderable> parent,
     if (nb <= 0) {
         int childrenNb;
         if (nb == 0) {
-            childrenNb = 150;
+            childrenNb = 50;
         } else {
             childrenNb = 10*scaleZ / (m_height / 2);
         }
