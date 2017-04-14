@@ -20,7 +20,7 @@ ParticleRenderable::ParticleRenderable(ShaderProgramPtr shaderProgram, ParticleP
     m_pBuffer(0), m_cBuffer(0), m_nBuffer(0)
 {
     double radius = 1.0;
-    int thetaStep = 20;
+    int thetaStep = 40;
     int phiStep = 10;
 
     glm::vec3 center(0.0, 0.0, 0.0);

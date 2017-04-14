@@ -128,7 +128,7 @@ void DynamicSystem::detectCollisions()
 
 		//	px = glm::vec3(5,5, 5);   bail canon à neige
 		pv = glm::vec3(0,0,-randv1);
-		px = glm::vec3(5*randx*5,5*randy*5, 10);
+		px = glm::vec3(600*randx,5*randy*5, 10+200*randx);
 		pr = 0.1*randr + 0.1;
 		pm = randz+1; //Fin remise en haut
 
