@@ -48,7 +48,7 @@ void practical07_playPool(Viewer& viewer,
 void createSkier(ShaderProgramPtr flatShader, ShaderProgramPtr phongShader,
     ParticlePtr mobile, DynamicSystemRenderablePtr& systemRenderable);
 
-void addPannel(float x, float y, float z, Viewer& viewer, 
+void addPannel(float x, float y, float z, Viewer& viewer,
         ShaderProgramPtr texShader, ShaderProgramPtr multiTexShader);
 
 
@@ -432,18 +432,18 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
     = std::make_shared<ShaderProgram>("../shaders/textureVertex.glsl",
 				      "../shaders/textureFragment.glsl");
   viewer.addShaderProgram(texShader);
-    
-    
-    
-    
-    
+
+
+
+
+
   addPannel(5.0F, 5.0F, 0.0F, viewer, texShader, multiTexShader);
   auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
   viewer.addRenderable(tree);
   //Activate collision detection
   system->setCollisionsDetection(true);
 
- 
+
   system->setRestitution(.10f);
 
   //createPlane(texShader, systemRenderable);
@@ -486,8 +486,8 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   ControlledForceFieldRenderablePtr forceRenderable = std::make_shared<ControlledForceFieldRenderable>(flatShader, force);
   HierarchicalRenderable::addChild(systemRenderable, forceRenderable);
 
-  // DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 0.9);
-  //system->addForceField(dampingForceField);
+  DampingForceFieldPtr dampingForceField = std::make_shared<DampingForceField>(vParticle, 0.9);
+  system->addForceField(dampingForceField);
 
   ConstantForceFieldPtr gravityForceField = std::make_shared<ConstantForceField>(system->getParticles(), glm::vec3{0,0,-10} );
   system->addForceField(gravityForceField);
@@ -511,7 +511,7 @@ void addPannel(float x, float y, float z, Viewer& viewer, ShaderProgramPtr texSh
             s_ambient, s_diffuse, s_specular,
             s_constant, s_linear, s_quadratic,
             s_cosInnerCutOff, s_cosOuterCutOff);
-    s_position = glm::vec3(x, y-1.0, z + 2); 
+    s_position = glm::vec3(x, y-1.0, z + 2);
     s_spotDirection = glm::normalize(glm::vec3(0.0, 1.0, 1.5));
     SpotLightPtr spotLight2 = std::make_shared<SpotLight>(s_position, s_spotDirection,
             s_ambient, s_diffuse, s_specular,
