@@ -35,7 +35,7 @@ public :
      * Create a new instance that will rendered thanks to the given shader program.
      * @param shaderProgram The shader program to use to render this frame renderable.
      */
-  SlalomRenderable(ShaderProgramPtr shaderProgram, int x, int y, int z);
+  SlalomRenderable(ShaderProgramPtr shaderProgram, int x, int y, int z, int isLeft);
 
 // Define the private section: member and functions only accessible to the class itself
 private:
@@ -45,6 +45,7 @@ private:
      * forbidden (since it is private, no other class can call it). We do not
      * need to provide an implementation as the compiler will never need it.*/
     SlalomRenderable();
+
 
     /**@brief Draw this renderable.
      *
@@ -67,7 +68,7 @@ private:
      * This function intializes the geometry and the color of the frame. We put
      * it in its own method help you to understand what is done in the constructor.
      */
-  void initAttributes(int x, int y, int z);
+  void initAttributes(int x, int y, int z, int isLeft);
 
     /**@brief Position attribute of the vertices.
      *

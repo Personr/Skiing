@@ -108,10 +108,6 @@ BodyCylinderRenderable::BodyCylinderRenderable(ShaderProgramPtr shaderProgram, g
 void BodyCylinderRenderable::do_draw()
 {
     //Update the parent and local transform matrix to position the geometric data according to the particle's data.
-    /*const float& pRadius = 1.0;
-    glm::mat4 scale = glm::scale(glm::mat4(1.0), glm::vec3(pRadius));
-    glm::mat4 translate = glm::translate(glm::mat4(1.0), glm::vec3(pPosition));
-    setLocalTransform(translate*scale);*/
     setLocalTransform(getLocalTransform());
     setParentTransform(getParentTransform());
 

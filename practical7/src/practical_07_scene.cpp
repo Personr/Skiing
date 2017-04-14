@@ -298,7 +298,7 @@ void practical07_springs(Viewer& viewer, DynamicSystemPtr& system, DynamicSystem
 void createPiste(Viewer& viewer, ShaderProgramPtr& texShader,  ShaderProgramPtr& flatShader, DynamicSystemPtr& system, float& x1, float& z1, float& x2, float& z2) {
   glm::mat4 parentTransformation(1.0), localTransformation(1.0),parentTransformation2(1.0);
     std::string filename;
-    filename = "../textures/neige.jpg";
+    filename = "../textures/neige_bosse.jpg";
     //filename = "../textures/checkerboard.png";
     TexturedPlaneRenderablePtr texPlane = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
 
@@ -310,6 +310,7 @@ void createPiste(Viewer& viewer, ShaderProgramPtr& texShader,  ShaderProgramPtr&
     float anglecour=0.02;
     float xcour = 30;
     float zcour = 0;
+
     for (int l=0; l<20; l++){
       TexturedPlaneRenderablePtr texPlane2 = std::make_shared<TexturedPlaneRenderable>(texShader, filename);
       parentTransformation2 = glm::scale(glm::mat4(1.0), glm::vec3(20.0,200.0,50.0));
@@ -334,15 +335,18 @@ void createPiste(Viewer& viewer, ShaderProgramPtr& texShader,  ShaderProgramPtr&
   //Plan 1
   glm::vec3 p1, p2, p3;
   PlanePtr plane;
+
   xcour =0;
   float xsuiv = 30;
   zcour =0;
   float zsuiv = 0;
   // float alphacour=3.14159/8;
   float alphacour=0.02;
-  float k = -1;
+  float cotePoteau = 1;
+  float creerPoteau = 0;
   for (float i = 0; i<22; i++){
-    k = k*-1;
+    //cotePoteau = cotePoteau*-1;
+    creerPoteau = creerPoteau+1;
     p1= glm::vec3 (xcour, 0.0f, zcour);
     p2=glm::vec3(xsuiv, 0.0f, zsuiv);
     p3=glm::vec3(xcour, 1.0f, zcour);               //Plan incliné
@@ -357,9 +361,16 @@ void createPiste(Viewer& viewer, ShaderProgramPtr& texShader,  ShaderProgramPtr&
 
     // SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 0, zcour);
     //viewer.addRenderable(slalom);
-    SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 5*k, zcour);
-    viewer.addRenderable(slalom);
+    if (creerPoteau ==2){//On en met un tout les 3 plans
+      creerPoteau = 0;
+      cotePoteau = cotePoteau*-1;
+      SlalomRenderablePtr slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 0*cotePoteau, zcour, cotePoteau);
+      viewer.addRenderable(slalom);
+      slalom = std::make_shared<SlalomRenderable>(flatShader, xcour, 10*cotePoteau, zcour, cotePoteau);
+      viewer.addRenderable(slalom);
+    }
   }
+  //for (int z = 0; z<10
   x1 = xcour;
   z1 = zcour;
   x2 = xsuiv;
@@ -379,7 +390,7 @@ void addNeige(ShaderProgramPtr& flatShader, DynamicSystemRenderablePtr& systemRe
   time_t t0 = time(NULL);
   unsigned tmax = 2;
 
-  for (i=0; i <= 300; i = i + 1) {
+  for (i=0; i <= 200; i = i + 1) {
     //Initialize a particle with position, velocity, mass and radius and add it to the system
 
     randx = 2*(rand() / (RAND_MAX + 1.)) -1;
@@ -387,7 +398,7 @@ void addNeige(ShaderProgramPtr& flatShader, DynamicSystemRenderablePtr& systemRe
     randz = 2*(rand() / (RAND_MAX + 1.)) -1;
     randr = 2*(rand() / (RAND_MAX + 1.)) -1;
 
-    px = glm::vec3(30*randx,30*randy, 5*randz + 5);
+    px = glm::vec3(60*randx-30,200*randy-100, 10*randz + 5);
     pv = glm::vec3(0.0, 0.0, 0.0);
     pr = 0.05*randr + 0.1;
     pm = pr;
@@ -433,10 +444,6 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
 				      "../shaders/textureFragment.glsl");
   viewer.addShaderProgram(texShader);
 
-
-
-
-
   addPannel(5.0F, 5.0F, 0.0F, viewer, texShader, multiTexShader);
   auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
   viewer.addRenderable(tree);
@@ -462,19 +469,19 @@ void practical07_collisions(Viewer& viewer, DynamicSystemPtr& system, DynamicSys
   glm::vec3 px,pv;
   float pm, pr;
   pm = 1.0, pr = 1.0;
-  xcour = xcour+(xsuiv-xcour)*10;
-  zcour = zcour+(zsuiv-zcour)*10+5;
+  xcour = xcour+(xsuiv-xcour)*3;
+  zcour = zcour+(zsuiv-zcour)*3+5;
   px = glm::vec3(xcour,0.0,zcour);
 
   Camera& camera = viewer.getCamera();
   FollowedParticlePtr mobile = std::make_shared<FollowedParticle>( px, pv, pm, pr, &camera);
   system->addParticle( mobile );
   // Décommenter pour ajouter une particule en bas
-  //  px = glm::vec3(0.0,5.0,1.0);
-  //ParticlePtr other = std::make_shared<Particle>( px, pv, pm, pr);
-  //system->addParticle( other );
-  //ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
-  //HierarchicalRenderable::addChild(systemRenderable, otherRenderable);
+    px = glm::vec3(0.0,5.0,1.0);
+  ParticlePtr other = std::make_shared<Particle>( px, pv, pm, pr);
+  system->addParticle( other );
+  ParticleRenderablePtr otherRenderable = std::make_shared<ParticleRenderable>(flatShader, other);
+  HierarchicalRenderable::addChild(systemRenderable, otherRenderable);
 
   createSkier(flatShader, phongShader, mobile, systemRenderable);
   glm::vec3 nullForce(0.0, 0.0, 0.0);
