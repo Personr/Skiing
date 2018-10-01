@@ -99,6 +99,7 @@ void initialize_practical_04_scene(Viewer& viewer)
     MaterialPtr pearl = Material::Pearl();
     MaterialPtr bronze = Material::Bronze();
     MaterialPtr emerald = Material::Emerald();
+    MaterialPtr metal = Material::Chrome();
 
     //Lighted Cube
     LightedCubeRenderablePtr ground
@@ -112,12 +113,12 @@ void initialize_practical_04_scene(Viewer& viewer)
 
     //Lighted Mesh 1
     LightedMeshRenderablePtr suzanne1
-        = std::make_shared<LightedMeshRenderable>(phongShader, "./../meshes/suzanne.obj", bronze);
+        = std::make_shared<LightedMeshRenderable>(phongShader, "./../meshes/magnetto2.obj", metal);
     parentTransformation = glm::translate( glm::mat4(1.0), glm::vec3(-2.0,0.0,0.0) );
     localTransformation = glm::mat4(1.0);
     suzanne1->setParentTransform(parentTransformation);
     suzanne1->setLocalTransform(localTransformation);
-    suzanne1->setMaterial(bronze);
+    suzanne1->setMaterial(metal);
     viewer.addRenderable( suzanne1 );
 
     //Lighted Mesh 2

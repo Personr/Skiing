@@ -1,0 +1,3755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="build">
+        <df name="CMakeFiles">
+          <df name="2.8.11">
+            <df name="CompilerIdC">
+              <in>CMakeCCompilerId.c</in>
+            </df>
+            <df name="CompilerIdCXX">
+              <in>CMakeCXXCompilerId.cpp</in>
+            </df>
+          </df>
+        </df>
+      </df>
+      <df name="extlib">
+        <df name="freetype-2.5.5">
+          <df name="build">
+            <df name="CMakeFiles">
+              <df name="2.8.11">
+                <df name="CompilerIdC">
+                  <in>CMakeCCompilerId.c</in>
+                </df>
+                <df name="CompilerIdCXX">
+                  <in>CMakeCXXCompilerId.cpp</in>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="builds">
+            <df name="amiga">
+              <df name="src">
+                <df name="base">
+                  <in>ftdebug.c</in>
+                  <in>ftsystem.c</in>
+                </df>
+              </df>
+            </df>
+            <df name="mac">
+              <in>ftmac.c</in>
+            </df>
+            <df name="unix">
+              <in>ftsystem.c</in>
+            </df>
+            <df name="vms">
+              <in>ftsystem.c</in>
+            </df>
+            <df name="wince">
+              <in>ftdebug.c</in>
+            </df>
+            <df name="windows">
+              <in>ftdebug.c</in>
+            </df>
+          </df>
+          <df name="src">
+            <df name="autofit">
+              <in>afangles.c</in>
+              <in>afblue.c</in>
+              <in>afcjk.c</in>
+              <in>afdummy.c</in>
+              <in>afglobal.c</in>
+              <in>afhints.c</in>
+              <in>afindic.c</in>
+              <in>aflatin.c</in>
+              <in>aflatin2.c</in>
+              <in>afloader.c</in>
+              <in>afmodule.c</in>
+              <in>afpic.c</in>
+              <in>afranges.c</in>
+              <in>afwarp.c</in>
+              <in>autofit.c</in>
+              <in>hbshim.c</in>
+            </df>
+            <df name="base">
+              <in>basepic.c</in>
+              <in>ftadvanc.c</in>
+              <in>ftapi.c</in>
+              <in>ftbase.c</in>
+              <in>ftbbox.c</in>
+              <in>ftbdf.c</in>
+              <in>ftbitmap.c</in>
+              <in>ftcalc.c</in>
+              <in>ftcid.c</in>
+              <in>ftdbgmem.c</in>
+              <in>ftdebug.c</in>
+              <in>ftfstype.c</in>
+              <in>ftgasp.c</in>
+              <in>ftgloadr.c</in>
+              <in>ftglyph.c</in>
+              <in>ftgxval.c</in>
+              <in>ftinit.c</in>
+              <in>ftlcdfil.c</in>
+              <in>ftmac.c</in>
+              <in>ftmm.c</in>
+              <in>ftobjs.c</in>
+              <in>ftotval.c</in>
+              <in>ftoutln.c</in>
+              <in>ftpatent.c</in>
+              <in>ftpfr.c</in>
+              <in>ftpic.c</in>
+              <in>ftrfork.c</in>
+              <in>ftsnames.c</in>
+              <in>ftstream.c</in>
+              <in>ftstroke.c</in>
+              <in>ftsynth.c</in>
+              <in>ftsystem.c</in>
+              <in>fttrigon.c</in>
+              <in>fttype1.c</in>
+              <in>ftutil.c</in>
+              <in>ftwinfnt.c</in>
+              <in>ftxf86.c</in>
+              <in>md5.c</in>
+            </df>
+            <df name="bdf">
+              <in>bdf.c</in>
+              <in>bdfdrivr.c</in>
+              <in>bdflib.c</in>
+            </df>
+            <df name="bzip2">
+              <in>ftbzip2.c</in>
+            </df>
+            <df name="cache">
+              <in>ftcache.c</in>
+              <in>ftcbasic.c</in>
+              <in>ftccache.c</in>
+              <in>ftccmap.c</in>
+              <in>ftcglyph.c</in>
+              <in>ftcimage.c</in>
+              <in>ftcmanag.c</in>
+              <in>ftcmru.c</in>
+              <in>ftcsbits.c</in>
+            </df>
+            <df name="cff">
+              <in>cf2arrst.c</in>
+              <in>cf2blues.c</in>
+              <in>cf2error.c</in>
+              <in>cf2font.c</in>
+              <in>cf2ft.c</in>
+              <in>cf2hints.c</in>
+              <in>cf2intrp.c</in>
+              <in>cf2read.c</in>
+              <in>cf2stack.c</in>
+              <in>cff.c</in>
+              <in>cffcmap.c</in>
+              <in>cffdrivr.c</in>
+              <in>cffgload.c</in>
+              <in>cffload.c</in>
+              <in>cffobjs.c</in>
+              <in>cffparse.c</in>
+              <in>cffpic.c</in>
+            </df>
+            <df name="cid">
+              <in>cidgload.c</in>
+              <in>cidload.c</in>
+              <in>cidobjs.c</in>
+              <in>cidparse.c</in>
+              <in>cidriver.c</in>
+              <in>type1cid.c</in>
+            </df>
+            <df name="gxvalid">
+              <in>gxvalid.c</in>
+              <in>gxvbsln.c</in>
+              <in>gxvcommn.c</in>
+              <in>gxvfeat.c</in>
+              <in>gxvfgen.c</in>
+              <in>gxvjust.c</in>
+              <in>gxvkern.c</in>
+              <in>gxvlcar.c</in>
+              <in>gxvmod.c</in>
+              <in>gxvmort.c</in>
+              <in>gxvmort0.c</in>
+              <in>gxvmort1.c</in>
+              <in>gxvmort2.c</in>
+              <in>gxvmort4.c</in>
+              <in>gxvmort5.c</in>
+              <in>gxvmorx.c</in>
+              <in>gxvmorx0.c</in>
+              <in>gxvmorx1.c</in>
+              <in>gxvmorx2.c</in>
+              <in>gxvmorx4.c</in>
+              <in>gxvmorx5.c</in>
+              <in>gxvopbd.c</in>
+              <in>gxvprop.c</in>
+              <in>gxvtrak.c</in>
+            </df>
+            <df name="gzip">
+              <in>adler32.c</in>
+              <in>ftgzip.c</in>
+              <in>infblock.c</in>
+              <in>infcodes.c</in>
+              <in>inflate.c</in>
+              <in>inftrees.c</in>
+              <in>infutil.c</in>
+              <in>zutil.c</in>
+            </df>
+            <df name="lzw">
+              <in>ftlzw.c</in>
+              <in>ftzopen.c</in>
+            </df>
+            <df name="otvalid">
+              <in>otvalid.c</in>
+              <in>otvbase.c</in>
+              <in>otvcommn.c</in>
+              <in>otvgdef.c</in>
+              <in>otvgpos.c</in>
+              <in>otvgsub.c</in>
+              <in>otvjstf.c</in>
+              <in>otvmath.c</in>
+              <in>otvmod.c</in>
+            </df>
+            <df name="pcf">
+              <in>pcf.c</in>
+              <in>pcfdrivr.c</in>
+              <in>pcfread.c</in>
+              <in>pcfutil.c</in>
+            </df>
+            <df name="pfr">
+              <in>pfr.c</in>
+              <in>pfrcmap.c</in>
+              <in>pfrdrivr.c</in>
+              <in>pfrgload.c</in>
+              <in>pfrload.c</in>
+              <in>pfrobjs.c</in>
+              <in>pfrsbit.c</in>
+            </df>
+            <df name="psaux">
+              <in>afmparse.c</in>
+              <in>psaux.c</in>
+              <in>psauxmod.c</in>
+              <in>psconv.c</in>
+              <in>psobjs.c</in>
+              <in>t1cmap.c</in>
+              <in>t1decode.c</in>
+            </df>
+            <df name="pshinter">
+              <in>pshalgo.c</in>
+              <in>pshglob.c</in>
+              <in>pshinter.c</in>
+              <in>pshmod.c</in>
+              <in>pshpic.c</in>
+              <in>pshrec.c</in>
+            </df>
+            <df name="psnames">
+              <in>psmodule.c</in>
+              <in>psnames.c</in>
+              <in>pspic.c</in>
+            </df>
+            <df name="raster">
+              <in>ftraster.c</in>
+              <in>ftrend1.c</in>
+              <in>raster.c</in>
+              <in>rastpic.c</in>
+            </df>
+            <df name="sfnt">
+              <in>pngshim.c</in>
+              <in>sfdriver.c</in>
+              <in>sfnt.c</in>
+              <in>sfntpic.c</in>
+              <in>sfobjs.c</in>
+              <in>ttbdf.c</in>
+              <in>ttcmap.c</in>
+              <in>ttkern.c</in>
+              <in>ttload.c</in>
+              <in>ttmtx.c</in>
+              <in>ttpost.c</in>
+              <in>ttsbit.c</in>
+            </df>
+            <df name="smooth">
+              <in>ftgrays.c</in>
+              <in>ftsmooth.c</in>
+              <in>ftspic.c</in>
+              <in>smooth.c</in>
+            </df>
+            <df name="tools">
+              <df name="ftrandom">
+                <in>ftrandom.c</in>
+              </df>
+              <in>apinames.c</in>
+              <in>test_afm.c</in>
+              <in>test_bbox.c</in>
+              <in>test_trig.c</in>
+            </df>
+            <df name="truetype">
+              <in>truetype.c</in>
+              <in>ttdriver.c</in>
+              <in>ttgload.c</in>
+              <in>ttgxvar.c</in>
+              <in>ttinterp.c</in>
+              <in>ttobjs.c</in>
+              <in>ttpic.c</in>
+              <in>ttpload.c</in>
+              <in>ttsubpix.c</in>
+            </df>
+            <df name="type1">
+              <in>t1afm.c</in>
+              <in>t1driver.c</in>
+              <in>t1gload.c</in>
+              <in>t1load.c</in>
+              <in>t1objs.c</in>
+              <in>t1parse.c</in>
+              <in>type1.c</in>
+            </df>
+            <df name="type42">
+              <in>t42drivr.c</in>
+              <in>t42objs.c</in>
+              <in>t42parse.c</in>
+              <in>type42.c</in>
+            </df>
+            <df name="winfonts">
+              <in>winfnt.c</in>
+            </df>
+          </df>
+        </df>
+        <df name="glew-1.13.0">
+          <df name="auto">
+            <df name="src">
+              <in>glew_head.c</in>
+              <in>glew_init_gl.c</in>
+              <in>glew_init_glx.c</in>
+              <in>glew_init_tail.c</in>
+              <in>glew_init_wgl.c</in>
+              <in>glew_str_glx.c</in>
+              <in>glew_str_head.c</in>
+              <in>glew_str_tail.c</in>
+              <in>glew_str_wgl.c</in>
+              <in>glewinfo_gl.c</in>
+              <in>glewinfo_glx.c</in>
+              <in>glewinfo_head.c</in>
+              <in>glewinfo_tail.c</in>
+              <in>glewinfo_wgl.c</in>
+            </df>
+          </df>
+          <df name="src">
+            <in>glew.c</in>
+            <in>glewinfo.c</in>
+            <in>visualinfo.c</in>
+          </df>
+        </df>
+        <df name="glm-0.9.7.1">
+          <df name="glm">
+            <df name="detail">
+              <in>dummy.cpp</in>
+              <in>glm.cpp</in>
+            </df>
+          </df>
+          <df name="test">
+            <df name="core">
+              <in>core_func_common.cpp</in>
+              <in>core_func_exponential.cpp</in>
+              <in>core_func_geometric.cpp</in>
+              <in>core_func_integer.cpp</in>
+              <in>core_func_integer_bit_count.cpp</in>
+              <in>core_func_integer_find_lsb.cpp</in>
+              <in>core_func_integer_find_msb.cpp</in>
+              <in>core_func_matrix.cpp</in>
+              <in>core_func_noise.cpp</in>
+              <in>core_func_packing.cpp</in>
+              <in>core_func_swizzle.cpp</in>
+              <in>core_func_trigonometric.cpp</in>
+              <in>core_func_vector_relational.cpp</in>
+              <in>core_setup_force_cxx98.cpp</in>
+              <in>core_setup_message.cpp</in>
+              <in>core_setup_precision.cpp</in>
+              <in>core_type_cast.cpp</in>
+              <in>core_type_ctor.cpp</in>
+              <in>core_type_float.cpp</in>
+              <in>core_type_int.cpp</in>
+              <in>core_type_length.cpp</in>
+              <in>core_type_length_size.cpp</in>
+              <in>core_type_mat2x2.cpp</in>
+              <in>core_type_mat2x3.cpp</in>
+              <in>core_type_mat2x4.cpp</in>
+              <in>core_type_mat3x2.cpp</in>
+              <in>core_type_mat3x3.cpp</in>
+              <in>core_type_mat3x4.cpp</in>
+              <in>core_type_mat4x2.cpp</in>
+              <in>core_type_mat4x3.cpp</in>
+              <in>core_type_mat4x4.cpp</in>
+              <in>core_type_vec1.cpp</in>
+              <in>core_type_vec2.cpp</in>
+              <in>core_type_vec3.cpp</in>
+              <in>core_type_vec4.cpp</in>
+            </df>
+            <df name="external">
+              <df name="gli">
+                <df name="core">
+                  <in>dummy.cpp</in>
+                </df>
+              </df>
+            </df>
+            <df name="gtc">
+              <in>gtc_bitfield.cpp</in>
+              <in>gtc_color_space.cpp</in>
+              <in>gtc_constants.cpp</in>
+              <in>gtc_epsilon.cpp</in>
+              <in>gtc_integer.cpp</in>
+              <in>gtc_matrix_access.cpp</in>
+              <in>gtc_matrix_integer.cpp</in>
+              <in>gtc_matrix_inverse.cpp</in>
+              <in>gtc_matrix_transform.cpp</in>
+              <in>gtc_noise.cpp</in>
+              <in>gtc_packing.cpp</in>
+              <in>gtc_quaternion.cpp</in>
+              <in>gtc_random.cpp</in>
+              <in>gtc_reciprocal.cpp</in>
+              <in>gtc_round.cpp</in>
+              <in>gtc_type_precision.cpp</in>
+              <in>gtc_type_ptr.cpp</in>
+              <in>gtc_ulp.cpp</in>
+              <in>gtc_user_defined_types.cpp</in>
+              <in>gtc_vec1.cpp</in>
+            </df>
+            <df name="gtx">
+              <in>gtx_associated_min_max.cpp</in>
+              <in>gtx_closest_point.cpp</in>
+              <in>gtx_color_space.cpp</in>
+              <in>gtx_color_space_YCoCg.cpp</in>
+              <in>gtx_common.cpp</in>
+              <in>gtx_compatibility.cpp</in>
+              <in>gtx_component_wise.cpp</in>
+              <in>gtx_dual_quaternion.cpp</in>
+              <in>gtx_euler_angle.cpp</in>
+              <in>gtx_extend.cpp</in>
+              <in>gtx_extented_min_max.cpp</in>
+              <in>gtx_fast_exponential.cpp</in>
+              <in>gtx_fast_square_root.cpp</in>
+              <in>gtx_fast_trigonometry.cpp</in>
+              <in>gtx_gradient_paint.cpp</in>
+              <in>gtx_handed_coordinate_space.cpp</in>
+              <in>gtx_int_10_10_10_2.cpp</in>
+              <in>gtx_integer.cpp</in>
+              <in>gtx_intersect.cpp</in>
+              <in>gtx_io.cpp</in>
+              <in>gtx_log_base.cpp</in>
+              <in>gtx_matrix_cross_product.cpp</in>
+              <in>gtx_matrix_decompose.cpp</in>
+              <in>gtx_matrix_interpolation.cpp</in>
+              <in>gtx_matrix_major_storage.cpp</in>
+              <in>gtx_matrix_operation.cpp</in>
+              <in>gtx_matrix_query.cpp</in>
+              <in>gtx_matrix_transform_2d.cpp</in>
+              <in>gtx_mixed_product.cpp</in>
+              <in>gtx_norm.cpp</in>
+              <in>gtx_normal.cpp</in>
+              <in>gtx_normalize_dot.cpp</in>
+              <in>gtx_number_precision.cpp</in>
+              <in>gtx_optimum_pow.cpp</in>
+              <in>gtx_orthonormalize.cpp</in>
+              <in>gtx_perpendicular.cpp</in>
+              <in>gtx_polar_coordinates.cpp</in>
+              <in>gtx_projection.cpp</in>
+              <in>gtx_quaternion.cpp</in>
+              <in>gtx_random.cpp</in>
+              <in>gtx_range.cpp</in>
+              <in>gtx_rotate_normalized_axis.cpp</in>
+              <in>gtx_rotate_vector.cpp</in>
+              <in>gtx_scalar_multiplication.cpp</in>
+              <in>gtx_scalar_relational.cpp</in>
+              <in>gtx_simd_mat4.cpp</in>
+              <in>gtx_simd_vec4.cpp</in>
+              <in>gtx_spline.cpp</in>
+              <in>gtx_string_cast.cpp</in>
+              <in>gtx_type_aligned.cpp</in>
+              <in>gtx_vector_angle.cpp</in>
+              <in>gtx_vector_query.cpp</in>
+              <in>gtx_wrap.cpp</in>
+            </df>
+          </df>
+        </df>
+        <df name="sfml-2.3.2">
+          <df name="build">
+            <df name="CMakeFiles">
+              <df name="2.8.11">
+                <df name="CompilerIdC">
+                  <in>CMakeCCompilerId.c</in>
+                </df>
+                <df name="CompilerIdCXX">
+                  <in>CMakeCXXCompilerId.cpp</in>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="examples">
+            <df name="android">
+              <df name="jni">
+                <in>main.cpp</in>
+              </df>
+            </df>
+            <df name="cocoa">
+              <in>CocoaAppDelegate.mm</in>
+              <in>NSString+stdstring.mm</in>
+              <in>main.m</in>
+            </df>
+            <df name="ftp">
+              <in>Ftp.cpp</in>
+            </df>
+            <df name="opengl">
+              <in>OpenGL.cpp</in>
+            </df>
+            <df name="pong">
+              <in>Pong.cpp</in>
+            </df>
+            <df name="shader">
+              <in>Shader.cpp</in>
+            </df>
+            <df name="sockets">
+              <in>Sockets.cpp</in>
+              <in>TCP.cpp</in>
+              <in>UDP.cpp</in>
+            </df>
+            <df name="sound">
+              <in>Sound.cpp</in>
+            </df>
+            <df name="sound_capture">
+              <in>SoundCapture.cpp</in>
+            </df>
+            <df name="voip">
+              <in>Client.cpp</in>
+              <in>Server.cpp</in>
+              <in>VoIP.cpp</in>
+            </df>
+            <df name="win32">
+              <in>Win32.cpp</in>
+            </df>
+            <df name="window">
+              <in>Window.cpp</in>
+            </df>
+            <df name="X11">
+              <in>X11.cpp</in>
+            </df>
+          </df>
+          <df name="src">
+            <df name="SFML">
+              <df name="Audio">
+                <in>ALCheck.cpp</in>
+                <in>AlResource.cpp</in>
+                <in>AudioDevice.cpp</in>
+                <in>InputSoundFile.cpp</in>
+                <in>Listener.cpp</in>
+                <in>Music.cpp</in>
+                <in>OutputSoundFile.cpp</in>
+                <in>Sound.cpp</in>
+                <in>SoundBuffer.cpp</in>
+                <in>SoundBufferRecorder.cpp</in>
+                <in>SoundFileFactory.cpp</in>
+                <in>SoundFileReaderFlac.cpp</in>
+                <in>SoundFileReaderOgg.cpp</in>
+                <in>SoundFileReaderWav.cpp</in>
+                <in>SoundFileWriterFlac.cpp</in>
+                <in>SoundFileWriterOgg.cpp</in>
+                <in>SoundFileWriterWav.cpp</in>
+                <in>SoundRecorder.cpp</in>
+                <in>SoundSource.cpp</in>
+                <in>SoundStream.cpp</in>
+              </df>
+              <df name="Graphics">
+                <in>BlendMode.cpp</in>
+                <in>CircleShape.cpp</in>
+                <in>Color.cpp</in>
+                <in>ConvexShape.cpp</in>
+                <in>Font.cpp</in>
+                <in>GLCheck.cpp</in>
+                <in>GLExtensions.cpp</in>
+                <in>GLLoader.cpp</in>
+                <in>Glsl.cpp</in>
+                <in>Image.cpp</in>
+                <in>ImageLoader.cpp</in>
+                <in>RectangleShape.cpp</in>
+                <in>RenderStates.cpp</in>
+                <in>RenderTarget.cpp</in>
+                <in>RenderTexture.cpp</in>
+                <in>RenderTextureImpl.cpp</in>
+                <in>RenderTextureImplDefault.cpp</in>
+                <in>RenderTextureImplFBO.cpp</in>
+                <in>RenderWindow.cpp</in>
+                <in>Shader.cpp</in>
+                <in>Shape.cpp</in>
+                <in>Sprite.cpp</in>
+                <in>Text.cpp</in>
+                <in>Texture.cpp</in>
+                <in>TextureSaver.cpp</in>
+                <in>Transform.cpp</in>
+                <in>Transformable.cpp</in>
+                <in>Vertex.cpp</in>
+                <in>VertexArray.cpp</in>
+                <in>View.cpp</in>
+              </df>
+              <df name="Main">
+                <in>MainAndroid.cpp</in>
+                <in>MainWin32.cpp</in>
+                <in>MainiOS.mm</in>
+                <in>SFMLActivity.cpp</in>
+              </df>
+              <df name="Network">
+                <df name="Unix">
+                  <in>SocketImpl.cpp</in>
+                </df>
+                <df name="Win32">
+                  <in>SocketImpl.cpp</in>
+                </df>
+                <in>Ftp.cpp</in>
+                <in>Http.cpp</in>
+                <in>IpAddress.cpp</in>
+                <in>Packet.cpp</in>
+                <in>Socket.cpp</in>
+                <in>SocketSelector.cpp</in>
+                <in>TcpListener.cpp</in>
+                <in>TcpSocket.cpp</in>
+                <in>UdpSocket.cpp</in>
+              </df>
+              <df name="System">
+                <df name="Android">
+                  <in>Activity.cpp</in>
+                  <in>ResourceStream.cpp</in>
+                </df>
+                <df name="Unix">
+                  <in>ClockImpl.cpp</in>
+                  <in>MutexImpl.cpp</in>
+                  <in>SleepImpl.cpp</in>
+                  <in>ThreadImpl.cpp</in>
+                  <in>ThreadLocalImpl.cpp</in>
+                </df>
+                <df name="Win32">
+                  <in>ClockImpl.cpp</in>
+                  <in>MutexImpl.cpp</in>
+                  <in>SleepImpl.cpp</in>
+                  <in>ThreadImpl.cpp</in>
+                  <in>ThreadLocalImpl.cpp</in>
+                </df>
+                <in>Clock.cpp</in>
+                <in>Err.cpp</in>
+                <in>FileInputStream.cpp</in>
+                <in>Lock.cpp</in>
+                <in>MemoryInputStream.cpp</in>
+                <in>Mutex.cpp</in>
+                <in>Sleep.cpp</in>
+                <in>String.cpp</in>
+                <in>Thread.cpp</in>
+                <in>ThreadLocal.cpp</in>
+                <in>Time.cpp</in>
+              </df>
+              <df name="Window">
+                <df name="Android">
+                  <in>InputImpl.cpp</in>
+                  <in>JoystickImpl.cpp</in>
+                  <in>SensorImpl.cpp</in>
+                  <in>VideoModeImpl.cpp</in>
+                  <in>WindowImplAndroid.cpp</in>
+                </df>
+                <df name="FreeBSD">
+                  <in>JoystickImpl.cpp</in>
+                </df>
+                <df name="iOS">
+                  <in>EaglContext.mm</in>
+                  <in>InputImpl.mm</in>
+                  <in>JoystickImpl.mm</in>
+                  <in>SFAppDelegate.mm</in>
+                  <in>SFMain.mm</in>
+                  <in>SFView.mm</in>
+                  <in>SFViewController.mm</in>
+                  <in>SensorImpl.mm</in>
+                  <in>VideoModeImpl.mm</in>
+                  <in>WindowImplUIKit.mm</in>
+                </df>
+                <df name="OSX">
+                  <in>AutoreleasePoolWrapper.mm</in>
+                  <in>HIDInputManager.mm</in>
+                  <in>HIDJoystickManager.cpp</in>
+                  <in>InputImpl.mm</in>
+                  <in>JoystickImpl.cpp</in>
+                  <in>SFApplication.m</in>
+                  <in>SFApplicationDelegate.m</in>
+                  <in>SFContext.mm</in>
+                  <in>SFKeyboardModifiersHelper.mm</in>
+                  <in>SFOpenGLView.mm</in>
+                  <in>SFSilentResponder.m</in>
+                  <in>SFViewController.mm</in>
+                  <in>SFWindow.m</in>
+                  <in>SFWindowController.mm</in>
+                  <in>SensorImpl.cpp</in>
+                  <in>VideoModeImpl.cpp</in>
+                  <in>WindowImplCocoa.mm</in>
+                  <in>cg_sf_conversion.cpp</in>
+                  <in>cpp_objc_conversion.mm</in>
+                </df>
+                <df name="Unix">
+                  <in>Display.cpp</in>
+                  <in>GlxContext.cpp</in>
+                  <in>GlxExtensions.cpp</in>
+                  <in>InputImpl.cpp</in>
+                  <in>JoystickImpl.cpp</in>
+                  <in>SensorImpl.cpp</in>
+                  <in>VideoModeImpl.cpp</in>
+                  <in>WindowImplX11.cpp</in>
+                </df>
+                <df name="Win32">
+                  <in>InputImpl.cpp</in>
+                  <in>JoystickImpl.cpp</in>
+                  <in>SensorImpl.cpp</in>
+                  <in>VideoModeImpl.cpp</in>
+                  <in>WglContext.cpp</in>
+                  <in>WglExtensions.cpp</in>
+                  <in>WindowImplWin32.cpp</in>
+                </df>
+                <in>Context.cpp</in>
+                <in>EGLCheck.cpp</in>
+                <in>EglContext.cpp</in>
+                <in>GlContext.cpp</in>
+                <in>GlResource.cpp</in>
+                <in>Joystick.cpp</in>
+                <in>JoystickManager.cpp</in>
+                <in>Keyboard.cpp</in>
+                <in>Mouse.cpp</in>
+                <in>Sensor.cpp</in>
+                <in>SensorManager.cpp</in>
+                <in>Touch.cpp</in>
+                <in>VideoMode.cpp</in>
+                <in>Window.cpp</in>
+                <in>WindowImpl.cpp</in>
+              </df>
+            </df>
+          </df>
+          <df name="tools">
+            <df name="xcode">
+              <df name="templates">
+                <df name="SFML">
+                  <df name="SFML App.xctemplate">
+                    <in>ResourcePath.mm</in>
+                    <in>main.cpp</in>
+                  </df>
+                  <df name="SFML CLT.xctemplate">
+                    <in>main.cpp</in>
+                  </df>
+                </df>
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="tinyobjloader">
+          <df name="build">
+            <df name="CMakeFiles">
+              <df name="2.8.11">
+                <df name="CompilerIdC">
+                  <in>CMakeCCompilerId.c</in>
+                </df>
+                <df name="CompilerIdCXX">
+                  <in>CMakeCXXCompilerId.cpp</in>
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="examples">
+            <df name="obj_sticher">
+              <in>obj_sticher.cc</in>
+              <in>obj_writer.cc</in>
+            </df>
+          </df>
+          <df name="python">
+            <in>main.cpp</in>
+          </df>
+          <in>test.cc</in>
+          <in>tiny_obj_loader.cc</in>
+        </df>
+      </df>
+      <df name="src">
+        <df name="dynamics">
+          <in>Collision.cpp</in>
+          <in>ConstantForceField.cpp</in>
+          <in>DampingForceField.cpp</in>
+          <in>DynamicSystem.cpp</in>
+          <in>EulerExplicitSolver.cpp</in>
+          <in>FollowedParticle.cpp</in>
+          <in>FollowedParticle.h</in>
+          <in>ForceField.cpp</in>
+          <in>Particle.cpp</in>
+          <in>ParticleParticleCollision.cpp</in>
+          <in>ParticlePlaneCollision.cpp</in>
+          <in>Plane.cpp</in>
+          <in>Solver.cpp</in>
+          <in>SpringForceField.cpp</in>
+        </df>
+        <df name="dynamics_rendering">
+          <in>ConstantForceFieldRenderable.cpp</in>
+          <in>ControlledForceFieldRenderable.cpp</in>
+          <in>DynamicSystemRenderable.cpp</in>
+          <in>ParticleListRenderable.cpp</in>
+          <in>ParticleRenderable.cpp</in>
+          <in>QuadRenderable.cpp</in>
+          <in>SkieurListRenderable.cpp</in>
+          <in>SkieurRenderable.cpp</in>
+          <in>SpringForceFieldRenderable.cpp</in>
+          <in>SpringListRenderable.cpp</in>
+        </df>
+        <df name="keyframes">
+          <in>GeometricTransformation.cpp</in>
+          <in>KeyframeCollection.cpp</in>
+          <in>KeyframedCylinderRenderable.cpp</in>
+        </df>
+        <df name="lighting">
+          <in>DirectionalLightRenderable.cpp</in>
+          <in>LightedCubeRenderable.cpp</in>
+          <in>LightedCylinderRenderable.cpp</in>
+          <in>LightedMeshRenderable.cpp</in>
+          <in>Lights.cpp</in>
+          <in>Materiable.cpp</in>
+          <in>Material.cpp</in>
+          <in>PointLightRenderable.cpp</in>
+          <in>SpotLightRenderable.cpp</in>
+        </df>
+        <df name="texturing">
+          <in>MipMapCubeRenderable.cpp</in>
+          <in>MultiTexturedCubeRenderable.cpp</in>
+          <in>PubCube.cpp</in>
+          <in>PubCube.h</in>
+          <in>Skybox.cpp</in>
+          <in>Skybox.h</in>
+          <in>TexturedCubeRenderable.cpp</in>
+          <in>TexturedMeshRenderable.cpp</in>
+          <in>TexturedPlaneRenderable.cpp</in>
+        </df>
+        <in>Billboard.cpp</in>
+        <in>Billboard.h</in>
+        <in>Camera.cpp</in>
+        <in>FPSCounter.cpp</in>
+        <in>FrameRenderable.cpp</in>
+        <in>HierarchicalRenderable.cpp</in>
+        <in>Io.cpp</in>
+        <in>Renderable.cpp</in>
+        <in>ShaderProgram.cpp</in>
+        <in>TextEngine.cpp</in>
+        <in>TreeCylinderRenderable.cpp</in>
+        <in>TreeRenderable.cpp</in>
+        <in>Utils.cpp</in>
+        <in>Viewer.cpp</in>
+        <in>gl_helper.cpp</in>
+        <in>log.cpp</in>
+        <in>main.cpp</in>
+        <in>practical_01_scene.cpp</in>
+        <in>practical_02_scene.cpp</in>
+        <in>practical_03_scene.cpp</in>
+        <in>practical_04_scene.cpp</in>
+        <in>practical_05_scene.cpp</in>
+        <in>practical_06_scene.cpp</in>
+        <in>practical_07_scene.cpp</in>
+      </df>
+      <df name="teachers">
+        <in>CubeRenderable.cpp</in>
+        <in>CylinderRenderable.cpp</in>
+        <in>Geometries.cpp</in>
+        <in>IndexedCubeRenderable.cpp</in>
+        <in>MeshRenderable.cpp</in>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>CMakeLists.txt</itemPath>
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+      <item path="build/CMakeFiles/2.8.11/CompilerIdC/CMakeCCompilerId.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="build/CMakeFiles/2.8.11/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/freetype-2.5.5/build/CMakeFiles/2.8.11/CompilerIdC/CMakeCCompilerId.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/build/CMakeFiles/2.8.11/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/freetype-2.5.5/builds/amiga/src/base/ftdebug.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/builds/amiga/src/base/ftsystem.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/builds/mac/ftmac.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/builds/unix/ftsystem.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/builds/vms/ftsystem.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/builds/wince/ftdebug.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/builds/windows/ftdebug.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afangles.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afblue.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afcjk.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afdummy.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afglobal.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afhints.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afindic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/aflatin.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/aflatin2.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afloader.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afmodule.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afpic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afranges.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/afwarp.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/autofit.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/autofit/hbshim.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/basepic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftadvanc.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftapi.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftbase.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftbbox.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftbdf.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftbitmap.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftcalc.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftcid.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftdbgmem.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftdebug.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftfstype.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftgasp.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftgloadr.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftglyph.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftgxval.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftinit.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftlcdfil.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftmac.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftmm.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftobjs.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftotval.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftoutln.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftpatent.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftpfr.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftpic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftrfork.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftsnames.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftstream.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftstroke.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftsynth.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftsystem.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/fttrigon.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/fttype1.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftutil.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftwinfnt.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/ftxf86.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/base/md5.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/bdf/bdf.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/bdf/bdfdrivr.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/bdf/bdflib.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/bzip2/ftbzip2.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cache/ftcache.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cache/ftcbasic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cache/ftccache.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cache/ftccmap.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cache/ftcglyph.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cache/ftcimage.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cache/ftcmanag.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cache/ftcmru.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cache/ftcsbits.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cf2arrst.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cf2blues.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cf2error.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cf2font.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cf2ft.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cf2hints.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cf2intrp.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cf2read.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cf2stack.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cff.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cffcmap.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cffdrivr.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cffgload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cffload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cffobjs.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cffparse.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cff/cffpic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cid/cidgload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cid/cidload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cid/cidobjs.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cid/cidparse.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cid/cidriver.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/cid/type1cid.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvalid.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvbsln.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvcommn.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvfeat.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvfgen.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvjust.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvkern.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvlcar.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmod.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmort.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmort0.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmort1.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmort2.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmort4.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmort5.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmorx.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmorx0.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmorx1.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmorx2.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmorx4.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvmorx5.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvopbd.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvprop.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gxvalid/gxvtrak.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gzip/adler32.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gzip/ftgzip.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gzip/infblock.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gzip/infcodes.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gzip/inflate.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gzip/inftrees.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gzip/infutil.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/gzip/zutil.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/lzw/ftlzw.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/lzw/ftzopen.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/otvalid/otvalid.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/otvalid/otvbase.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/otvalid/otvcommn.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/otvalid/otvgdef.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/otvalid/otvgpos.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/otvalid/otvgsub.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/otvalid/otvjstf.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/otvalid/otvmath.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/otvalid/otvmod.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pcf/pcf.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pcf/pcfdrivr.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pcf/pcfread.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pcf/pcfutil.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pfr/pfr.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pfr/pfrcmap.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pfr/pfrdrivr.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pfr/pfrgload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pfr/pfrload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pfr/pfrobjs.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pfr/pfrsbit.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psaux/afmparse.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psaux/psaux.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psaux/psauxmod.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psaux/psconv.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psaux/psobjs.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psaux/t1cmap.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psaux/t1decode.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pshinter/pshalgo.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pshinter/pshglob.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pshinter/pshinter.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pshinter/pshmod.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pshinter/pshpic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/pshinter/pshrec.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psnames/psmodule.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psnames/psnames.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/psnames/pspic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/raster/ftraster.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/raster/ftrend1.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/raster/raster.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/raster/rastpic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/pngshim.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/sfdriver.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/sfnt.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/sfntpic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/sfobjs.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/ttbdf.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/ttcmap.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/ttkern.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/ttload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/ttmtx.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/ttpost.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/sfnt/ttsbit.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/smooth/ftgrays.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/smooth/ftsmooth.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/smooth/ftspic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/smooth/smooth.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/tools/apinames.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/tools/ftrandom/ftrandom.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/tools/test_afm.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/tools/test_bbox.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/tools/test_trig.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/truetype/truetype.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/truetype/ttdriver.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/truetype/ttgload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/truetype/ttgxvar.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/truetype/ttinterp.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/truetype/ttobjs.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/truetype/ttpic.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/truetype/ttpload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/truetype/ttsubpix.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type1/t1afm.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type1/t1driver.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type1/t1gload.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type1/t1load.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type1/t1objs.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type1/t1parse.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type1/type1.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type42/t42drivr.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type42/t42objs.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type42/t42parse.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/type42/type42.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/freetype-2.5.5/src/winfonts/winfnt.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glew_head.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glew_init_gl.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glew_init_glx.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glew_init_tail.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glew_init_wgl.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glew_str_glx.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glew_str_head.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glew_str_tail.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glew_str_wgl.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glewinfo_gl.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glewinfo_glx.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glewinfo_head.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glewinfo_tail.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/auto/src/glewinfo_wgl.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/src/glew.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/src/glewinfo.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="extlib/glew-1.13.0/src/visualinfo.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/glm-0.9.7.1/glm/detail/dummy.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/glm/detail/glm.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_common.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_exponential.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_geometric.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_integer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_integer_bit_count.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_integer_find_lsb.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_integer_find_msb.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_matrix.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_noise.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_packing.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_swizzle.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_trigonometric.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_func_vector_relational.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_setup_force_cxx98.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_setup_message.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_setup_precision.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_cast.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_ctor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_float.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_int.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_length.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_length_size.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_mat2x2.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_mat2x3.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_mat2x4.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_mat3x2.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_mat3x3.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_mat3x4.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_mat4x2.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_mat4x3.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_mat4x4.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_vec1.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_vec2.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_vec3.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/core/core_type_vec4.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/external/gli/core/dummy.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_bitfield.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_color_space.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_constants.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_epsilon.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_integer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_matrix_access.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_matrix_integer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_matrix_inverse.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_matrix_transform.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_noise.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_packing.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_quaternion.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_random.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_reciprocal.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_round.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_type_precision.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_type_ptr.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_ulp.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_user_defined_types.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtc/gtc_vec1.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_associated_min_max.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_closest_point.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_color_space.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_color_space_YCoCg.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_common.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_compatibility.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_component_wise.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_dual_quaternion.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_euler_angle.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_extend.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_extented_min_max.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_fast_exponential.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_fast_square_root.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_fast_trigonometry.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_gradient_paint.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_handed_coordinate_space.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_int_10_10_10_2.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_integer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_intersect.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_io.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_log_base.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_matrix_cross_product.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_matrix_decompose.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_matrix_interpolation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_matrix_major_storage.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_matrix_operation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_matrix_query.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_matrix_transform_2d.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_mixed_product.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_norm.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_normal.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_normalize_dot.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_number_precision.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_optimum_pow.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_orthonormalize.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_perpendicular.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_polar_coordinates.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_projection.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_quaternion.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_random.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_range.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_rotate_normalized_axis.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_rotate_vector.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_scalar_multiplication.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_scalar_relational.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_simd_mat4.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_simd_vec4.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_spline.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_string_cast.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_type_aligned.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_vector_angle.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_vector_query.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/glm-0.9.7.1/test/gtx/gtx_wrap.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/build/CMakeFiles/2.8.11/CompilerIdC/CMakeCCompilerId.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/sfml-2.3.2/build/CMakeFiles/2.8.11/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/X11/X11.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/android/jni/main.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/cocoa/CocoaAppDelegate.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/cocoa/NSString+stdstring.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/cocoa/main.m"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/ftp/Ftp.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/opengl/OpenGL.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/pong/Pong.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/shader/Shader.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/sockets/Sockets.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/sockets/TCP.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/sockets/UDP.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/sound/Sound.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/sound_capture/SoundCapture.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/voip/Client.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/voip/Server.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/voip/VoIP.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/win32/Win32.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/examples/window/Window.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/ALCheck.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/AlResource.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/AudioDevice.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/InputSoundFile.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/Listener.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/Music.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/OutputSoundFile.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/Sound.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundBuffer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundBufferRecorder.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundFileFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundFileReaderFlac.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundFileReaderOgg.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundFileReaderWav.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundFileWriterFlac.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundFileWriterOgg.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundFileWriterWav.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundRecorder.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundSource.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Audio/SoundStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/BlendMode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/CircleShape.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Color.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/ConvexShape.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Font.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/GLCheck.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/GLExtensions.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/GLLoader.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Glsl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Image.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/ImageLoader.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/RectangleShape.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/RenderStates.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/RenderTarget.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/RenderTexture.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/RenderTextureImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/RenderTextureImplDefault.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/RenderTextureImplFBO.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/RenderWindow.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Shader.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Shape.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Sprite.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Text.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Texture.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/TextureSaver.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Transform.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Transformable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/Vertex.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/VertexArray.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Graphics/View.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Main/MainAndroid.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Main/MainWin32.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Main/MainiOS.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Main/SFMLActivity.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/Ftp.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/Http.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/IpAddress.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/Packet.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/Socket.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/SocketSelector.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/TcpListener.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/TcpSocket.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/UdpSocket.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/Unix/SocketImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Network/Win32/SocketImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Android/Activity.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Android/ResourceStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Clock.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Err.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/FileInputStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Lock.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/MemoryInputStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Mutex.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Sleep.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/String.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Thread.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/ThreadLocal.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Time.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Unix/ClockImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Unix/MutexImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Unix/SleepImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Unix/ThreadImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Unix/ThreadLocalImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Win32/ClockImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Win32/MutexImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Win32/SleepImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Win32/ThreadImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/System/Win32/ThreadLocalImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Android/InputImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Android/JoystickImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Android/SensorImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Android/VideoModeImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Android/WindowImplAndroid.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Context.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/EGLCheck.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/EglContext.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/FreeBSD/JoystickImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/GlContext.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/GlResource.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Joystick.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/JoystickManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Keyboard.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Mouse.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/AutoreleasePoolWrapper.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/HIDInputManager.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/HIDJoystickManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/InputImpl.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/JoystickImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SFApplication.m"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SFApplicationDelegate.m"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SFContext.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SFKeyboardModifiersHelper.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SFOpenGLView.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SFSilentResponder.m"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SFViewController.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SFWindow.m"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SFWindowController.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/SensorImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/VideoModeImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/WindowImplCocoa.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/cg_sf_conversion.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/OSX/cpp_objc_conversion.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Sensor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/SensorManager.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Touch.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Unix/Display.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Unix/GlxContext.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Unix/GlxExtensions.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Unix/InputImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Unix/JoystickImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Unix/SensorImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Unix/VideoModeImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Unix/WindowImplX11.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/VideoMode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Win32/InputImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Win32/JoystickImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Win32/SensorImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Win32/VideoModeImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Win32/WglContext.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Win32/WglExtensions.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Win32/WindowImplWin32.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/Window.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/WindowImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/EaglContext.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/InputImpl.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/JoystickImpl.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/SFAppDelegate.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/SFMain.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/SFView.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/SFViewController.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/SensorImpl.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/VideoModeImpl.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/src/SFML/Window/iOS/WindowImplUIKit.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/tools/xcode/templates/SFML/SFML App.xctemplate/ResourcePath.mm"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/tools/xcode/templates/SFML/SFML App.xctemplate/main.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/sfml-2.3.2/tools/xcode/templates/SFML/SFML CLT.xctemplate/main.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/tinyobjloader/build/CMakeFiles/2.8.11/CompilerIdC/CMakeCCompilerId.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="extlib/tinyobjloader/build/CMakeFiles/2.8.11/CompilerIdCXX/CMakeCXXCompilerId.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/tinyobjloader/examples/obj_sticher/obj_sticher.cc"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/tinyobjloader/examples/obj_sticher/obj_writer.cc"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/tinyobjloader/python/main.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="extlib/tinyobjloader/test.cc" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="extlib/tinyobjloader/tiny_obj_loader.cc"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/Billboard.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Billboard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Camera.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/FPSCounter.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/FrameRenderable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/HierarchicalRenderable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/Io.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/Renderable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/ShaderProgram.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/TextEngine.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/TreeCylinderRenderable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/TreeRenderable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/Utils.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/Viewer.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/dynamics/Collision.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/dynamics/ConstantForceField.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics/DampingForceField.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/dynamics/DynamicSystem.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/dynamics/EulerExplicitSolver.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics/FollowedParticle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/dynamics/FollowedParticle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/dynamics/ForceField.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/dynamics/Particle.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/dynamics/ParticleParticleCollision.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics/ParticlePlaneCollision.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics/Plane.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/dynamics/Solver.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/dynamics/SpringForceField.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/ConstantForceFieldRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/ControlledForceFieldRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/DynamicSystemRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/ParticleListRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/ParticleRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/QuadRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/SkieurListRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/SkieurRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/SpringForceFieldRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/dynamics_rendering/SpringListRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/gl_helper.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/keyframes/GeometricTransformation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/keyframes/KeyframeCollection.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/keyframes/KeyframedCylinderRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/lighting/DirectionalLightRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/lighting/LightedCubeRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/lighting/LightedCylinderRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/lighting/LightedMeshRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/lighting/Lights.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/lighting/Materiable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/lighting/Material.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/lighting/PointLightRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/lighting/SpotLightRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/log.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/practical_01_scene.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/practical_02_scene.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/practical_03_scene.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/practical_04_scene.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/practical_05_scene.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/practical_06_scene.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/practical_07_scene.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="src/texturing/MipMapCubeRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/texturing/MultiTexturedCubeRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/texturing/PubCube.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/texturing/PubCube.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/texturing/Skybox.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/texturing/Skybox.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/texturing/TexturedCubeRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/texturing/TexturedMeshRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="src/texturing/TexturedPlaneRenderable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="teachers/CubeRenderable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="teachers/CylinderRenderable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="teachers/Geometries.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="teachers/IndexedCubeRenderable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="teachers/MeshRenderable.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

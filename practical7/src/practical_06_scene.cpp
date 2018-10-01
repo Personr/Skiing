@@ -8,6 +8,8 @@
 #include "../include/keyframes/GeometricTransformation.hpp"
 #include "../include/TreeCylinderRenderable.hpp"
 #include "../include/TreeRenderable.hpp"
+#include "../include/lighting/LightedMeshRenderable.hpp"
+#include "../include/BillboardRenderable.hpp"
 
 #include <iostream>
 #include <iomanip>
@@ -58,6 +60,47 @@ void initialize_practical_06_scene(Viewer& viewer)
     auto tree = std::make_shared<TreeRenderable>(phongShader, 4.0);
     viewer.addRenderable(tree);
     //practical_06_proceduralMovingTree(viewer, phongShader);
+    
+    glm::mat4 parentTransformation;
+    LightedMeshRenderablePtr suzanne1
+        = std::make_shared<LightedMeshRenderable>(phongShader, "./../meshes/magnetto2.obj", Material::Chrome());
+    parentTransformation = glm::translate( glm::mat4(1.0), glm::vec3(-2.0,0.0,0.0) );
+    localTransformation = glm::mat4(1.0);
+    suzanne1->setParentTransform(parentTransformation);
+    suzanne1->setLocalTransform(localTransformation);
+    suzanne1->setMaterial(Material::Chrome());
+    viewer.addRenderable( suzanne1 );
+    
+    //Multi-textured cube
+    ShaderProgramPtr multiTexShader
+        = std::make_shared<ShaderProgram>("../shaders/multiTextureVertex.glsl",
+                                          "../shaders/multiTextureFragment.glsl");
+    viewer.addShaderProgram(multiTexShader);
+    
+    // Two texture shaders: simple and multi-texturing
+    ShaderProgramPtr texShader
+        = std::make_shared<ShaderProgram>("../shaders/textureVertex.glsl",
+                                          "../shaders/textureFragment.glsl");
+    viewer.addShaderProgram(texShader);
+    
+    MaterialPtr pearl = Material::Pearl();
+//    std::string filename1="../textures/freestyle.jpg", filename2="../textures/plan.jpg";
+//    BillboardRenderablePtr multitexCube = std::make_shared<BillboardRenderable>(multiTexShader, texShader, filename1, filename2, 5.0F, 5.0F, 5.0F, &viewer);
+////    parentTransformation = glm::translate(glm::mat4(1.0), glm::vec3(5,0.0,0.5));
+////    multitexCube->setParentTransform(parentTransformation);
+//    multitexCube->setMaterial(pearl);
+//    viewer.addRenderable(multitexCube);
+    //Define a spot light
+    glm::vec3 s_position(5.0,5.0,5.0+2), s_spotDirection = glm::normalize(glm::vec3(0.0,-1.0,0.0));
+    glm::vec3 s_ambient(0.0,0.0,0.0), s_diffuse(0.5,0.5,0.5), s_specular(0.5,0.5,0.5);
+    float s_constant=1.0, s_linear=0.0, s_quadratic=0.0;
+    float s_cosInnerCutOff = std::cos(glm::radians(20.0f));
+    float s_cosOuterCutOff = std::cos(glm::radians(40.0f));
+    SpotLightPtr spotLight = std::make_shared<SpotLight>(s_position, s_spotDirection,
+                                                         s_ambient, s_diffuse, s_specular,
+                                                         s_constant, s_linear, s_quadratic,
+                                                         s_cosInnerCutOff, s_cosOuterCutOff);
+    viewer.addSpotLight(spotLight);
 
     // Let's go!
     viewer.setAnimationLoop(true, 6.0);
